@@ -1,0 +1,231 @@
+.user_rating_section{
+    margin-bottom: 10px;
+    font-size: 10px;
+}
+.cart_quantity .update{
+    margin-top: 0px;
+}
+.order-message textarea{
+    height: 243px!important;
+}
+.method img{
+    width: 160px;
+    height: 80px;
+    border-radius: 8px;
+}
+
+.counter{
+    margin-top: -10px;
+    float: right;
+    border: 1px solid #eee;
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+}
+.add_to_cart{
+    margin-top: 0px!important;
+    margin-left: 0px!important;
+}
+.shopper-informations {
+    margin-bottom: 85px;
+    float: left;
+}
+.add_to_cart_form{
+    margin-left: 10px;
+}
+
+.custom-select.is-invalid,
+.form-control.is-invalid,
+.was-validated .custom-select:invalid,
+.was-validated .form-control:invalid {
+    border-color: #dc3545!important;
+}
+
+.shop-menu ul li a {
+     background: none!important;
+}
+
+.view-product img {
+    border: 3px solid #F7F7F0!important;
+}
+.product-information {
+    border: 3px solid #F7F7F0!important;
+    min-height: 378px;
+}
+.active {
+    color: #FE980F!important;
+}
+.header-middle{
+    margin-bottom: 20px;
+}
+.girl {
+    margin-left: 0;
+    height: 350px!important;
+    width: 100%;
+}
+
+.control-carousel {
+    top: 40% !important;
+}
+.header-bottom {
+    padding-bottom: 10px!important;
+    padding-top: 0!important;
+}
+#slider {
+    padding-bottom: 20px!important;
+}
+
+.productinfo img {
+    width: 100%;
+    height: auto!important;
+    border-radius: 3px;
+}
+.breadcrumbs .breadcrumb{
+    margin-bottom: 20px!important;
+}
+.search_box input{
+    background-image: none!important;
+    width: 258px!important;
+}
+
+/******** Header style ************/
+@keyframes smoothScroll {
+    0% {
+        transform: translateY(-300px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+.header-fix {
+    position: fixed;
+    z-index: 999;
+    animation: smoothScroll .5s forwards;
+    width: 100%;
+    background: white;
+    margin-top: -38px;
+}
+.product_image{
+    transition:all 0.3s ease;
+}
+.product_image:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition:all 0.3s ease;
+}
+.cart{
+    margin-bottom: 0!important;
+}
+.left-sidebar h2, .brands_products h2{
+    z-index: 0!important;
+}
+.cd-quick-view{
+    z-index: 999;
+}
+.cd-item-info h2 {
+    font-size: 2.75rem!important;
+    color: #3e585f!important;
+}
+.cd-slider {
+    margin-bottom: 0!important;
+}
+.cd-item-info h2{
+    margin-top: 0!important;
+}
+.newarrival{
+    left: unset!important;
+    right: 0!important;
+}
+.product-information {
+    padding-bottom: 0!important;
+    padding-left: 0!important;
+    padding-top: 0!important;
+    padding: 15px!important;
+}
+.custom_number_input{
+    width: 55px!important;
+    padding-left: 20px;
+}
+.cart{
+    margin-left: 12px!important;
+}
+.price{
+    color: #FE980F;
+    font-weight: bold;
+    font-size: 20px;
+}
+.shipping{
+    margin-bottom: 40px;
+}
+#footer {
+    margin-top: 40px;
+}
+a#scrollUp{
+    right: 0!important;
+    padding: 0 5px!important;
+}
+.table{
+    margin-bottom: 0!important;
+}
+.view_cart_image{
+    height: 80px;
+    width: 80px;
+}
+.cart_info table tr td{
+    vertical-align: middle!important;
+}
+#do_action .total_area, #do_action .chose_area{
+    padding: 20px!important;
+}
+.price_range_section{
+    padding: 10px!important;
+}
+#min {
+    float: left;
+    width: 50px;
+    text-align: center;
+    padding-top: 3px;
+}
+
+#slider-range {
+    width: 100%;
+    float: left;
+    margin: 5px 0px 5px 0px;
+    height: 15px;
+    background: #f7f7f7;
+    border: none;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#max {
+    float: right;
+    width: 50px;
+    text-align: center;
+    padding-top: 3px;
+}
+.ui-widget-header{
+    background: #FE980F!important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    background: #fff!important;
+    border-radius: 50%;
+}
+.ui-slider-horizontal .ui-slider-handle{
+    top: 0px!important;
+}
+.ui-slider .ui-slider-handle {
+    width: 16px!important;
+    height: 16px!important;
+}
+.ui-slider-horizontal .ui-slider-handle:focus{
+    outline: none;
+}
+#reviews ul{
+    margin: 0 0 6px!important;
+}
+.review_section{
+    border-bottom: 1px solid rgb(245, 245, 245);
+    margin-bottom: 26px;
+}
