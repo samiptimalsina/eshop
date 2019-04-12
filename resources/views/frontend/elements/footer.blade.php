@@ -90,8 +90,15 @@
     {{--sweetalert--}}
     <script src="{{ asset('public/frontend/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
 
-    {{--Rate--}}
-    <script src="{{ asset('public/frontend/js/plugins/rate/rate.js') }}"></script>
+    {{--rate--}}
+    <script src="{{ asset('public/frontend/js/plugins/rate/jquery.rateyo.min.js') }}"></script>
+
+    {{--vueJs--}}
+    <script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>
+
+    {{--custom--}}
+    <script src="{{ asset('public/frontend/js/custom.js') }}"></script>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

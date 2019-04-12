@@ -23,7 +23,6 @@
     <link href="{{ asset('public/frontend/css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('public/frontend/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('public/frontend/css/zoomple.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/js/plugins/rate/rate.css') }}" rel="stylesheet">
 
     <script type="text/javascript">var home_url="{{ url('/') }}"</script>
     <script src="{{ asset('public/frontend/js/jquery.js') }}"></script>
@@ -31,6 +30,9 @@
     {{--range--}}
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    {{--rate--}}
+    <link href="{{ asset('public/frontend/css/plugins/rate/jquery.rateyo.min.css') }}" rel="stylesheet">
 
 
     <link rel="icon" type="image/png" href="{{ asset('public/frontend/images/favicon-32x32.png') }}" sizes="32x32"/>
@@ -48,6 +50,11 @@
 
 <body>
 <header id="header"><!--header-->
+
+    <div class="alert alert-warning fade in" style=" padding: 0;text-align: center;margin: 0;">
+        <strong>Warning!</strong> This project is developing till now.
+    </div>
+
     <div class="header_top"><!--header_top-->
         <div class="container">
             <div class="row">

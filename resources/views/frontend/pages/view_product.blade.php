@@ -28,9 +28,17 @@
                 <div class="product-information">
                     <img src="{{ URL::to('public/frontend/images/product-details/new.jpg') }}" class="newarrival" alt="" />
                     <h2>{{ $product->name }}</h2>
-                    <p>{{ $product->reviews->count() > 0 ? round($product->reviews->sum('rating')/$product->reviews->count(),2)
-                        : 'No rating yet' }}
-                    </p>
+
+                    @if ($product->reviews->count() > 0)
+                        <div read_only=true rating_score="{{ round($product->reviews->sum('rating')/$product->reviews->count(),2) }}" star_width="18px" class="rateYo"></div>
+
+                        <div>
+                            {{ round($product->reviews->sum('rating')/$product->reviews->count(),2) }} Ratings
+                        </div>
+                    @else
+                        <p>No rating yet</p>
+                    @endif
+
                     <div class="row">
 
                         <form class="add_to_cart_form">
@@ -63,59 +71,79 @@
             </div>
             <div class="tab-content">
                 <div class="tab-pane fade" id="details" >
-                    <div class="col-sm-3">
-                        <div class="product-image-wrapper">
-                            <div class="single-products">
-                                <div class="productinfo text-center">
-                                    <img src="" alt="" />
-                                    <h2>$56</h2>
-                                    <p>Easy Polo Black Edition</p>
-                                    <button type="button" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</button>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-sm-12">
+                        .............
                     </div>
                 </div>
 
                 <div class="tab-pane fade active in" id="reviews" >
                     <div class="col-sm-12">
 
-                        @foreach($product->reviews as $review)
-
-                            <div class="review_section">
-
-                                <ul>
-                                    <li><a href="#0"><i class="fa fa-user"></i>{{ ucfirst($review->user->name) }}</a></li>
-                                    <li><a href="#0"><i class="fa fa-clock-o"></i>{{ $review->created_at->format('h:i A') }}</a></li>
-                                    <li><a href="#0"><i class="fa fa-calendar-o"></i>{{ $review->created_at->format('d F Y') }}</a></li>
-                                </ul>
-
-                                <div class="user_rating_section">
-                                    @for ($i = 1; $i <= $review->rating ; $i++)
-                                        <i class="fa fa-star"></i>
-                                    @endfor
-                                </div>
-
-                                <p>{{ ucfirst($review->review) }}</p>
-
-                            </div>
-
-                        @endforeach
-
                         <p><b>Write Your Review</b></p>
 
-                        <form action="{{ route('reviews.store') }}" method="post">
-                            @csrf()
+                        @guest
+                            <div class="review_login">
+                                <p>Please log in to write review <a href="{{ route('login') }}" class="review_login_btn btn btn-default">Log in</a></p>
+                            </div>
+                        @else
 
-                            <textarea name="review" ></textarea>
-                            <input type="hidden" name="product_id" value="{{ $product->id }}">
-                            <input type="hidden" name="rating" id="rating" value="">
+                            <form action="{{ route('reviews.store') }}" method="post" class="review_form">
+                                @csrf()
 
-                            <label>Rating : </label>
-                            <div id="rateBox"></div>
+                                <textarea name="review" id="message" required="required" class="form-control" rows="8" placeholder="Your Review Here*"></textarea>
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="hidden" name="rating" id="rating" value="">
 
-                            <button type="submit" class="btn btn-default pull-right">Submit</button>
-                        </form>
+                                <div star_width="24px" class="rateYo"></div>
+
+                                <button type="submit" class="btn btn-default pull-right">Submit</button>
+
+                            </form>
+
+                        @endguest
+
+                        <div class="review_section">
+                            @foreach($product->reviews as $review)
+
+                                <div class="single_review">
+
+                                    <ul>
+                                        <li><span> <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ ucfirst($review->user->name) }}</span></li>
+                                        <li><span> <i class="fa fa-clock-o"></i> {{ $review->created_at->format('h:i A') }}</span></li>
+                                        <li><span> <i class="fa fa-calendar-o"></i> {{ $review->created_at->format('d F Y') }}</span></li>
+                                    </ul>
+
+                                    <div class="user_rating_section">
+                                        <div read_only=true rating_score="{{ $review->rating }}" star_width="16px" class="rateYo"></div>
+                                    </div>
+
+                                    <p>{{ ucfirst($review->review) }}</p>
+
+                                    <div class="helpful-review">
+                                        <p>
+
+                                            @if($review->help_full AND $review->not_help_full)
+                                                <span class="posetive_negative_quantity">
+                                                    {{ $review->help_full }} of {{ $review->help_full+$review->not_help_full }}
+                                                </span>
+                                                people found this review helpful.
+                                            @endif
+                                                Was this review helpful to you?
+                                        </p>
+                                    </div>
+
+                                    <div class="review_action">
+                                        <a href="#" class="btn btn-light">
+                                            <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/like.svg') }}">
+                                        </a>
+                                        <a href="#" class="btn btn-light">
+                                            <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/dislike.svg') }}">
+                                        </a>
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+
                     </div>
                 </div>
 
@@ -130,7 +158,7 @@
             <div id="recommended-item-carousel" class="carousel slide" data-ride="{{ (count($related_products) > 4)?'carousel':'' }}">
                 <div class="carousel-inner">
                     <div class="item active">
-
+                        star
                         @php($i=0)
                         @foreach($related_products as $product)
 

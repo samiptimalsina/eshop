@@ -26,7 +26,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/my-profile';
 
     /**
      * Create a new controller instance.
@@ -48,6 +48,21 @@ class LoginController extends Controller
         return view('frontend.auth.login');
     }
 
+    /**
+     * Send the response after the user was authenticated.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    protected function sendLoginResponse(Request $request)
+    {
+        $request->session()->regenerate();
+
+        $this->clearLoginAttempts($request);
+
+        return $this->authenticated($request, $this->guard()->user())
+            ?: redirect(route('user.myProfile'))->with('success', 'Login successfully');
+    }
 
     /**
      * Log the user out of the application.

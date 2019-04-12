@@ -75,10 +75,10 @@
                             <div class="col-sm-8 col-lg-offset-2">
                                 <div class="total_area">
                                     <ul>
-                                        <li>Cart Sub Total  <span style="margin-left: 5px"> Tk </span> <span id="cart-sub-total"> {{--come from master.blade.php by vueJs--}} </span> </li>
+                                        <li>Cart Sub Total  <span style="margin-left: 5px"> Tk </span> <span id="cart-sub-total">  </span> </li>
                                         <li>Eco Tax <span>{{ Cart::instance('cart')->tax() }}</span></li>
                                         <li>Shipping Cost <span>Free</span></li>
-                                        <li>Total <span style="margin-left: 5px"> Tk </span> {{--come from master.blade.php by vueJs--}} <span id="cart-total"></span></li>
+                                        <li>Total <span style="margin-left: 5px"> Tk </span>  <span id="cart-total"></span></li>
                                     </ul>
                                     <a class="btn btn-default check_out" href="{{url('/checkout')}}">Check Out</a>
                                 </div>

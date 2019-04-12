@@ -47,8 +47,8 @@
                 <form class="form-horizontal" action="{{ url('/') }}" method="get">
 
                     <div id="slider-range"></div>
-                    <input type="text" id="min" name="min_price" value="<?php echo $min_price_search; ?>">
-                    <input type="text" id="max" name="max_price" value="<?php echo $max_price_search; ?>">
+                    <input type="text" id="min" name="min_price" value="<?php echo $min_price_search; ?>" class="price_rang_input" placeholder="min">
+                    <input type="text" id="max" name="max_price" value="<?php echo $max_price_search; ?>" class="price_rang_input" placeholder="max">
 
                     <button type="submit" class="btn btn-primary">Filter</button>
                 </form>
