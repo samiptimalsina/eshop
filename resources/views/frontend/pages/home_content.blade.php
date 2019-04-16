@@ -101,8 +101,7 @@
                         </div>
                         <div class="choose">
                             <ul class="nav nav-pills nav-justified">
-                                <li><a href="#0{{--{{ route('wishlist.store', $product->slug) }}--}}" slug="{{ $product->slug }}" @click="addToWishlist"><i class="fa fa-plus-square"></i>Wishlist</a></li>
-                                {{--<li><a href="{{ route('products.show', $product->slug) }}"><i class="fa fa-eye"></i>Quick View</a></li>--}}
+                                <li><a href="#0" slug="{{ $product->slug }}" @click="addToWishlist"><i class="fa fa-plus-square"></i>Wishlist</a></li>
                                 <li><a href="#0" class="trigger-quick-view" id="{{ $product->id }}"><i class="fa fa-eye"></i>Quick View</a></li>
                             </ul>
                         </div>
@@ -119,6 +118,33 @@
 
         {{ $products->Links() }}
     </div>
+
+    <script>
+        var HomeContent = new Vue({
+            el: "#root",
+            data: {
+                product:{
+                    qty: 1,
+                },
+            },
+
+            mounted(){
+
+            },
+
+            methods:{
+
+                addToWishlist(e){
+                    App.addToWishlist(e);
+                },
+
+                addToCart(e){
+                    App.addToCart(e, this.product);
+                }
+            }
+
+        })
+    </script>
 
 @endsection()
 

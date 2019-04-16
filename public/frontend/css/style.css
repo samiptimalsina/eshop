@@ -225,19 +225,17 @@ a#scrollUp{
 #reviews ul{
     margin: 0 0 6px!important;
 }
+
 .single_review {
-    border-bottom: 1px solid rgb(245, 245, 245);
+    border-top: 1px solid rgb(245, 245, 245);
     float: left;
     width: 100%;
     padding: 25px 0;
 }
-.single_review:last-child{
-    border-bottom: none;
-}
+
 .review_section{
     float: left;
     width: 100%;
-    border-top: 1px solid rgb(245, 245, 245);
     margin-top: 24px;
 }
 .posetive_negative_quantity{

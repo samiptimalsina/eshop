@@ -18,8 +18,9 @@ Route::get('products/brand/{brand}', 'HomeController@productByBrand')->name('pro
 Route::get('products', 'HomeController@search')->name('products.search');
 
 //Product......................
-Route::get('products/get-info/{product}', 'HomeController@getProductInfo')->name('products.getInfo');
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
+Route::get('products/get-info/{product}', 'ProductsController@getProductInfo')->name('products.getInfo');
+Route::get('products/get-reviews/{product}', 'ProductsController@getProductReview')->name('products.getReview');
 
 //Cart.........................................................
 Route::get('carts', 'CartsController@index')->name('cart.index');
@@ -38,6 +39,12 @@ Route::get('wishlists/move-cart/{rowId}', 'WishListsController@moveToCart')->nam
 Route::get('wishlists/count/product', 'WishListsController@count')->name('wishlist.count');
 Route::get('wishlists/get/product', 'WishListsController@getWishlistProduct')->name('wishlist.get-product');
 
+//Review................................
+Route::group(['prefix' => 'products'], function (){
+    Route::get('{products}/get-rating', 'ReviewsController@getRating');
+    Route::resource('{products}/reviews', 'ReviewsController');
+});
+
 Route::group(['middleware' => 'auth'], function (){
 
     //Checkout..............................
@@ -45,9 +52,6 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('save-shipping-info', 'CheckoutsController@saveShippingInfo')->name('save-shipping-info');
     Route::get('payment', 'CheckoutsController@payment')->name('payment');
     Route::post('order-place', 'CheckoutsController@orderPlace')->name('order-place');
-
-    //Review................................
-    Route::resource('reviews', 'ReviewController');
 
     //User profile.........................
     Route::get('my-profile', 'UsersController@showProfile')->name('user.myProfile');

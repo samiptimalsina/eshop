@@ -3,21 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Frontend\ReviewRequest;
+use App\Product;
 use App\Review;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Log;
 
-class ReviewController extends Controller
+class ReviewsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param $product_id
      * @return Response
      */
-    public function index()
+    public function index($product_id)
     {
-        //
+        $reviews = Review::orderBy('id', 'desc')->with('user')->where('product_id', $product_id)->get();
+
+        return $reviews;
     }
 
     /**
@@ -33,17 +38,19 @@ class ReviewController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param ReviewRequest $request
+     * @param Product $product
+     * @param $product_id
      * @return Response
      */
-    public function store(ReviewRequest $request)
+    public function store(ReviewRequest $request, Product $product, $product_id)
     {
-
-        //dd($request->all());
-
         $request['user_id'] = Auth::user()->id;
 
-        $save = Review::create($request->all());
+        $review = new Review($request->all());
+        $save = $product->find($product_id)->reviews()->save($review);
+
+        return Review::with('user')->where('id', $save->id)->first();
 
         if ($save){
             return back()->with('success', 'Your review has been submitted successfully');
@@ -95,5 +102,18 @@ class ReviewController extends Controller
     public function destroy(Review $review)
     {
         //
+    }
+
+    /**
+     * Get product rating
+     *
+     * @param $product_id
+     * @return float
+     */
+    function getRating($product_id){
+        $reviews = $this->index($product_id);
+        $rating = round($reviews->sum('rating')/$reviews->count(),2);
+
+        return $rating;
     }
 }

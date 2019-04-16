@@ -36,7 +36,7 @@ class HomeController extends Controller
         $featured_products = Product::orderBy('id', 'desc')->with('brand', 'category')
             ->where(['status' => 1, 'featured' => true])->get();
 
-        return view('frontend.pages.homeContent', compact( 'products', 'featured_products'));
+        return view('frontend.pages.home_content', compact( 'products', 'featured_products'));
     }
 
     /**
@@ -53,7 +53,7 @@ class HomeController extends Controller
             ->where(['status' => 1, 'category_id' => $category->id])
             ->paginate(6);
 
-        return view('frontend.pages.homeContent', compact('products'));
+        return view('frontend.pages.home_content', compact('products'));
     }
 
     /**
@@ -71,7 +71,7 @@ class HomeController extends Controller
             ->where('brand_id', $brand->id)
             ->paginate(6);
 
-        return view('frontend.pages.homeContent', compact('products'));
+        return view('frontend.pages.home_content', compact('products'));
     }
 
     /**
@@ -94,19 +94,7 @@ class HomeController extends Controller
             ->orWhere('description', 'LIKE', '%' . $searchBy . '%')
             ->paginate(6);
 
-        return view('frontend.pages.homeContent', compact( 'products'));
+        return view('frontend.pages.home_content', compact( 'products'));
     }
 
-
-    /**
-     * Get product info for quick view
-     *
-     * @param product $product
-     */
-    public function getProductInfo($id){
-
-        $product = Product::with('brand', 'category')->where('id', $id)->get();
-
-        echo $product;die;
-    }
 }

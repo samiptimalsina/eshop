@@ -46,7 +46,7 @@
                             <span class="price">{{ $product->price }} Tk.</span>
                             <label>Quantity:</label>
                             <input v-model="product.qty" name="qty" type="number" class="custom_number_input"/>
-                            <a href="#0" slug="{{ $product->slug }}" @click="addToCart" class="btn btn-default cart"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a href="#0" id="product-id" product-id="{{ $product->id }}" slug="{{ $product->slug }}" @click="addToCart" class="btn btn-default cart"><i class="fa fa-shopping-cart"></i> Add to cart</a>
                             <a href="#0" slug="{{ $product->slug }}" @click="addToWishlist" class="btn btn-default cart"><i class="fa fa-plus"></i> Wishlist</a>
 
                         </form>
@@ -87,61 +87,57 @@
                             </div>
                         @else
 
-                            <form action="{{ route('reviews.store') }}" method="post" class="review_form">
+                            <form class="review_form" id="review-form">
                                 @csrf()
 
-                                <textarea name="review" id="message" required="required" class="form-control" rows="8" placeholder="Your Review Here*"></textarea>
-                                <input type="hidden" name="product_id" value="{{ $product->id }}">
-                                <input type="hidden" name="rating" id="rating" value="">
+                                <textarea v-model="newReview.review" id="message" required="required" class="form-control" rows="8" placeholder="Your Review Here*"></textarea>
+                                <input type="hidden" id="rating" value="">
 
                                 <div star_width="24px" class="rateYo"></div>
 
-                                <button type="submit" class="btn btn-default pull-right">Submit</button>
-
+                                <button @click="addReview" type="button" class="ladda-button btn btn-info pull-right" data-style="slide-down">Submit</button>
+                                <button type="button" class="ladda-button btn btn-info" data-style="slide-down">Submit</button>
                             </form>
-
                         @endguest
 
                         <div class="review_section">
-                            @foreach($product->reviews as $review)
 
-                                <div class="single_review">
+                            <div v-for="review in reviews" class="single_review">
 
-                                    <ul>
-                                        <li><span> <i class="fa fa-user-circle-o" aria-hidden="true"></i> {{ ucfirst($review->user->name) }}</span></li>
-                                        <li><span> <i class="fa fa-clock-o"></i> {{ $review->created_at->format('h:i A') }}</span></li>
-                                        <li><span> <i class="fa fa-calendar-o"></i> {{ $review->created_at->format('d F Y') }}</span></li>
-                                    </ul>
+                                <ul>
+                                    <li><span> <i class="fa fa-user-circle-o" aria-hidden="true"></i> @{{ review.user.name }}</span></li>
+                                    <li><span> <i class="fa fa-clock-o"></i> @{{ review.created_at | moment('h:mm a') }} </span></li>
+                                    <li><span> <i class="fa fa-calendar-o"></i> @{{ review.created_at | moment('D MMMM YYYY')}}</span></li>
+                                </ul>
 
-                                    <div class="user_rating_section">
-                                        <div read_only=true rating_score="{{ $review->rating }}" star_width="16px" class="rateYo"></div>
-                                    </div>
-
-                                    <p>{{ ucfirst($review->review) }}</p>
-
-                                    <div class="helpful-review">
-                                        <p>
-
-                                            @if($review->help_full AND $review->not_help_full)
-                                                <span class="posetive_negative_quantity">
-                                                    {{ $review->help_full }} of {{ $review->help_full+$review->not_help_full }}
-                                                </span>
-                                                people found this review helpful.
-                                            @endif
-                                                Was this review helpful to you?
-                                        </p>
-                                    </div>
-
-                                    <div class="review_action">
-                                        <a href="#" class="btn btn-light">
-                                            <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/like.svg') }}">
-                                        </a>
-                                        <a href="#" class="btn btn-light">
-                                            <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/dislike.svg') }}">
-                                        </a>
-                                    </div>
+                                <div class="user_rating_section">
+                                    <div read_only=true :rating_score="review.rating" star_width="16px" class="rateYo"></div>
                                 </div>
-                            @endforeach
+
+                                <p>@{{ review.review }}</p>
+
+                                {{--<div class="helpful-review">
+                                    <p>
+                                        @if($review->help_full OR $review->not_help_full)
+                                            <span class="posetive_negative_quantity">
+                                                {{ $review->help_full }} of {{ $review->help_full+$review->not_help_full }}
+                                            </span>
+                                            people found this review helpful.
+                                        @endif
+                                            Was this review helpful to you?
+                                    </p>
+                                </div>--}}
+
+                                <div class="review_action">
+                                    <a href="#" class="btn btn-light">
+                                        <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/like.svg') }}">
+                                    </a>
+                                    <a href="#" class="btn btn-light">
+                                        <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/dislike.svg') }}">
+                                    </a>
+                                </div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -158,7 +154,6 @@
             <div id="recommended-item-carousel" class="carousel slide" data-ride="{{ (count($related_products) > 4)?'carousel':'' }}">
                 <div class="carousel-inner">
                     <div class="item active">
-                        star
                         @php($i=0)
                         @foreach($related_products as $product)
 
@@ -210,6 +205,91 @@
     @endif
 
     </div>
-@endsection()
 
+    <script>
+
+        var ViewProduct = new Vue({
+            el: "#root",
+            data: {
+                product:{
+                    qty: 1,
+                },
+                newReview:{
+                    review: '',
+                    rating: '',
+                },
+                reviews:[],
+            },
+
+            mounted(){
+                this.getAllReview();
+            },
+
+            methods:{
+
+                addToWishlist(e){
+                    App.addToWishlist(e);
+                },
+
+                addToCart(e){
+                    App.addToCart(e, this.product);
+                },
+
+                getAllReview() {
+                    product_id = $('#product-id').attr('product-id');
+                    currentApp = this;
+
+                    axios.get(home_url + '/products/'+product_id+'/reviews/')
+                        .then(response => {
+                            currentApp.reviews = response.data;
+                        })
+                },
+
+                addReview(e){
+
+                    var loading_btn = $( '.ladda-button' ).ladda();
+
+                    // Start loading
+                    loading_btn.ladda( 'start' );
+
+                    currentApp = this;
+
+                    product_id = $('#product-id').attr('product-id');
+                    currentApp.newReview.product_id = product_id;
+                    currentApp.newReview.rating = $('#rating').val();
+
+                    axios.post(home_url + '/products/'+product_id+'/reviews', currentApp.newReview)
+                        .then(response => {
+                            currentApp.reviews.push(response.data);
+
+                            setTimeout(function () {
+                                initRateYo(); //define in custom.js
+                                loading_btn.ladda('stop');
+                            });
+
+                            currentApp.newReview = {'review' : ''};
+                            $('#rating').val('');
+                            $('#review-form').find('.jq-ry-rated-group').css('width', '0%');
+                        })
+                },
+
+                /*getProductReview(){
+                    axios.get(home_url + '/products/'+product_id+'/get-rating')
+                        .then(response => {
+                                console.log(response.data);
+                            }
+                        )
+                }*/
+            },
+
+            filters: {
+                moment: function (date, format) {
+                    return moment(date).format(format);
+                }
+            }
+        })
+
+    </script>
+
+@endsection()
 

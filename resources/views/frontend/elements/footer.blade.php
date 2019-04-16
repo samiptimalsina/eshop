@@ -93,12 +93,16 @@
     {{--rate--}}
     <script src="{{ asset('public/frontend/js/plugins/rate/jquery.rateyo.min.js') }}"></script>
 
-    {{--vueJs--}}
-    <script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>
-
     {{--custom--}}
     <script src="{{ asset('public/frontend/js/custom.js') }}"></script>
+
+    {{--moment--}}
+    <script src="{{ asset('public/frontend/js/moment/moment.min.js') }}"></script>
+
+    <!-- Ladda -->
+    <script src="{{ asset('public/frontend/js/plugins/ladda/spin.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/plugins/ladda/ladda.min.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/plugins/ladda/ladda.jquery.min.js') }}"></script>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

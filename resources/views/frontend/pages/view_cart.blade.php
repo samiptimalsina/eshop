@@ -103,4 +103,61 @@
 
         </section>
     </div>
+
+    <script>
+        var WishCart = new Vue({
+            el: "#root",
+            data: {
+                carts:[],
+            },
+
+            mounted() {
+                this.getAllCartProduct();
+                App.updateCartFinalCalculation();
+            },
+
+            methods:{
+                getAllCartProduct(){
+                    currentApp = this;
+                    axios.get(home_url + '/carts/get/product')
+                        .then(response => {
+                            currentApp.carts = response.data;
+                        })
+                },
+
+                removeFromCart(e){
+
+                    currentApp = this
+                    row_id = e.currentTarget.getAttribute('row-id');
+
+                    //sweet alert
+                    swal({
+                        title: "Are you sure?",
+                        text: "You will not be able to recover this item!",
+                        type: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#DD6B55",
+                        confirmButtonText: "Yes, delete it!",
+                        closeOnConfirm: false
+                    }, function () {
+
+                        axios.get(home_url + '/carts/remove/'+row_id)
+                            .then(response => {
+
+                                if (response){
+                                    swal(response.data.title, response.data.message, response.data.type);
+                                }
+
+                                if (response.data.type == 'success'){
+                                    currentApp.getAllCartProduct();
+                                    App.updateCartCounter();
+                                    App.updateCartFinalCalculation();
+                                }
+                            })
+                    });
+                },
+
+            }
+        })
+    </script>
 @endsection()

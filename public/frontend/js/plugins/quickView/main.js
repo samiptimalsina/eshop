@@ -8,19 +8,16 @@ jQuery(document).ready(function($){
 	$('.trigger-quick-view').on('click', function(event){
 
 		$.get(home_url+'/products/get-info/'+this.id, function(response){
-			var data = JSON.parse(response);
 
-			$('#product-price').html(data[0].price);
-			$('#product-title').html(data[0].name);
-			$('#product-brand').html(data[0].brand.name);
-			$('#product-category').html(data[0].category.name);
-			$('#product-description').html(data[0].description);
-			$('#cart-form').attr('action', home_url+'/carts/'+data[0].slug);
-			//$('#wishlist_url').attr('href', home_url+'/wishlist/'+data[0].slug);
-			$('#cart-url').attr('slug', data[0].slug);
-			$('#wishlist-url').attr('slug', data[0].slug);
-
-			console.log("gfd");
+			$('#product-price').html(response.price);
+			$('#product-title').html(response.name);
+			$('#product-brand').html(response.brand.name);
+			$('#product-category').html(response.category.name);
+			$('#product-description').html(response.description);
+			$('#cart-form').attr('action', home_url+'/carts/'+response.slug);
+			//$('#wishlist_url').attr('href', home_url+'/wishlist/'+response.slug);
+			$('#cart-url').attr('slug', response.slug);
+			$('#wishlist-url').attr('slug', response.slug);
 
 		});
 
