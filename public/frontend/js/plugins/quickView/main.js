@@ -21,6 +21,8 @@ jQuery(document).ready(function($){
 
 		});
 
+		console.log($(this));
+
 		var selectedImage = $(this).parents(':eq(3)').find('img'),
 			slectedImageUrl = selectedImage.attr('src');
 

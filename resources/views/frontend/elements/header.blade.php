@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Home | E-Shopper</title>
+    <title>Home | E-SHOPPER</title>
 
     {{--Quick view--}}
     <link href="{{ asset('public/frontend/css/plugins/quickView/reset.css') }}" rel="stylesheet">
@@ -24,8 +24,14 @@
     <link href="{{ asset('public/frontend/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('public/frontend/css/zoomple.css') }}" rel="stylesheet">
 
+
+    <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
+
     <!-- Ladda style -->
     <link href="{{ asset('public/frontend/css/plugins/ladda/ladda-themeless.min.css') }}" rel="stylesheet">
+
+    {{--Toastr--}}
+    <link href="{{ asset('public/admin/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
 
     <script type="text/javascript">var home_url="{{ url('/') }}"</script>
     <script src="{{ asset('public/frontend/js/jquery.js') }}"></script>

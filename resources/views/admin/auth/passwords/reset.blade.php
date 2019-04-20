@@ -7,7 +7,7 @@
 
             @include("partials.flash_messages.flashMessages")
 
-            <h3>Welcome to Elaravel</h3>
+            <h3>Welcome to E_Shopper</h3>
             <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
                 <!--Continually expanded and constantly improved Inspinia Admin Them (IN+)-->
             </p>

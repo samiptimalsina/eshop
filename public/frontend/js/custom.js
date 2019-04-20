@@ -4,18 +4,14 @@ $(document).ready(function(){
     //zoom....
     $('.zoomple').zoomple({
         offset : {x:-150,y:-150},
-        zoomWidth : 300,
-        zoomHeight : 300,
         roundedCorners : true
     });
-
 });
 window.addEventListener('load', function (){
     initRateYo();
 })
 
 function initRateYo() {
-
     $(".rateYo").each(function () {
         var rating_score = $(this).attr('rating_score'),
             read_only = $(this).attr('read_only'),
@@ -23,15 +19,30 @@ function initRateYo() {
 
         $(this).rateYo({
             starWidth: star_width,
-            halfStar: true,
+            fullStar: true,
             rating: rating_score,
             readOnly: read_only,
+            ratedFill: "#FE980F",
 
             onSet: function (rating, rateYoInstance) {
                 $('#rating').val(rating);
             }
         });
     })
+
+}
+
+function readMore(e){
+
+    if(e.innerHTML == "Read Less"){
+        $(e).parent().find('p').css('max-height', '50px');
+        (e.innerHTML = "Read More")
+    }else {
+        $(e).parent().find('p').css('max-height', '3000px');
+        (e.innerHTML = "Read Less")
+    }
+
+    $(e).parent().find('#read-more-section').toggleClass('hidden');
 }
 
 var App = new Vue({

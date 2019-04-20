@@ -104,6 +104,9 @@
     <script src="{{ asset('public/frontend/js/plugins/ladda/ladda.min.js') }}"></script>
     <script src="{{ asset('public/frontend/js/plugins/ladda/ladda.jquery.min.js') }}"></script>
 
+    {{--toastr--}}
+    <script src="{{ asset('public/admin/js/plugins/toastr/toastr.min.js') }} "></script>
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
 

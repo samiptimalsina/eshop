@@ -41,8 +41,8 @@ Route::get('wishlists/get/product', 'WishListsController@getWishlistProduct')->n
 
 //Review................................
 Route::group(['prefix' => 'products'], function (){
-    Route::get('{products}/get-rating', 'ReviewsController@getRating');
-    Route::resource('{products}/reviews', 'ReviewsController');
+    Route::get('reviews/vote/{vote}/{reviews}', 'ReviewsController@storeVote')->name('reviews.vote.store');
+    Route::resource('{products}/{skip}/reviews', 'ReviewsController');
 });
 
 Route::group(['middleware' => 'auth'], function (){
@@ -111,6 +111,8 @@ Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 
 });
 
 
+
+//Admin Authentication
 Route::group(['middleware' => 'preventBackHistory'], function (){
 
     //Admin Authentication Route..........................

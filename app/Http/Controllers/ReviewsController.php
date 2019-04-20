@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Http\Requests\Frontend\ReviewRequest;
 use App\Product;
 use App\Review;
+use App\Review_helpful;
+use App\Review_vote;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Auth;
 use Illuminate\Http\Response;
@@ -16,11 +19,18 @@ class ReviewsController extends Controller
      * Display a listing of the resource.
      *
      * @param $product_id
+     * @param int $skip
      * @return Response
      */
-    public function index($product_id)
+    public function index($product_id, $skip = 0)
     {
-        $reviews = Review::orderBy('id', 'desc')->with('user')->where('product_id', $product_id)->get();
+        $reviews = Review::orderBy('id', 'desc')
+            ->with('user')
+            ->withCount('reviewVotes')
+            ->withCount(['helpFullVotes' => function($query){
+                $query->where('help_full', true);
+            }])
+            ->skip($skip)->where(['product_id' => $product_id])->limit(3)->get();
 
         return $reviews;
     }
@@ -105,15 +115,35 @@ class ReviewsController extends Controller
     }
 
     /**
-     * Get product rating
-     *
-     * @param $product_id
-     * @return float
+     * @param Request $request
+     * @param $review_id
+     * @param $vote_type 1 or 0
+     * @return RedirectResponse
      */
-    function getRating($product_id){
-        $reviews = $this->index($product_id);
-        $rating = round($reviews->sum('rating')/$reviews->count(),2);
+    public function storeVote(Request $request, $vote_type, $review_id)
+    {
+        $user_id = Auth::user()->id;
 
-        return $rating;
+        $already_give_vote = Review_vote::all()->where('user_id', $user_id)
+                                ->where('review_id', $review_id)
+                                ->first();
+
+        if (empty($already_give_vote)){ //New voter
+
+            $request['user_id'] = $user_id;
+            $request['review_id'] = $review_id;
+            $request['help_full'] = $vote_type;
+
+            Review_vote::create($request->all());
+
+        }else{ //Already has voted now only vote type change
+
+            if ($already_give_vote->vote_type != $vote_type){ //give different vote type
+                $request['help_full'] = $vote_type;
+                $already_give_vote->update($request->all());
+            }
+        }
+
+        return back();
     }
 }

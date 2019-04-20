@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Frontend;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Validator;
 
 class ReviewRequest extends FormRequest
 {
@@ -27,6 +29,14 @@ class ReviewRequest extends FormRequest
             'product_id' => 'required|numeric',
             'review' => 'required',
             'rating' => 'required|numeric|min:0.5|max:5'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'rating.required' => 'Please give your rating',
+            'rating.min' => 'Your rating is invalid',
         ];
     }
 }

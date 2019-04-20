@@ -18,9 +18,9 @@
 
             <div class="col-sm-5">
                 <div class="view-product">
-                    <a href="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
+                    {{--<a href="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
                         <img src="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" alt=""/>
-                    </a>
+                    </a>--}}
                 </div>
             </div>
 
@@ -66,7 +66,7 @@
             <div class="col-sm-12">
                 <ul class="nav nav-tabs">
                     <li><a href="#details" data-toggle="tab">Details</a></li>
-                    <li class="active"><a href="#reviews" data-toggle="tab">Reviews ( {{ count($product->reviews) }} )</a></li>
+                    <li class="active"><a href="#reviews" data-toggle="tab">Reviews</a></li>
                 </ul>
             </div>
             <div class="tab-content">
@@ -79,6 +79,16 @@
                 <div class="tab-pane fade active in" id="reviews" >
                     <div class="col-sm-12">
 
+                        {{--Validation error--}}
+                        <div v-if="validationErrors" class="form-group validation_msg_section">
+                            <div class="alert alert-danger fade in">
+                                <ul>
+                                    <li v-for="(value, key, index) in validationErrors">@{{ value[0] }}</li>
+                                </ul>
+                            </div>
+                        </div>
+
+
                         <p><b>Write Your Review</b></p>
 
                         @guest
@@ -88,15 +98,13 @@
                         @else
 
                             <form class="review_form" id="review-form">
-                                @csrf()
 
                                 <textarea v-model="newReview.review" id="message" required="required" class="form-control" rows="8" placeholder="Your Review Here*"></textarea>
                                 <input type="hidden" id="rating" value="">
 
                                 <div star_width="24px" class="rateYo"></div>
 
-                                <button @click="addReview" type="button" class="ladda-button btn btn-info pull-right" data-style="slide-down">Submit</button>
-                                <button type="button" class="ladda-button btn btn-info" data-style="slide-down">Submit</button>
+                                <button @click="addReview" type="button" class="review_submit_btn btn btn-info pull-right" data-style="slide-down">Submit</button>
                             </form>
                         @endguest
 
@@ -106,40 +114,51 @@
 
                                 <ul>
                                     <li><span> <i class="fa fa-user-circle-o" aria-hidden="true"></i> @{{ review.user.name }}</span></li>
-                                    <li><span> <i class="fa fa-clock-o"></i> @{{ review.created_at | moment('h:mm a') }} </span></li>
-                                    <li><span> <i class="fa fa-calendar-o"></i> @{{ review.created_at | moment('D MMMM YYYY')}}</span></li>
+                                    <li><span> <i class="fa fa-clock-o"></i> @{{ review.created_at | dateFormat('h:mm a') }} </span></li>
+                                    <li><span> <i class="fa fa-calendar-o"></i> @{{ review.created_at | dateFormat('D MMMM YYYY')}}</span></li>
                                 </ul>
 
                                 <div class="user_rating_section">
-                                    <div read_only=true :rating_score="review.rating" star_width="16px" class="rateYo"></div>
+                                    <i v-for="n in review.rating" class="ion-ios-star"></i>
                                 </div>
 
-                                <p>@{{ review.review }}</p>
+                                <p id="review-text" class="review_text" style="max-height: 50px;">@{{ review.review }}</p>
 
-                                {{--<div class="helpful-review">
+                                <div v-if="review.review.length > 235" id="read-more-section" class="read_more_section">
+                                    <div class="read-more-overlay--container">
+                                        <div class="read-more-overlay"></div>
+                                    </div>
+                                </div>
+
+                                <a v-if="review.review.length > 235" onclick="readMore(this)" type="button" class="cursor_pointer">Read more</a>
+
+                                <div class="helpful-review">
                                     <p>
-                                        @if($review->help_full OR $review->not_help_full)
+                                        <span v-if="review.review_votes_count > 0">
                                             <span class="posetive_negative_quantity">
-                                                {{ $review->help_full }} of {{ $review->help_full+$review->not_help_full }}
+                                                @{{ review.help_full_votes_count }} of @{{ review.review_votes_count }}
                                             </span>
                                             people found this review helpful.
-                                        @endif
-                                            Was this review helpful to you?
+                                        </span>
+                                        Was this review helpful to you?
                                     </p>
-                                </div>--}}
+                                </div>
 
                                 <div class="review_action">
-                                    <a href="#" class="btn btn-light">
+                                    <a :review_id="review.id" :href="'{{ route('reviews.vote.store', [1, '']) }}/'+review.id" type="button" class="btn btn-light">
                                         <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/like.svg') }}">
                                     </a>
-                                    <a href="#" class="btn btn-light">
+                                    <a :review_id="review.id" :href="'{{ route('reviews.vote.store', [0, '']) }}/'+review.id" type="button" class="btn btn-light">
                                         <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/dislike.svg') }}">
                                     </a>
                                 </div>
-                            </div>
 
+                            </div>
                         </div>
 
+                        <div v-if="reviews.length > 2" class="show_more_review_section">
+                            <a @click="showMoreReview" type="button" class="cursor_pointer">Show more Review(s)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -219,6 +238,7 @@
                     rating: '',
                 },
                 reviews:[],
+                validationErrors: '',
             },
 
             mounted(){
@@ -239,17 +259,15 @@
                     product_id = $('#product-id').attr('product-id');
                     currentApp = this;
 
-                    axios.get(home_url + '/products/'+product_id+'/reviews/')
+                    axios.get(home_url + '/products/'+product_id+'/0/reviews')
                         .then(response => {
                             currentApp.reviews = response.data;
                         })
                 },
 
-                addReview(e){
+                addReview (e) {
 
-                    var loading_btn = $( '.ladda-button' ).ladda();
-
-                    // Start loading
+                    var loading_btn = $( '.review_submit_btn' ).ladda();
                     loading_btn.ladda( 'start' );
 
                     currentApp = this;
@@ -258,32 +276,51 @@
                     currentApp.newReview.product_id = product_id;
                     currentApp.newReview.rating = $('#rating').val();
 
-                    axios.post(home_url + '/products/'+product_id+'/reviews', currentApp.newReview)
+                    axios.post(home_url + '/products/' + product_id + '/0/reviews', currentApp.newReview)
                         .then(response => {
-                            currentApp.reviews.push(response.data);
+                            currentApp.reviews.unshift(response.data);
+                            currentApp.validationErrors = '';
 
-                            setTimeout(function () {
-                                initRateYo(); //define in custom.js
-                                loading_btn.ladda('stop');
-                            });
+                            loading_btn.ladda('stop');
+                            toastr.options = {
+                                closeButton: true,
+                                progressBar: true,
+                                showMethod: 'slideDown',
+                                timeOut: 3000
+                            };
+                            toastr.success('Your review submit successfully.');
 
-                            currentApp.newReview = {'review' : ''};
+                            currentApp.newReview = {'review': ''};
                             $('#rating').val('');
                             $('#review-form').find('.jq-ry-rated-group').css('width', '0%');
+
+                        },
+                        errors => {
+                            loading_btn.ladda('stop');
+                            currentApp.validationErrors = errors.response.data.errors;
                         })
+
                 },
 
-                /*getProductReview(){
-                    axios.get(home_url + '/products/'+product_id+'/get-rating')
+                showMoreReview(){
+                    product_id = $('#product-id').attr('product-id');
+                    currentApp = this;
+                    skip = currentApp.reviews.length; //skip review count
+
+                    axios.get(home_url + '/products/'+product_id+'/'+skip+'/reviews')
                         .then(response => {
-                                console.log(response.data);
-                            }
-                        )
-                }*/
+
+                            console.log(response.data)
+
+                            $.each(response.data, function(key, value) {
+                                currentApp.reviews.push(value);
+                            });
+                        })
+                }
             },
 
             filters: {
-                moment: function (date, format) {
+                dateFormat: function (date, format) {
                     return moment(date).format(format);
                 }
             }

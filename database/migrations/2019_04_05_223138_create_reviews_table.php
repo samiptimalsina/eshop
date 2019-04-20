@@ -22,8 +22,6 @@ class CreateReviewsTable extends Migration
             $table->integer('user_id');
             $table->text('review');
             $table->integer('rating');
-            $table->integer('help_full')->nullable()->default(0);
-            $table->integer('not_help_full')->nullable()->default(0);
             $table->timestamps();
         });
     }
