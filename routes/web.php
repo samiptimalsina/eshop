@@ -41,8 +41,11 @@ Route::get('wishlists/get/product', 'WishListsController@getWishlistProduct')->n
 
 //Review................................
 Route::group(['prefix' => 'products'], function (){
-    Route::get('reviews/vote/{vote}/{reviews}', 'ReviewsController@storeVote')->name('reviews.vote.store');
     Route::resource('{products}/{skip}/reviews', 'ReviewsController');
+});
+
+Route::group(['middleware' => 'auth', 'prefix' => 'products'], function (){
+    Route::get('reviews/vote/{vote}/{reviews}', 'ReviewsController@addVote')->name('reviews.vote.store');
 });
 
 Route::group(['middleware' => 'auth'], function (){

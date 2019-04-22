@@ -71,7 +71,7 @@
 
                                         <td> {{ ucfirst($product->category->name) }}</td>
                                         <td> {{ ucfirst($product->brand->name) }}</td>
-                                        <td> {{ ucfirst($product->price) }} Tk</td>
+                                        <td> {{ $product->price }} Tk</td>
 
                                         <td>
                                             <a href="{{ route('admin.products.change-featured', [$product->id, $product->featured]) }}" title="Change featured">

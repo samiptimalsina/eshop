@@ -93,9 +93,6 @@
     {{--rate--}}
     <script src="{{ asset('public/frontend/js/plugins/rate/jquery.rateyo.min.js') }}"></script>
 
-    {{--custom--}}
-    <script src="{{ asset('public/frontend/js/custom.js') }}"></script>
-
     {{--moment--}}
     <script src="{{ asset('public/frontend/js/moment/moment.min.js') }}"></script>
 

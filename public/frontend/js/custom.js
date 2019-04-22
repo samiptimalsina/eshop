@@ -55,7 +55,7 @@ var App = new Vue({
         //Product add to wishlist
         addToWishlist(e) {
             slug = e.currentTarget.getAttribute('slug');
-            currentApp = this
+            currentApp = this;
 
             axios.get(home_url + '/wishlists/'+slug)
                 .then(response => {

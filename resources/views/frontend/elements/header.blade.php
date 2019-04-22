@@ -24,7 +24,6 @@
     <link href="{{ asset('public/frontend/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('public/frontend/css/zoomple.css') }}" rel="stylesheet">
 
-
     <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
 
     <!-- Ladda style -->
@@ -46,6 +45,9 @@
     {{--vueJs--}}
     <script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
     <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>
+
+    {{--custom--}}
+    <script src="{{ asset('public/frontend/js/custom.js') }}"></script>
 
     <link rel="icon" type="image/png" href="{{ asset('public/frontend/images/favicon-32x32.png') }}" sizes="32x32"/>
     <link rel="shortcut icon" href="{{ asset('public/frontend/images/favicon-32x32.png') }}">

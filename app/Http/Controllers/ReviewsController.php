@@ -24,12 +24,12 @@ class ReviewsController extends Controller
      */
     public function index($product_id, $skip = 0)
     {
-        $reviews = Review::orderBy('id', 'desc')
+        $reviews = Review::orderByRaw('Date(created_at) desc')
             ->with('user')
             ->withCount('reviewVotes')
             ->withCount(['helpFullVotes' => function($query){
                 $query->where('help_full', true);
-            }])
+            }])->orderBy('help_full_votes_count', 'desc')
             ->skip($skip)->where(['product_id' => $product_id])->limit(3)->get();
 
         return $reviews;
@@ -60,13 +60,11 @@ class ReviewsController extends Controller
         $review = new Review($request->all());
         $save = $product->find($product_id)->reviews()->save($review);
 
-        return Review::with('user')->where('id', $save->id)->first();
-
-        if ($save){
-            return back()->with('success', 'Your review has been submitted successfully');
-        }else{
-            return back()->with('error', 'Your review could not be submit');
-        }
+        return Review::with('user')->withCount('reviewVotes')
+                ->withCount(['helpFullVotes' => function($query){
+                    $query->where('help_full', true);
+                }])
+                ->where('id', $save->id)->first();
     }
 
     /**
@@ -120,7 +118,7 @@ class ReviewsController extends Controller
      * @param $vote_type 1 or 0
      * @return RedirectResponse
      */
-    public function storeVote(Request $request, $vote_type, $review_id)
+    public function addVote(Request $request, $vote_type, $review_id)
     {
         $user_id = Auth::user()->id;
 
@@ -144,6 +142,12 @@ class ReviewsController extends Controller
             }
         }
 
-        return back();
+        $reviews = Review::withCount('reviewVotes')
+            ->withCount(['helpFullVotes' => function($query){
+                $query->where('help_full', true);
+            }])
+           ->where(['id' => $review_id])->first();
+
+        return $reviews;
     }
 }

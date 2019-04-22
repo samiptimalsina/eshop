@@ -358,7 +358,7 @@ a#scrollUp{
 }
 .read-more-overlay--container {
     position: absolute;
-    bottom: 102px;
+    bottom: 115px;
     width: 100%;
 }
 .read-more-overlay {

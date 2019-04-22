@@ -13,7 +13,7 @@
             <form class="m-t" role="form" action="{{ route('admin.login') }}" method="post">
                 {{ csrf_field() }}
                 <div class="form-group">
-                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="Email address" required autofocus>
+                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="aalmamun417@gmail.com" required autofocus>
 
                     @if ($errors->has('email'))
                         <span class="invalid-feedback">
@@ -23,7 +23,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="Password" required>
+                    <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="123456" required>
 
                     @if ($errors->has('password'))
                         <span class="invalid-feedback">

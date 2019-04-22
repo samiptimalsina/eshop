@@ -57,7 +57,7 @@
             </li>
 
             <li class="@if (currentController() == 'ProductsController') {{ "active" }} @endif">
-                <a href="{{ route('admin.products.index') }}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Product</span> </a>
+                <a href="{{ route('admin.products.index') }}"><i class="fa fa-pie-chart"></i> <span class="nav-label">Products</span> </a>
             </li>
 
             <li class="@if (currentController() == 'OrdersController') {{ "active" }} @endif">

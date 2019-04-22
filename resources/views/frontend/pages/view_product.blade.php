@@ -18,9 +18,9 @@
 
             <div class="col-sm-5">
                 <div class="view-product">
-                    {{--<a href="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
+                    <a href="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
                         <img src="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" alt=""/>
-                    </a>--}}
+                    </a>
                 </div>
             </div>
 
@@ -110,7 +110,7 @@
 
                         <div class="review_section">
 
-                            <div v-for="review in reviews" class="single_review">
+                            <div v-for="(review, index) in reviews" class="single_review">
 
                                 <ul>
                                     <li><span> <i class="fa fa-user-circle-o" aria-hidden="true"></i> @{{ review.user.name }}</span></li>
@@ -119,7 +119,7 @@
                                 </ul>
 
                                 <div class="user_rating_section">
-                                    <i v-for="n in review.rating" class="ion-ios-star"></i>
+                                    <i v-for="n in parseInt(review.rating)" class="ion-ios-star"></i>
                                 </div>
 
                                 <p id="review-text" class="review_text" style="max-height: 50px;">@{{ review.review }}</p>
@@ -145,10 +145,10 @@
                                 </div>
 
                                 <div class="review_action">
-                                    <a :review_id="review.id" :href="'{{ route('reviews.vote.store', [1, '']) }}/'+review.id" type="button" class="btn btn-light">
+                                    <a @click="addVote" :review_id="review.id" vote_type="1" :review_index="index" type="button" class="btn btn-light">
                                         <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/like.svg') }}">
                                     </a>
-                                    <a :review_id="review.id" :href="'{{ route('reviews.vote.store', [0, '']) }}/'+review.id" type="button" class="btn btn-light">
+                                    <a @click="addVote" :review_id="review.id" vote_type="0" :review_index="index" type="button" class="btn btn-light">
                                         <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/dislike.svg') }}">
                                     </a>
                                 </div>
@@ -302,6 +302,24 @@
 
                 },
 
+                addVote(e){
+                    currentApp = this;
+                    var vote_type = e.currentTarget.getAttribute('vote_type'),
+                        review_id = e.currentTarget.getAttribute('review_id'),
+                        review_index = e.currentTarget.getAttribute('review_index');
+
+                    axios.get(home_url + '/products/reviews/vote/'+vote_type+'/'+review_id)
+                        .then(response => {
+                            currentApp.reviews[review_index].review_votes_count = response.data.review_votes_count;
+                            currentApp.reviews[review_index].help_full_votes_count = response.data.help_full_votes_count;
+
+                        },errors => {
+                            if(errors.response.data.message = "Unauthenticated"){
+                                window.location.href = "{{ route('login') }}";
+                            }
+                        })
+                },
+
                 showMoreReview(){
                     product_id = $('#product-id').attr('product-id');
                     currentApp = this;
@@ -309,8 +327,6 @@
 
                     axios.get(home_url + '/products/'+product_id+'/'+skip+'/reviews')
                         .then(response => {
-
-                            console.log(response.data)
 
                             $.each(response.data, function(key, value) {
                                 currentApp.reviews.push(value);
