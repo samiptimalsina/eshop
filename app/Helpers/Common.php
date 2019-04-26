@@ -38,19 +38,6 @@ function currentRouteName(){
 }
 
 /**
- * Count product for frontend
- * @param $whiceId
- * @param $id
- * @return int
- */
-function countProduct($whiceId, $id){
-    $products = product::with('brand', 'category')
-        ->where(['status' => 1, $whiceId => $id])
-        ->get();
-    return $products->count();
-}
-
-/**
  * Get all published slider for fronted
  * @return mixed
  */
@@ -64,7 +51,12 @@ function sliders(){
  * @return mixed
  */
 function categories(){
-    $categories = Category::orderBy('id', 'desc')->where('status', true)->get();
+    $categories = Category::with('children')->orderBy('id', 'desc')
+        ->withCount(['products' => function($query){
+            $query->where('status', 1);
+        }])
+        ->where('status', true)->where('parent_id', null)->get();
+
     return $categories;
 }
 
@@ -73,7 +65,11 @@ function categories(){
  * @return mixed
  */
 function brands(){
-    $brands = Brand::orderBy('id', 'desc')->where('status', true)->get();
+    $brands = Brand::orderBy('id', 'desc')
+        ->withCount(['products' => function($query){
+            $query->where('status', 1);
+        }])->where('status', true)->get();
+
     return $brands;
 }
 

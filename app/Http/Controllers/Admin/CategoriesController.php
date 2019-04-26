@@ -24,7 +24,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::with('products')->orderBy('id', 'desc')->get();
+        $categories = Category::with('parent')->withCount('products')->orderBy('id', 'desc')->get();
 
         return view('admin.category.index', compact('categories'));
     }
@@ -36,7 +36,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        $main_categories = Category::with('parent', 'children')->orderBy('id', 'desc')->where('parent_id', null)->get();
+
+        return view('admin.category.create', compact('main_categories'));
     }
 
     /**
@@ -84,7 +86,9 @@ class CategoriesController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('admin.category.edit', compact('category'));
+        $main_categories = Category::with('parent', 'children')->orderBy('id', 'desc')->where('parent_id', null)->get();
+
+        return view('admin.category.edit', compact('category', 'main_categories'));
     }
 
     /**
@@ -128,18 +132,23 @@ class CategoriesController extends Controller
      */
     public function destroy(Category $category)
     {
-        if ($category->delete()){
+        if (($category->children->count() == 0) AND ($category->products->count() == 0)){
+            if ($category->delete()){
 
-            //Delete image
-            if ($category->image){
-                $this->fileHandler->deleteImage($category->image);
+                //Delete image
+                if ($category->image){
+                    $this->fileHandler->deleteImage($category->image);
+                }
+
+                return back()->with('success', 'Category delete successfully');
+
+            }else{
+                return back()->with('error', 'Category could not be delete');
             }
-
-            return back()->with('success', 'Category delete successfully');
-
         }else{
-            return back()->with('error', 'Category could not be delete');
+            return back()->with('warning', 'You are not allow to delete this category');
         }
+
     }
 
     /**

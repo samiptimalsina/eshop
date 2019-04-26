@@ -29,7 +29,7 @@ class ProductsController extends Controller
     {
         $products = Product::with('brand', 'category')->orderBy('id', 'desc')->get();
 
-        return view('admin.product.index', compact('products'));
+        return view  ('admin.product.index', compact('products'));
     }
 
     /**

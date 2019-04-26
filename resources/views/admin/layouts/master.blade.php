@@ -17,6 +17,7 @@
     <title>E-SHOPPER | Dashboard</title>
 
     <link href="{{ asset('public/admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('public/admin/css/plugins/jsTree/style.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('public/admin/css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/admin/css/animate.css') }}" rel="stylesheet">
@@ -66,12 +67,26 @@
 {{--i-check--}}
 <script src="{{ asset('public/admin/js/plugins/iCheck/icheck.min.js') }}"></script>
 
+{{--tree--}}
+<script src="{{ asset('public/admin/js/plugins/jsTree/jstree.min.js') }}"></script>
+
+<style>
+    .jstree-open > .jstree-anchor > .fa-folder:before {
+        content: "\f07c";
+    }
+
+    .jstree-default .jstree-icon.none {
+        width: 0;
+    }
+</style>
+
 <script>
     $(document).ready(function(){
 
         //slugify......
         $('#slug').slugify('#slug-source');
 
+        //data table...........
         $('.dataTables-example').DataTable({
             pageLength: 25,
             responsive: true,
@@ -96,18 +111,44 @@
 
         });
 
-    });
-
-    /*i-check*/
-    $(document).ready(function () {
+        //checkbox........
         $('.i-checks').iCheck({
             checkboxClass: 'icheckbox_square-green',
             radioClass: 'iradio_square-green',
         });
+
+        // tree...........
+        $('#jstree1').jstree({
+            'core' : {
+                'check_callback' : true
+            },
+            'plugins' : [ 'types', 'dnd' ],
+            'types' : {
+                'default' : {
+                    'icon' : 'fa fa-folder'
+                },
+                'html' : {
+                    'icon' : 'fa fa-file-code-o'
+                },
+                'svg' : {
+                    'icon' : 'fa fa-file-picture-o'
+                },
+                'css' : {
+                    'icon' : 'fa fa-file-code-o'
+                },
+                'img' : {
+                    'icon' : 'fa fa-file-image-o'
+                },
+                'js' : {
+                    'icon' : 'fa fa-file-text-o'
+                }
+
+            }
+        });
+
     });
 
 </script>
-
 
 </body>
 

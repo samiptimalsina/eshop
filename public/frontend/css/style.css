@@ -270,6 +270,9 @@ a#scrollUp{
 .ui-slider .ui-slider-range, .ui-slider .ui-slider-handle{
     z-index: 0!important;
 }
+.left-sidebar .fa{
+    cursor: pointer;
+}
 .shop-details-tab {
     border: 1px solid #F7F7F0;
     margin-bottom: 75px;
@@ -279,6 +282,16 @@ a#scrollUp{
     background: #FFFFFF;
     box-shadow: 0px 1px 5px -3px #9c9c9c;
     border-radius: 3px;
+}
+.category-products .badge{
+    background: none!important;
+    border-radius: 10px!important;
+    color: #696763!important;
+}
+
+.left-sidebar a:hover, a:focus{
+    text-decoration: none!important;
+    color: #FE980F!important;
 }
 .price_rang_input{
     background-color: #fff;
@@ -292,6 +305,7 @@ a#scrollUp{
     float: left;
     margin-right: 15px;
 }
+
 .review_form .jq-ry-container{
     float: left;
 }

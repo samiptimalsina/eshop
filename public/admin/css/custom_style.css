@@ -92,3 +92,12 @@ div.dataTables_wrapper div.dataTables_paginate {
     height: 48px;
     width: 48px;
 }
+.go_to_site {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 5px 0;
+}
+.go_to_site a{
+    color: #fff;
+}

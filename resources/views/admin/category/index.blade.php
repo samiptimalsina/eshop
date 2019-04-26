@@ -39,6 +39,7 @@
                                 <tr>
                                     <th>Sl No</th>
                                     <th>Name</th>
+                                    <th>Parent Category</th>
                                     <th>Slug</th>
                                     <th>Image</th>
                                     <th>Description</th>
@@ -56,6 +57,7 @@
                                     <tr>
                                         <td>{{ $i }}</td>
                                         <td>{{ ucfirst($category->name) }}</td>
+                                        <td>{{ ($category->parent_id != null)?$category->parent->name:'--' }}</td>
                                         <td>{{ $category->slug }}</td>
 
                                         <?php
@@ -68,7 +70,7 @@
 
                                         <td><img src="{{ $image_url }}" class="cus_thumbnail" alt=""></td>
                                         <td> {{ ucfirst($category->description) }}</td>
-                                        <td> {{ ucfirst(count($category->products))}}</td>
+                                        <td> {{ $category->products_count }}</td>
 
                                         <td>
                                             <a href="{{ route('admin.categories.change-status', [$category->id, $category->status]) }}" title="Change publication status">

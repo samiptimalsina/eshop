@@ -28,7 +28,7 @@ class CategoryRequest extends FormRequest
             case 'POST':{
                 return [
                     'name' => 'required|unique:categories',
-                    'slug' => 'required|unique:categories'
+                    'slug' => 'required|unique:categories',
                 ];
             }
 
