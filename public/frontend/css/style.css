@@ -289,7 +289,7 @@ a#scrollUp{
     color: #696763!important;
 }
 
-.left-sidebar a:hover, a:focus{
+.left-sidebar a:hover, .left-sidebar a:focus{
     text-decoration: none!important;
     color: #FE980F!important;
 }

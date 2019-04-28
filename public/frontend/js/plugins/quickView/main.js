@@ -15,13 +15,10 @@ jQuery(document).ready(function($){
 			$('#product-category').html(response.category.name);
 			$('#product-description').html(response.description);
 			$('#cart-form').attr('action', home_url+'/carts/'+response.slug);
-			//$('#wishlist_url').attr('href', home_url+'/wishlist/'+response.slug);
 			$('#cart-url').attr('slug', response.slug);
 			$('#wishlist-url').attr('slug', response.slug);
 
 		});
-
-		console.log($(this));
 
 		var selectedImage = $(this).parents(':eq(3)').find('img'),
 			slectedImageUrl = selectedImage.attr('src');

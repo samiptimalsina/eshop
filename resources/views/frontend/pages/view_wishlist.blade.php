@@ -32,7 +32,7 @@
                                     <a href=""><img :src="'{{ URL::to('public/admin/uploads/images/products/') }}/'+product.options.image" alt="image" class="view_cart_image"></a>
                                 </td>
                                 <td class="cart_name">
-                                    <h4><a href="">@{{ product.name }}</a></h4>
+                                    <h4><a href="#0">@{{ product.name }}</a></h4>
                                 </td>
                                 <td class="cart_price">
                                     <p>@{{ product.price }} Tk</p>

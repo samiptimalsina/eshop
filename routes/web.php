@@ -20,7 +20,9 @@ Route::get('products', 'HomeController@search')->name('products.search');
 //Product......................
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 Route::get('products/get-info/{product}', 'ProductsController@getProductInfo')->name('products.getInfo');
-Route::get('products/get-reviews/{product}', 'ProductsController@getProductReview')->name('products.getReview');
+/*Route::get('products/get-reviews/{product}', 'ProductsController@getProductReview')->name('products.getReview');*/
+Route::get('products/category/{category}/get-parent-category', 'ProductsController@getParentCategory');
+Route::get('products/{product}/get-product-category-slug', 'ProductsController@getProductCategorySlug');
 
 //Cart.........................................................
 Route::get('carts', 'CartsController@index')->name('cart.index');

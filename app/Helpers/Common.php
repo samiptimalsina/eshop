@@ -12,7 +12,6 @@ use App\Order;
 use App\product;
 use App\Slider;
 
-
 /**
  * Current controller name
  * @return string
@@ -52,12 +51,35 @@ function sliders(){
  */
 function categories(){
     $categories = Category::with('children')->orderBy('id', 'desc')
-        ->withCount(['products' => function($query){
-            $query->where('status', 1);
-        }])
         ->where('status', true)->where('parent_id', null)->get();
 
     return $categories;
+}
+
+
+/**
+ * Get parent category for select category in sidebar
+ *
+ * @param $category
+ * @return false|string
+ */
+$GLOBALS['parent_categories'] = [];
+function getParentCategory($category){
+
+    $parent_id = Category::where('name', $category)->select('parent_id')->first();
+
+    if(isset($parent_id['parent_id'])){
+
+        $parent_category = Category::where('id', $parent_id['parent_id'])->first();
+
+        array_push($GLOBALS['parent_categories'], $parent_category['name']);
+
+        if (isset($parent_category['parent_id'])){
+            getParentCategory($parent_category['name']);
+        }
+    }
+
+    return json_encode($GLOBALS['parent_categories']);
 }
 
 /**

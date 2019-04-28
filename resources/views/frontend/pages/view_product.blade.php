@@ -227,6 +227,7 @@
 
     <script>
 
+
         var ViewProduct = new Vue({
             el: "#root",
             data: {
@@ -243,6 +244,7 @@
 
             mounted(){
                 this.getAllReview();
+                this.selectProductCategory();
             },
 
             methods:{
@@ -332,7 +334,19 @@
                                 currentApp.reviews.push(value);
                             });
                         })
-                }
+                },
+
+                selectProductCategory(){
+                    axios.get(home_url + '/products/'+'<?= Request::segment(2) ?>'+'/get-product-category-slug') // parameter = product slug
+                        .then(response => {
+
+                            $category_slug = response.data;
+
+                            sideBar.expandParentCategory($category_slug);
+                            $('#'+$category_slug+'-link').addClass('active');
+
+                        });
+                },
             },
 
             filters: {
