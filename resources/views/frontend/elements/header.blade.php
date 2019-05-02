@@ -146,7 +146,7 @@
 
                             @endguest
 
-                            <li><a href="{{ route('contact') }}"><i class="fa fa-comment"></i> Contact </a></li>
+                            <li><a class="<?php if (currentController() == "ContactsController"){ echo "active";} ?>" href="{{ route('contact') }}"><i class="fa fa-comment"></i> Contact </a></li>
                         </ul>
                     </div>
                 </div>

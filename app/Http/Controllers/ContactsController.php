@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Frontend\ContactRequest;
-use Illuminate\Http\Request;
+use App\Mail\ContactUs;
+    use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Mail;
 
 class ContactsController extends Controller
@@ -11,7 +13,7 @@ class ContactsController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -22,18 +24,13 @@ class ContactsController extends Controller
      * Send mail to admin.
      *
      * @param ContactRequest $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function submitContact(ContactRequest $request)
     {
-        $data = array('msg' => $request->message);
+       Mail::to('aalmamun417@gmail.com')->send(new ContactUs($request->all()));
 
-        $sendEmail = Mail::send('partials.templates.email.contact', $data, function($message) use($request) {
-            $message->to('aalmamun417@gmail.com')->subject($request->subject);
-            $message->from($request->email, $request->name);
-        });
-
-        return back()->with(['success' => 'Thank you ' .ucfirst($request->name). ', Your email has been submitted successfully. We contact with you as soon as possible.']);
+       return back()->with(['success' => 'Thank you ' .ucfirst($request->name). ', Your email has been submitted successfully. We contact with you as soon as possible.']);
     }
 
     /**
@@ -50,7 +47,7 @@ class ContactsController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -61,7 +58,7 @@ class ContactsController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show()
     {
@@ -72,7 +69,7 @@ class ContactsController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit($id)
     {
@@ -84,7 +81,7 @@ class ContactsController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -95,7 +92,7 @@ class ContactsController extends Controller
      * Remove the specified resource from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function destroy($id)
     {

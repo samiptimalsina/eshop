@@ -250,22 +250,6 @@ a#scrollUp i{
 	color:#fdb45e;
 }
 
-.search_box input {
-  background: #F0F0E9;
-  border: medium none;
-  color: #B2B2B2;
-  font-family: 'roboto';
-  font-size: 12px;
-  font-weight: 300;
-  height: 35px;
-  outline: medium none;
-  padding-left: 10px;
-  width: 155px;
-  background-image: url(../images/home/searchicon.png);
-  background-repeat: no-repeat;
-  background-position: 130px;
-}
-
 
 /*  Dropdown menu*/
 
@@ -1444,7 +1428,7 @@ h2.title {
 }
 
 
-.login-form form input, .signup-form form input {
+.login-form form input, .signup-form form input, .signup-form form select {
   background: #F0F0E9;
   border: medium none;
   color: #696763;

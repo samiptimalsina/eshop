@@ -46,11 +46,11 @@
 
                             $selected_category_class = ($main_category->id == $GLOBALS['current_category_parent_id'])?'selected_category':'';
 
-                            if(count($main_category['children']) > 0 ){
+                            if(count($main_category['$category['slug']']) > 0 ){
 
                                 echo "<li><span class='$selected_category_class' data-dismiss='modal' category_name='$main_category->name' category_id='$main_category->id' onclick='setParentCategory(this)'>".ucfirst($main_category['name']).
                                     "</span><ul>";
-                                        foreach($main_category['children'] as $main_category){
+                                        foreach($main_category['$category['slug']'] as $main_category){
                                             if ($main_category->id != $category_id){
                                                 tree($main_category, $category_id);
                                             }

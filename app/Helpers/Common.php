@@ -46,40 +46,25 @@ function sliders(){
 }
 
 /**
- * Get all published category for frontend
+ * Get all published parent category for frontend
  * @return mixed
  */
-function categories(){
-    $categories = Category::with('children')->orderBy('id', 'desc')
+function getParentCategories(){
+    $parent_categories = Category::with('children', 'products')->orderBy('id', 'desc')
         ->where('status', true)->where('parent_id', null)->get();
 
-    return $categories;
+    return $parent_categories;
 }
 
-
 /**
- * Get parent category for select category in sidebar
- *
- * @param $category
- * @return false|string
+ * Get all published all category for frontend
+ * @return mixed
  */
-$GLOBALS['parent_categories'] = [];
-function getParentCategory($category){
+function getAllCategories(){
+    $categories = Category::orderBy('id', 'desc')
+        ->where('status', true)->get();
 
-    $parent_id = Category::where('name', $category)->select('parent_id')->first();
-
-    if(isset($parent_id['parent_id'])){
-
-        $parent_category = Category::where('id', $parent_id['parent_id'])->first();
-
-        array_push($GLOBALS['parent_categories'], $parent_category['name']);
-
-        if (isset($parent_category['parent_id'])){
-            getParentCategory($parent_category['name']);
-        }
-    }
-
-    return json_encode($GLOBALS['parent_categories']);
+    return $categories;
 }
 
 /**
@@ -116,38 +101,3 @@ function productMinAndMaxPrice(){
     return ['min_price' => isset($products->first()->price)?$products->first()->price:'', 'max_price' => isset($products->last()->price)?$products->last()->price:''];
 }
 
-/**
- * Return ago minute for order notification
- *
- * @param $timestamp
- * @return string
- * @throws Exception
- */
-function timeAgo($timestamp){
-
-    $datetime1=new DateTime();
-    $datetime2=date_create($timestamp);
-    $diff=date_diff($datetime1, $datetime2);
-    $timemsg='';
-
-    if($diff->y > 0){
-        $timemsg = $diff->y .' year'. ($diff->y > 1?"'s":'');
-    }
-    else if($diff->m > 0){
-        $timemsg = $diff->m . ' month'. ($diff->m > 1?"'s":'');
-    }
-    else if($diff->d > 0){
-        $timemsg = $diff->d .' day'. ($diff->d > 1?"'s":'');
-    }
-    else if($diff->h > 0){
-        $timemsg = $diff->h .' hour'.($diff->h > 1 ? "'s":'');
-    }
-    else if($diff->i > 0){
-        $timemsg = $diff->i .' minute'. ($diff->i > 1?"'s":'');
-    }
-    else if($diff->s > 0){
-        $timemsg = $diff->s .' second'. ($diff->s > 1?"'s":'');
-    }
-
-    return $timemsg.' ago';
-}

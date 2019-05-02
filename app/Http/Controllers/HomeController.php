@@ -4,20 +4,28 @@ namespace App\Http\Controllers;
 
 use App\Brand;
 use App\Category;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 //New add
 use DB;
 use App\Product;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
+use Illuminate\View\View;
 
 class HomeController extends Controller
 {
+    function __construct()
+    {
+        $GLOBALS['category_ids'] = [];
+    }
+
     /**
      * Show all product
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     function index(Request $request){
 
@@ -43,33 +51,49 @@ class HomeController extends Controller
      * Show product by category
      *
      * @param $slug
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     function productByCategory($slug)
     {
-        $category = Category::where('slug', $slug)->first();
+        $category = Category::with('children')->where('slug', $slug)->first();
 
-        $products = product::with('brand', 'category')
-            ->where(['status' => 1, 'category_id' => $category->id])
-            ->paginate(6);
+        array_push($GLOBALS['category_ids'], $category->id);
+        $this->getChildrenCategory($category['children']);
+
+        $products = Product::orderBy('id', 'desc')->with('brand', 'category')
+            ->whereIn('category_id', $GLOBALS['category_ids'])
+            ->where('status', 1)
+            ->paginate(12);
 
         return view('frontend.pages.home_content', compact('products'));
+    }
+
+    /**
+     * Get children category to get all product of category and sub category
+     *
+     * @param $children_categories
+     */
+    function getChildrenCategory($children_categories){
+
+        foreach ($children_categories as $children_category){
+
+            array_push($GLOBALS['category_ids'], $children_category->id);
+
+            $this->getChildrenCategory($children_category['children']);
+        }
     }
 
     /**
      * Show product by brand
      *
      * @param $slug
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return Factory|View
      */
     function productByBrand($slug)
     {
-        $brand = Brand::where('slug', $slug)->first();
+        $brand = Brand::with('products')->where('slug', $slug)->first();
 
-        $products = product::with('brand', 'category')
-            ->where('status', 1)
-            ->where('brand_id', $brand->id)
-            ->paginate(6);
+        $products = $brand->products()->where('status', 1)->paginate(12);
 
         return view('frontend.pages.home_content', compact('products'));
     }
@@ -78,23 +102,34 @@ class HomeController extends Controller
      * Search product from frontend
      *
      * @param Request $request
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\Http\RedirectResponse|\Illuminate\View\View
+     * @return Factory|RedirectResponse|View
      */
     public function search(Request $request){
 
-        $searchBy = $request->search;
+        if (trim($request->search) != null OR $request->category != null){
 
-        $products = Product::orderBy('id', 'desc')->with('brand', 'category')
-            ->where('status',1)
-            ->where('name', 'LIKE', '%' . $searchBy . '%')
-            ->where('slug', 'LIKE', '%' . $searchBy . '%')
-            ->orWhere('size', 'LIKE', '%' . $searchBy . '%')
-            ->orWhere('color', 'LIKE', '%' . $searchBy . '%')
-            ->orWhere('price', 'LIKE', '%' . $searchBy . '%')
-            ->orWhere('description', 'LIKE', '%' . $searchBy . '%')
-            ->paginate(6);
+            $searchBy = trim($request->search);
+            $searchByCategory = $request->category;
 
-        return view('frontend.pages.home_content', compact( 'products'));
+            $products = Product::orderBy('id', 'desc')->with('brand', 'category')
+                ->when($searchByCategory, function ($query, $searchByCategory) {
+                    return $query->where('category_id', $searchByCategory);
+                })
+                ->where('status', 1)
+                ->where(function ($query) use ($searchBy){
+                    $query->where('name', 'LIKE', '%' . $searchBy . '%')
+                        ->orWhere('slug', 'LIKE', '%' . $searchBy . '%')
+                        ->orWhere('size', 'LIKE', '%' . $searchBy . '%')
+                        ->orWhere('color', 'LIKE', '%' . $searchBy . '%')
+                        ->orWhere('price', 'LIKE', '%' . $searchBy . '%')
+                        ->orWhere('description', 'LIKE', '%' . $searchBy . '%');
+                })
+                ->paginate(12);
+
+            return view('frontend.pages.home_content', compact( 'products'));
+        }else{
+            return redirect('/');
+        }
     }
 
 }

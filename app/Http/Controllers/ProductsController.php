@@ -63,10 +63,10 @@ class ProductsController extends Controller
 
             $parent_category = Category::where('id', $parent_id['parent_id'])->first();
 
-            array_push($GLOBALS['parent_categories'], $parent_category['name']);
+            array_push($GLOBALS['parent_categories'], $parent_category['slug']);
 
             if (isset($parent_category['parent_id'])){
-                getParentCategory($parent_category['name']);
+                $this->getParentCategory($parent_category['name']);
             }
         }
 

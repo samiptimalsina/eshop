@@ -20,14 +20,14 @@
 
             echo "<div class='panel panel-default'> <div class='panel-heading'>
                 <h4 class='panel-title'>
-                    <span onclick='toggleExpandIcon(this)' data-toggle='collapse' data-parent='#accordian' href='#".$category['name']."' class='badge pull-right'><i id='expand-icon' class='fa fa-plus'></i></span>";
-                    echo "<a id='".$category['slug'].'-link'."' class='".checkActiveClass($category)."' href='". route('products.byCategory', $category->slug) ."'>
-                        ".$category['name']."
+                    <span id='".$category['slug']."-expand-icon' onclick='toggleCategoryExpandIcon(this)' data-toggle='collapse' data-parent='#accordian' href='#".$category['slug']."' class='badge pull-right'><i id='expand-icon' class='fa fa-plus'></i></span>";
+                    echo "<a id='".$category['slug']."-link' class='".checkActiveClass($category)."' href='". route('products.byCategory', $category->slug) ."'>
+                        ".$category['slug']."
                     </a>
                 </h4>
             </div></div>";
 
-            echo "<div id='".$category['name']."' class='panel-collapse collapse'>
+            echo "<div id='".$category['slug']."' class='panel-collapse collapse'>
                 <div class='panel-body'>
                     <ul>";
                         foreach($category['children'] as $category){
@@ -40,7 +40,7 @@
         }else{
             echo "<div class='panel panel-default'>
                 <div class='panel-heading'>";
-                    echo "<h4 class='panel-title'><a id='".$category['slug'].'-link'."' class='".checkActiveClass($category)."' href='". route('products.byCategory', $category->slug) ."'>".$category['name']."</a></h4>
+                    echo "<h4 class='panel-title'><a id='".$category['slug'].'-link'."' class='".checkActiveClass($category)."' href='". route('products.byCategory', $category->slug) ."'>".$category['slug']."</a></h4>
                 </div>
             </div>";
         }
@@ -49,12 +49,12 @@
     function nestedTree($category){
         if (count($category['children']) > 0){
             echo "<li>
-                <span onclick='toggleExpandIcon(this)' data-toggle='collapse' data-parent='#sportswear' href='#".$category['name']."' class='collapsed badge pull-right'><i class='fa fa-plus'></i></span>";
+                <span id='".$category['slug']."-expand-icon' onclick='toggleCategoryExpandIcon(this)' data-toggle='collapse' data-parent='#sportswear' href='#".$category['slug']."' class='collapsed badge pull-right'><i class='fa fa-plus'></i></span>";
                 echo "<a id='".$category['slug'].'-link'."' class='".checkActiveClass($category)."' href='". route('products.byCategory', $category->slug) ."'>
-                    ".$category['name']."
+                    ".$category['slug']."
                 </a>
 
-                <div id='".$category['name']."' class='panel-collapse collapse'>
+                <div id='".$category['slug']."' class='panel-collapse collapse'>
                     <div class='panel-body'>
                         <ul>";
                             foreach($category['children'] as $nested_category){
@@ -65,7 +65,7 @@
                 </div>
             </li>";
         }else{
-            echo "<li><a id='".$category['slug'].'-link'."' class='".checkActiveClass($category)."' href='". route('products.byCategory', $category->slug) ."'>".$category['name']."</a></li>";
+            echo "<li><a id='".$category['slug'].'-link'."' class='".checkActiveClass($category)."' href='". route('products.byCategory', $category->slug) ."'>".$category['slug']."</a></li>";
         }
     }
 
@@ -75,10 +75,10 @@
          <div class="left-sidebar">
              <h2>Category</h2>
 
-             @if (count(categories()) > 0)
+             @if (count(getParentCategories()) > 0)
 
                  <div class="panel-group category-products" id="accordian">
-                     @foreach (categories() as $category)
+                     @foreach (getParentCategories() as $category)
                          @php(tree($category))
                      @endforeach
                  </div>
@@ -124,9 +124,11 @@
 
 <script type="text/javascript">
 
-    function toggleExpandIcon(e){
+    function toggleCategoryExpandIcon(e){
+        toggleExpandIcon($(e).children('i'));
+    }
 
-        expandIcon = $(e).children('i');
+    function toggleExpandIcon(expandIcon){
 
         if (expandIcon.hasClass('fa-plus')) {
             expandIcon.toggleClass('fa-plus');
@@ -180,7 +182,12 @@
                     .then(response => {
                         parent_categories = response.data;
 
+                        console.log(response.data)
+
                         $.each(parent_categories, function( index, parent_category ) {
+
+                            toggleExpandIcon($('#'+parent_category+'-expand-icon').children('i'));
+
                             $('#'+parent_category).removeClass('collapse');
                             $('#'+parent_category).addClass('in');
                         });

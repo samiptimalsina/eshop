@@ -24,7 +24,7 @@
                             <a href="{{ route('admin.orders.show', $order->id) }}">
                                 <div>
                                     <i class="fa fa-envelope fa-fw"></i> {{ ucfirst($order->user->name) }}
-                                    <span class="pull-right text-muted small">{{ timeAgo($order->created_at) }}</span>
+                                    <span class="pull-right text-muted small">{{ $order->created_at->diffForHumans() }}</span>
                                 </div>
                             </a>
                         </li>
