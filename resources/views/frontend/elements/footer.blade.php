@@ -104,6 +104,9 @@
     {{--toastr--}}
     <script src="{{ asset('public/admin/js/plugins/toastr/toastr.min.js') }} "></script>
 
+    {{--jquery validate--}}
+    <script src="{{ asset('public/frontend/js/jquery-validate/jquery.validate.min.js') }} "></script>
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
 

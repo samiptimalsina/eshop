@@ -45,6 +45,7 @@
     {{--vueJs--}}
     <script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
     <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/2.1.1/vee-validate.js"></script>
 
     {{--custom--}}
     <script src="{{ asset('public/frontend/js/custom.js') }}"></script>

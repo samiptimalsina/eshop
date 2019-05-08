@@ -60,11 +60,11 @@ Route::group(['middleware' => 'auth'], function (){
 
     //User profile.........................
     Route::get('my-profile', 'UsersController@showProfile')->name('user.myProfile');
+    Route::get('my-profile/get-info', 'UsersController@getProfileInfo')->name('user.getProfileInfo');
     Route::post('my-profile', 'UsersController@updateProfile')->name('user.myProfile');
-
-    //User change password..................
-    Route::get('change-password', 'UsersController@changePassword')->name('user.changePassword');
-    Route::post('change-password', 'UsersController@updatePassword')->name('user.updatePassword');
+    Route::post('my-profile/image/upload', 'UsersController@imageUpload')->name('user.imageUpload');
+    Route::get('my-profile/change-password', 'UsersController@changePassword')->name('user.changePassword');
+    Route::post('my-profile/change-password', 'UsersController@updatePassword')->name('user.updatePassword');
 
 });
 

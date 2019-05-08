@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique()->nullable()->default(null);
             $table->string('address_line1')->nullable()->default(null);
             $table->string('address_line2')->nullable()->default(null);
+            $table->date('date_of_birth')->nullable()->default(null);
+            $table->string('gender')->nullable()->default(null);
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

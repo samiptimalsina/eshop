@@ -402,18 +402,9 @@ a#scrollUp{
     padding-top: 1px;
 }
 
-
-
-
-
-
-section{
-    background: #F1F2F4;
-}
 .my-account{
     margin: 0!important;
     padding-top: 0!important;
-    background-color: #f1f2f4;
     font-family: lato,sans-serif,siyamrupali,sans-serif!important;
     font-size: 14px;
     font-weight: 400;
@@ -445,6 +436,7 @@ section{
     display: -webkit-flex;
     display: -moz-box;
     display: flex;
+    border-top: 2px solid #3bd257!important;
 }
 .my-account .sidebar .sidebar__info .sidebar__info--thumbnail {
     margin-right: 10px;
@@ -496,7 +488,7 @@ section{
     padding-right: 5rem!important;
 }
 .pb-4, .py-4 {
-    padding-bottom: 1.5rem!important;
+    padding-bottom: 3rem!important;
 }
 .pt-4, .py-4 {
     padding-top: 2.5rem!important;
@@ -509,6 +501,9 @@ section{
 }
 .border-bottom {
     border-bottom: 1px solid #dee2e6!important;
+}
+.border-top {
+    border-top: 1px solid #dee2e6!important;
 }
 .my-account .shadow-sm .heading .text {
     font-size: 19px;
@@ -568,6 +563,12 @@ section{
     background-color: #3bd257!important;
     font-size: 18px!important;
 }
+.text-success {
+    color: #28a745!important;
+}
+.ml-4, .mx-4 {
+    margin-left: 1.5rem!important;
+}
 .text-light {
     color: #f8f9fa!important;
 }
@@ -584,15 +585,88 @@ section{
 .mt-2, .my-2 {
     margin-top: .5rem!important;
 }
-.my-account .shadow-sm form .form-group .form-label {
-    font-size: 16px;
-}
 .mb-3, .my-3 {
     margin-bottom: 2rem!important;
 }
 .mt-3, .my-3 {
     margin-top: 2rem!important;
 }
+.font-italic {
+    font-style: italic!important;
+}
+.my-account .text-danger {
+    color: #dc3545!important;
+}
 .rounded-circle {
     border-radius: 50%!important;
 }
+.my-account input[type="date"].form-control{
+    line-height: normal;
+}
+.custom-radio{
+    display: -webkit-inline-flex!important;
+    display: -moz-inline-box!important;
+    display: inline-flex!important;
+}
+.custom-radio {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.custom-radio input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.custom-radio:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.custom-radio input:checked ~ .checkmark {
+    background-color: #007bff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.custom-radio input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.custom-radio .checkmark:after {
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+}
+
