@@ -20,8 +20,8 @@
                         <li v-for="unseen_order in unseen_orders">
                             <a :href="'{{ route('admin.orders.show', '') }}/'+unseen_order.id">
                                 <div>
-                                    <i class="fa fa-envelope fa-fw"></i> @{{ unseen_order.user.name }}
-                                    <span class="pull-right text-muted small">@{{ unseen_order.created_at | agoMinutes() }}</span>
+                                    <i class="fa fa-envelope fa-fw"></i> @{{ unseen_order.user.name | capitalize }}
+                                    <span class="pull-right text-muted small">@{{ unseen_order.OrderSubmitAgoTimes }}</span>
                                </div>
                             </a>
                         </li>
@@ -65,15 +65,11 @@
             toastr.success('New order placed by ' + e.order.user.name);
         });
 
-    //Global filters...........
-    Vue.filter('agoMinutes', function (date) {
-
-        //console.log(date);
-        //console.log(moment([2011, 0, 29]).fromNow());
-
-        return moment([date]).fromNow();
+    Vue.filter('capitalize', function (value) {
+        if (!value) return '';
+        value = value.toString();
+        return value.charAt(0).toUpperCase() + value.slice(1);
     });
-    //End global filters
 
     var AdminHeader = new Vue({
         el: "#root",
@@ -91,6 +87,8 @@
                 axios.get(home_url + '/admin/orders/unseen')
                     .then(response => {
                         currentApp.unseen_orders = response.data;
+
+                        console.log(response.data);
                     })
             },
         },

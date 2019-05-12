@@ -13,6 +13,13 @@ class Order extends Model
 {
     protected $fillable = ['user_id', 'shipping_id', 'payment_id', 'order_total', 'status', 'seen'];
 
+    protected $appends = ['OrderSubmitAgoTimes'];
+
+    public function getOrderSubmitAgoTimesAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     public function orderDetails()
     {
         return $this->hasMany(Order_detail::class);
