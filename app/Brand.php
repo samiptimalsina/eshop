@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\ReviewCreated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -15,4 +16,13 @@ class Brand extends Model
     public function products(){
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => ReviewCreated::class,
+    ];
 }

@@ -105,7 +105,7 @@
     </div>
 
     <script>
-        var WishCart = new Vue({
+        var ViewCart = new Vue({
             el: "#root",
             data: {
                 carts:[],

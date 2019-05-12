@@ -33,7 +33,7 @@ class UsersController extends Controller
     }
 
     function getProfileInfo(){
-        $user = User::find(Auth::user()->id)->first();
+        $user = User::where('id', Auth::user()->id)->first();
         return $user;
     }
 

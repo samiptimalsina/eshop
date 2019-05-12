@@ -48,7 +48,9 @@
 .shop-menu ul li a {
      background: none!important;
 }
-
+.shop-menu ul li{
+    display: block!important;
+}
 .view-product img {
     border: 3px solid #F7F7F0!important;
 }

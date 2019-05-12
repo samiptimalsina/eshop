@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Events\OrderCreated;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -37,4 +38,13 @@ class Order extends Model
             $order->shipping()->delete();
         });
     }
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => OrderCreated::class,
+    ];
 }

@@ -1,75 +1,99 @@
 
-<div class="row border-bottom">
-    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
+<div id="root">
+    <div class="row border-bottom">
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header">
+                <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+            </div>
+            <ul class="nav navbar-top-links navbar-right">
 
-            <li class="dropdown">
-                <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
-                    <i class="fa fa-bell"></i>  <span class="label label-primary">{{ count(showUnseenOrder()) }}</span>
-                </a>
-                <ul class="dropdown-menu dropdown-alerts">
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+                        <i class="fa fa-bell"></i>  <span class="label label-primary">@{{ unseen_orders.length }}</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
 
-                    <li>You have {{ count(showUnseenOrder()) }} new orders.</li>
+                        <li>You have @{{ unseen_orders.length }} new orders.</li>
 
-                    @foreach(showUnseenOrder() as $k => $order)
+                        <li class="divider"></li>
 
-                        @if($k != 0)
-                            <li class="divider"></li>
-                        @endif
-
-                        <li>
-                            <a href="{{ route('admin.orders.show', $order->id) }}">
+                        <li v-for="unseen_order in unseen_orders">
+                            <a :href="'{{ route('admin.orders.show', '') }}/'+unseen_order.id">
                                 <div>
-                                    <i class="fa fa-envelope fa-fw"></i> {{ ucfirst($order->user->name) }}
-                                    <span class="pull-right text-muted small">{{ $order->created_at->diffForHumans() }}</span>
-                                </div>
+                                    <i class="fa fa-envelope fa-fw"></i> @{{ unseen_order.user.name }}
+                                    <span class="pull-right text-muted small">@{{ unseen_order.created_at | agoMinutes() }}</span>
+                               </div>
                             </a>
                         </li>
 
-                    @endforeach
+                    </ul>
+                </li>
 
-                </ul>
-            </li>
+                <li>
+                    <a href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()">
+                        <i class="fa fa-sign-out"></i> Log out
+                    </a>
 
-            <li>
-                <a href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()";>
-                    <i class="fa fa-sign-out"></i> Log out
-                </a>
+                    <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </li>
 
-                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            </li>
+            </ul>
 
-        </ul>
-
-    </nav>
+        </nav>
+    </div>
 </div>
 
+{{--included vueJs and axios--}}
+<script src="{{ asset('public/js/app.js') }}"></script>
 
+<script>
 
-{{--
-<div class="row border-bottom">
-    <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-        </div>
-        <ul class="nav navbar-top-links navbar-right">
+    //New order notification
+    Echo.channel('order.created')
+        .listen('OrderCreated', (e) => {
 
-            <li>
-                <a href="{{ route('admin.logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit()";>
-                    <i class="fa fa-sign-out"></i> Log out
-                </a>
+            AdminHeader.unseen_orders.unshift(e.order);
 
-                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            </li>
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'slideDown',
+                timeOut: 3000
+            };
+            toastr.success('New order placed by ' + e.order.user.name);
+        });
 
-        </ul>
+    //Global filters...........
+    Vue.filter('agoMinutes', function (date) {
 
-    </nav>
-</div>--}}
+        //console.log(date);
+        //console.log(moment([2011, 0, 29]).fromNow());
+
+        return moment([date]).fromNow();
+    });
+    //End global filters
+
+    var AdminHeader = new Vue({
+        el: "#root",
+        data: {
+            unseen_orders: [],
+        },
+
+        mounted(){
+            this.getUnseenOrder();
+        },
+
+        methods:{
+            getUnseenOrder(){
+                currentApp = this;
+                axios.get(home_url + '/admin/orders/unseen')
+                    .then(response => {
+                        currentApp.unseen_orders = response.data;
+                    })
+            },
+        },
+    })
+</script>
+

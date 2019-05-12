@@ -41,35 +41,34 @@
             <aside class="sidebar">
                 <div class="sidebar__info">
                     <div class="sidebar__info--thumbnail">
-                        <img class="img-fluid rounded-circle" src="https://s3-ap-southeast-1.amazonaws.com/rokomari110/user/9f86c62108cb4_284632.jpg" alt="" width="50px">
+                        <img class="img-fluid rounded-circle" :src="'{{ URL::to('public/admin/uploads/images/users') }}/'+personal_info.image" alt="" width="50px">
                     </div>
                     <div class="sidebar__info--content">
                         <p>Hello,</p>
-                        <h3>Abdullah al mamun</h3>
+                        <h3>@{{ personal_info.name }}</h3>
                     </div>
                 </div>
 
                 <ul class="sidebar__menu">
                     <li class="active">
-                        <a href="/my-section/profile">My Accounts</a>
+                        <a href="{{ route('user.myProfile') }}">My Profile</a>
                     </li>
                     <li>
-                        <a href="/my-section/orders">My Orders</a>
+                        <a href="#0">My Orders</a>
                     </li>
                     <li>
-                        <a href="/my-section/list">My Lists</a>
+                        <a href="{{ route('cart.index') }}">My Cart</a>
                     </li>
                     <li>
-                        <a href="/my-section/wish-list">My Wishlist</a>
+                        <a href="{{ route('wishlist.index') }}">My Wishlist</a>
                     </li>
                     <li>
-                        <a href="/my-section/wallet">My Wallet</a>
-                    </li>
-                    <li>
-                        <a href="/ordertrack">My Order Track</a>
-                    </li>
-                    <li>
-                        <a href="/loadgiftvoucher">Load Gift Voucher</a>
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                           {{ __('Logout') }}
+                        </a>
+
                     </li>
                 </ul>
             </aside>
@@ -179,7 +178,7 @@
                 <span class="text">Password</span>
                 <span id="changePassword" class="edit3 ml-4" @click="passwordEdit">Change Password</span>
             </div>
-            <form @submit.prevent="updatePassword" action="{{ route('user.changePassword') }}" method="post" class="mt-3">
+            <form @submit.prevent="updatePassword" action="{{ route('user.updatePassword') }}" method="post" class="mt-3">
                 @csrf
 
                 <div class="form-group">
@@ -351,7 +350,7 @@
                             
                             $('#passwordChangeMsg').removeAttr('style');
                             path = e.currentTarget.getAttribute('action');
-                            
+
                             axios.post(path, this.change_password)
                                 .then(response => {
 

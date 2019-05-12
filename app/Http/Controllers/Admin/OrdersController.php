@@ -3,15 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Order;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class OrdersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index()
     {
@@ -24,7 +28,7 @@ class OrdersController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create()
     {
@@ -35,7 +39,7 @@ class OrdersController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function store(Request $request)
     {
@@ -46,7 +50,7 @@ class OrdersController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function show($id)
     {
@@ -65,7 +69,7 @@ class OrdersController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function edit(Order $order)
     {
@@ -77,7 +81,7 @@ class OrdersController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function update(Request $request, $id)
     {
@@ -88,7 +92,7 @@ class OrdersController extends Controller
      * Remove the specified resource from storage.
      *
      * @param Order $order
-     * @return \Illuminate\Http\Response
+     * @return Response
      * @throws \Exception
      */
     public function destroy(Order $order)
@@ -103,7 +107,7 @@ class OrdersController extends Controller
     /**
      * @param Request $request
      * @param Order $order
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
     function changeStatus(Request $request, Order $order){
 
@@ -126,5 +130,15 @@ class OrdersController extends Controller
 
         $order = Order::where('id', $id)->first();
         $order->update(['seen' => 1]);
+    }
+
+    /**
+     * Get all unseen order for new order notification
+     *
+     * @return Order[]|Builder[]|Collection
+     */
+    function getUnseenOrder(){
+        $orders = Order::orderBy('id', 'desc')->with('user:id,name')->select('id', 'created_at', 'user_id')->where('seen', false)->get();
+        return $orders;
     }
 }

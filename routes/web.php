@@ -59,12 +59,13 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('order-place', 'CheckoutsController@orderPlace')->name('order-place');
 
     //User profile.........................
-    Route::get('my-profile', 'UsersController@showProfile')->name('user.myProfile');
-    Route::get('my-profile/get-info', 'UsersController@getProfileInfo')->name('user.getProfileInfo');
-    Route::post('my-profile', 'UsersController@updateProfile')->name('user.myProfile');
-    Route::post('my-profile/image/upload', 'UsersController@imageUpload')->name('user.imageUpload');
-    Route::get('my-profile/change-password', 'UsersController@changePassword')->name('user.changePassword');
-    Route::post('my-profile/change-password', 'UsersController@updatePassword')->name('user.updatePassword');
+    Route::group(['prefix' => 'my-profile'], function (){
+        Route::get('/', 'UsersController@showProfile')->name('user.myProfile');
+        Route::get('get-info', 'UsersController@getProfileInfo')->name('user.getProfileInfo');
+        Route::post('/', 'UsersController@updateProfile')->name('user.myProfile');
+        Route::post('image/upload', 'UsersController@imageUpload')->name('user.imageUpload');
+        Route::post('change-password', 'UsersController@updatePassword')->name('user.updatePassword');
+    });
 
 });
 
@@ -108,6 +109,7 @@ Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 
         Route::resource('products', 'Admin\ProductsController');
 
         //Orders..............................................
+        Route::get('orders/unseen', 'Admin\OrdersController@getUnseenOrder')->name('orders.unseen');
         Route::get('orders/{order}/{old}/change-status', 'Admin\OrdersController@changeStatus')->name('orders.change-status');
         Route::resource('orders', 'Admin\OrdersController');
 

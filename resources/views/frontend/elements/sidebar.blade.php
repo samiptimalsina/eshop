@@ -182,8 +182,6 @@
                     .then(response => {
                         parent_categories = response.data;
 
-                        console.log(response.data)
-
                         $.each(parent_categories, function( index, parent_category ) {
 
                             toggleExpandIcon($('#'+parent_category+'-expand-icon').children('i'));

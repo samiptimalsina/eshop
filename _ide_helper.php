@@ -15404,6 +15404,9 @@ namespace  {
 
     class Blade extends \Illuminate\Support\Facades\Blade {}
 
+    /**
+     * @method static channel(string $string, Closure $param)
+     */
     class Broadcast extends \Illuminate\Support\Facades\Broadcast {}
 
     class Bus extends \Illuminate\Support\Facades\Bus {}

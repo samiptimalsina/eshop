@@ -13,6 +13,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="csrf-token" content="{{ @csrf_token() }}">
 
     <title>E-SHOPPER | Dashboard</title>
 
@@ -25,8 +26,22 @@
     <link href="{{ asset('public/admin/css/plugins/jasny/jasny-bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('public/admin/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
 
+    {{--sweet alert--}}
+    <link href="{{ asset('public/frontend/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+
+    {{--Toastr--}}
+    <link href="{{ asset('public/admin/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+
     <link href="{{ asset('public/admin/css/custom_style.css') }}" rel="stylesheet">
 
+    <script type="text/javascript">var home_url="{{ url('/') }}"</script>
+
+    {{--vueJs--}}
+    {{--<script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>--}}
+
+    {{--moment--}}
+    <script src="{{ asset('public/frontend/js/moment/moment.min.js') }}"></script>
 
 </head>
 
@@ -70,6 +85,12 @@
 {{--tree--}}
 <script src="{{ asset('public/admin/js/plugins/jsTree/jstree.min.js') }}"></script>
 
+{{--sweetalert--}}
+<script src="{{ asset('public/frontend/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+
+{{--toastr--}}
+<script src="{{ asset('public/admin/js/plugins/toastr/toastr.min.js') }} "></script>
+
 <style>
     .jstree-open > .jstree-anchor > .fa-folder:before {
         content: "\f07c";
@@ -80,7 +101,10 @@
     }
 </style>
 
+
+
 <script>
+
     $(document).ready(function(){
 
         //slugify......

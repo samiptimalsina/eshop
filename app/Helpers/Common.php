@@ -81,16 +81,6 @@ function brands(){
 }
 
 /**
- * Get all unseen order for new order notification
- *
- * @return Order[]|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection
- */
-function showUnseenOrder(){
-    $orders = Order::orderBy('id', 'desc')->with('user')->where('seen', false)->get();
-    return $orders;
-}
-
-/**
  * Get product price range
  *
  * @return array
@@ -100,4 +90,5 @@ function productMinAndMaxPrice(){
 
     return ['min_price' => isset($products->first()->price)?$products->first()->price:'', 'max_price' => isset($products->last()->price)?$products->last()->price:''];
 }
+
 

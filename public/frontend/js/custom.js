@@ -7,9 +7,10 @@ $(document).ready(function(){
         roundedCorners : true
     });
 });
+
 window.addEventListener('load', function (){
     initRateYo();
-})
+});
 
 function initRateYo() {
     $(".rateYo").each(function () {

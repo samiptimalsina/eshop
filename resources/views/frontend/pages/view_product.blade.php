@@ -227,7 +227,6 @@
 
     <script>
 
-
         var ViewProduct = new Vue({
             el: "#root",
             data: {

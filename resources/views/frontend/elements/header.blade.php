@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home | E-SHOPPER</title>
 
     {{--Quick view--}}
@@ -130,7 +131,10 @@
                                 <li class="dropdown"><a href="#"><i class="fa fa-user"></i> {{ Auth::user()->name }}<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="{{route('user.myProfile')}}">My Profile</a></li>
-                                        <li><a href="{{ route('user.changePassword') }}">Change Password</a></li>
+                                        <li><a href="#0">My Orders</a></li>
+                                        <li><a href="{{route('cart.index')}}">My Cart</a></li>
+                                        <li><a href="{{route('wishlist.index')}}">My Wishlist</a></li>
+
                                         <li>
                                             <a class="dropdown-item" href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
