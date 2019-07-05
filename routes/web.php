@@ -11,6 +11,21 @@
 |
 */
 
+
+/*Test cron job*/
+Route::get('cron', function (){
+    info('Cron job work properly');
+})->name('cron');
+
+Route::get('/es-clear', function () {
+    \Illuminate\Support\Facades\Artisan::call('cache:clear');
+    \Illuminate\Support\Facades\Artisan::call('config:clear');
+    \Illuminate\Support\Facades\Artisan::call('view:clear');
+    \Illuminate\Support\Facades\Artisan::call('route:clear');
+
+    return 'true';
+});
+
 //Frontend..............................
 Route::get('/', 'HomeController@index')->name('frontend.index');
 Route::get('products/category/{category}', 'HomeController@productByCategory')->name('products.byCategory');

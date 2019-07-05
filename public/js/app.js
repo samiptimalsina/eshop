@@ -44250,6 +44250,7 @@ window.Echo = new laravel_echo__WEBPACK_IMPORTED_MODULE_0__["default"]({
   cluster: "ap2",
   encrypted: true
 });
+console.log(window.Echo.options);
 
 /***/ }),
 

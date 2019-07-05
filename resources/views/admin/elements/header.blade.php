@@ -87,8 +87,6 @@
                 axios.get(home_url + '/admin/orders/unseen')
                     .then(response => {
                         currentApp.unseen_orders = response.data;
-
-                        console.log(response.data);
                     })
             },
         },

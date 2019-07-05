@@ -127,7 +127,7 @@
 
                 removeFromCart(e){
 
-                    currentApp = this
+                    currentApp = this;
                     row_id = e.currentTarget.getAttribute('row-id');
 
                     //sweet alert
