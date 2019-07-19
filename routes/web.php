@@ -175,7 +175,6 @@ Route::get('curl', function (){
 Route::get('test-curl', function (){
 
     $curl = curl_init();
-
     $postUrl = route('curl-response');
 
     curl_setopt_array($curl, array(
