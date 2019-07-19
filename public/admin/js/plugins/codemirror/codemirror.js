@@ -12,7 +12,7 @@
     module.exports = mod();
   else if (typeof define == "function" && define.amd) // AMD
     return define([], mod);
-  else // Plain browser env
+  else // Plain browser .env
     this.CodeMirror = mod();
 })(function() {
   "use strict";

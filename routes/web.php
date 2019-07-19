@@ -168,3 +168,34 @@ Route::group(['middleware' => 'preventBackHistory'], function (){
     Route::post('admin/change-profile-picture', 'Admin\AdminsController@updateProfilePicture')->name('admin.changeProfilePicture');
 });
 
+Route::get('curl', function (){
+    return ['status' => 'success', 'message' => 'Curl work properly.'];
+})->name('curl-response');
+
+Route::get('test-curl', function (){
+
+    $curl = curl_init();
+
+    $postUrl = route('curl-response');
+
+    curl_setopt_array($curl, array(
+        CURLOPT_URL => $postUrl,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+    ));
+
+    $response = curl_exec($curl);
+
+    print_r($response);
+
+    $err = curl_error($curl);
+
+    if ($err) dd($err);
+
+    curl_close($curl);
+
+});

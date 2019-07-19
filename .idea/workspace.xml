@@ -2,17 +2,99 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="304d6931-ea8f-451f-beca-56175a41ba12" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/e-shopper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/e-shopper.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/js/custom.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/codemirror.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/codemirror.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/apl/apl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/apl/apl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/asterisk/asterisk.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/asterisk/asterisk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/clike/clike.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/clike/clike.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/clojure/clojure.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/clojure/clojure.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/cobol/cobol.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/cobol/cobol.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/coffeescript/coffeescript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/coffeescript/coffeescript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/commonlisp/commonlisp.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/commonlisp/commonlisp.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/css/css.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/css/css.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/cypher/cypher.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/cypher/cypher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/d/d.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/d/d.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/diff/diff.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/diff/diff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/django/django.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/django/django.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/dtd/dtd.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/dtd/dtd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/dylan/dylan.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/dylan/dylan.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/ecl/ecl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/ecl/ecl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/eiffel/eiffel.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/eiffel/eiffel.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/erlang/erlang.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/erlang/erlang.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/fortran/fortran.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/fortran/fortran.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/gas/gas.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/gas/gas.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/gfm/gfm.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/gfm/gfm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/gherkin/gherkin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/gherkin/gherkin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/go/go.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/go/go.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/groovy/groovy.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/groovy/groovy.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/haml/haml.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/haml/haml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/haskell/haskell.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/haskell/haskell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/haxe/haxe.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/haxe/haxe.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/htmlembedded/htmlembedded.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/htmlembedded/htmlembedded.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/htmlmixed/htmlmixed.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/htmlmixed/htmlmixed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/http/http.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/http/http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/jade/jade.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/jade/jade.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/javascript/javascript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/javascript/javascript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/jinja2/jinja2.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/jinja2/jinja2.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/julia/julia.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/julia/julia.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/kotlin/kotlin.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/kotlin/kotlin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/livescript/livescript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/livescript/livescript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/lua/lua.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/lua/lua.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/markdown/markdown.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/markdown/markdown.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/meta.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/meta.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/mirc/mirc.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/mirc/mirc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/mllike/mllike.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/mllike/mllike.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/modelica/modelica.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/modelica/modelica.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/nginx/nginx.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/nginx/nginx.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/ntriples/ntriples.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/ntriples/ntriples.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/octave/octave.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/octave/octave.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/pascal/pascal.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/pascal/pascal.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/pegjs/pegjs.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/pegjs/pegjs.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/perl/perl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/perl/perl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/php/php.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/php/php.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/pig/pig.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/pig/pig.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/properties/properties.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/properties/properties.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/puppet/puppet.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/puppet/puppet.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/python/python.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/python/python.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/q/q.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/q/q.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/r/r.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/r/r.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/rpm/rpm.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/rpm/rpm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/rst/rst.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/rst/rst.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/ruby/ruby.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/ruby/ruby.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/rust/rust.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/rust/rust.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sass/sass.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sass/sass.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/scheme/scheme.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/scheme/scheme.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/shell/shell.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/shell/shell.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sieve/sieve.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sieve/sieve.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/slim/slim.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/slim/slim.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/smalltalk/smalltalk.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/smalltalk/smalltalk.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/smarty/smarty.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/smarty/smarty.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/smartymixed/smartymixed.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/smartymixed/smartymixed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/solr/solr.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/solr/solr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sparql/sparql.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sparql/sparql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sql/sql.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/sql/sql.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/stex/stex.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/stex/stex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tcl/tcl.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tcl/tcl.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/textile/textile.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/textile/textile.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tiddlywiki/tiddlywiki.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tiddlywiki/tiddlywiki.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tiki/tiki.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tiki/tiki.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/toml/toml.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/toml/toml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tornado/tornado.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/tornado/tornado.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/turtle/turtle.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/turtle/turtle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/vb/vb.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/vb/vb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/vbscript/vbscript.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/vbscript/vbscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/velocity/velocity.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/velocity/velocity.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/verilog/verilog.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/verilog/verilog.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/xml/xml.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/xml/xml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/xquery/xquery.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/xquery/xquery.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/yaml/yaml.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/yaml/yaml.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/z80/z80.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/codemirror/mode/z80/z80.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/js/axios/axios.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/js/axios/axios.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/assets/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/elements/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/view_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/view_cart.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.idea/httpRequests/" />
@@ -53,68 +135,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.env">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/.htaccess">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="329">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="315">
+              <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/frontend/profile/show_profile.blade.php">
+        <entry file="file://$PROJECT_DIR$/composer.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1275">
-              <caret line="104" column="27" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
-              <folding>
-                <element signature="e#61#1691#0#Blade" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UsersController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Middleware/PreventBackHistory.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" selection-start-line="23" selection-end-line="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminsController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="289">
+              <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
             </state>
           </provider>
         </entry>
@@ -231,10 +265,10 @@
         <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
         <option value="$PROJECT_DIR$/resources/assets/js/bootstrap.js" />
         <option value="$PROJECT_DIR$/resources/views/admin/elements/header.blade.php" />
-        <option value="$PROJECT_DIR$/.env" />
-        <option value="$PROJECT_DIR$/composer.json" />
-        <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="&lt;8b24554d-2703-47ec-af53-55a755590d67&gt;/public_html/demo/eshopper/storage/logs/laravel.log" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/routes/web.php" />
+        <option value="$PROJECT_DIR$/composer.json" />
       </list>
     </option>
   </component>
@@ -479,7 +513,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="editor.config.ad.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pairsms" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -599,6 +633,8 @@
       <workItem from="1561823347721" duration="4051000" />
       <workItem from="1561828698749" duration="2314000" />
       <workItem from="1561916232680" duration="613000" />
+      <workItem from="1563542484251" duration="578000" />
+      <workItem from="1563544729058" duration="2084000" />
     </task>
     <task id="LOCAL-00001" summary="add to git">
       <created>1554806067568</created>
@@ -695,12 +731,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="579511000" />
+    <option name="totallyTimeSpent" value="582173000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19894099" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20499243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info id="npm" order="3" side_tool="true" />
@@ -714,7 +751,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" sideWeight="0.49924356" weight="0.32993197" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.46258503" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.46153846" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50075644" side_tool="true" weight="0.32993197" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32993197" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="13" show_stripe_button="false" weight="0.32993197" />
@@ -780,12 +817,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="new order real time notification by pusher" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2018_04_27_162905_create_tbl_order_details_table.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/Admin/Category/CategoryRequest.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Requests/Admin/Brand/BrandRequest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -978,13 +1009,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/laravel-echo/src/echo.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="6" column="21" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/laravel-echo/src/echo.ts" />
     <entry file="file://$PROJECT_DIR$/app/Events/OrderCreated.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1015,13 +1040,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="42" selection-start-line="16" selection-start-column="42" selection-end-line="16" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/app.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3315" />
@@ -1035,36 +1053,8 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log" />
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/elements/sidebar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/frontend/profile/show_profile.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1275">
-          <caret line="104" column="27" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
-          <folding>
-            <element signature="e#61#1691#0#Blade" />
-          </folding>
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/UsersController.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1087,10 +1077,55 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="44" column="17" selection-start-line="44" selection-start-column="17" selection-end-line="44" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/frontend/profile/show_profile.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="104" column="27" selection-start-line="104" selection-start-column="27" selection-end-line="104" selection-end-column="27" />
+          <folding>
+            <element signature="e#61#1691#0#Blade" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/ContactsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="19" column="39" selection-start-line="19" selection-start-column="39" selection-end-line="19" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/elements/sidebar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        <state relative-caret-position="315">
+          <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
         </state>
       </provider>
     </entry>
