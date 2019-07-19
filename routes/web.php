@@ -197,5 +197,4 @@ Route::get('test-curl', function (){
     if ($err) dd($err);
 
     curl_close($curl);
-
 });
