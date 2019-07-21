@@ -7,6 +7,8 @@ use App\Product;
 use App\Review;
 use App\Review_helpful;
 use App\Review_vote;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Auth;
@@ -51,7 +53,7 @@ class ReviewsController extends Controller
      * @param ReviewRequest $request
      * @param Product $product
      * @param $product_id
-     * @return Response
+     * @return Review|Builder|Model|object
      */
     public function store(ReviewRequest $request, Product $product, $product_id)
     {
