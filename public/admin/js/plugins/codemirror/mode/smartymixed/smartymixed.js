@@ -17,7 +17,7 @@
     mod(require("../../lib/codemirror"), require("../htmlmixed/htmlmixed"), require("../smarty/smarty"));
   else if (typeof define == "function" && define.amd) // AMD
     define(["../../lib/codemirror", "../htmlmixed/htmlmixed", "../smarty/smarty"], mod);
-  else // Plain browser .env
+  else // Plain browser env
     mod(CodeMirror);
 })(function(CodeMirror) {
 "use strict";

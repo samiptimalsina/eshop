@@ -133,7 +133,6 @@ Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 
 });
 
 
-
 //Admin Authentication
 Route::group(['middleware' => 'preventBackHistory'], function (){
 

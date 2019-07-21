@@ -54,6 +54,20 @@ return [
             'engine' => null,
         ],
 
+        'mysqlpairsms' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST_EN', '127.0.0.1'),
+            'port' => env('DB_PORT_EN', '3306'),
+            'database' => env('DB_DATABASE_EN', 'forge'),
+            'username' => env('DB_USERNAME_EN', 'forge'),
+            'password' => env('DB_PASSWORD_EN', ''),
+            'charset' => 'utf8',
+            'collation' => 'utf8_general_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+
         'pgsql' => [
             'driver' => 'pgsql',
             'host' => env('DB_HOST', '127.0.0.1'),
