@@ -7,6 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 /**
  * @method static where(string $string, $id)
+ * @method static create(array $array)
  */
 class User extends Authenticatable
 {
@@ -18,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'phone', 'address_line1', 'address_line2', 'image', 'password', 'date_of_birth', 'gender',
+        'provider_id', 'provider', 'name', 'email', 'phone', 'address_line1', 'address_line2', 'image', 'password', 'date_of_birth', 'gender',
     ];
 
     /**

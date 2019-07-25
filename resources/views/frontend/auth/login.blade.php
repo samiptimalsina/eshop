@@ -13,7 +13,15 @@
                         {{ csrf_field() }}
                         <input type="email" name="email" placeholder="Email Address" />
                         <input type="password" name="password" placeholder="password" />
-                        <button type="submit" name="" class="btn btn-default">Login</button>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <button type="submit" class="btn btn-default" style="margin: 0">Login</button>
+                            </div>
+                            <div class="col-sm-9">
+                                <a href="{{ url('login/facebook') }}" class="btn btn-success"><i class="fa fa-facebook"></i> Login with facebook</a>
+                            </div>
+                        </div>
 
                         <a href="{{ route('password.request') }}" style="margin-top: 12px;float:left;">Forgot password?</a>
 

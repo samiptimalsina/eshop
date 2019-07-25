@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpParamsInspection */
 
 /*
 |--------------------------------------------------------------------------
@@ -196,3 +196,6 @@ Route::get('test-curl', function (){
 
     curl_close($curl);
 });
+
+Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
