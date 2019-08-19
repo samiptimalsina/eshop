@@ -38,6 +38,6 @@ return [
     'facebook' => [
         'client_id' => '906129273056222',
         'client_secret' => '261558c8965e54ce14d78644ba2d7d37',
-        'redirect' => 'login/facebook/callback',
-    ],
+        'redirect' => 'localhost/eshopper/login/facebook/callback',
+    ]
 ];

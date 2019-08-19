@@ -157,7 +157,16 @@
                         </div>
 
                         <div v-if="reviews.length > 2" class="show_more_review_section">
-                            <a @click="showMoreReview" type="button" class="cursor_pointer">Show more Review(s)</a>
+                            <a id="more_review_load" @click="showMoreReview" type="button" class="cursor_pointer">Show more Review(s)</a>
+
+                            <div id="review-loading" class="sk-spinner sk-spinner-wave hidden" style="float: left;">
+                                <div class="sk-rect1" style="background: #FE980F"></div>
+                                <div class="sk-rect2" style="background: #FE980F"></div>
+                                <div class="sk-rect3" style="background: #FE980F"></div>
+                                <div class="sk-rect4" style="background: #FE980F"></div>
+                                <div class="sk-rect5" style="background: #FE980F"></div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -328,6 +337,8 @@
                 },
 
                 showMoreReview(){
+                    $('#review-loading').removeClass('hidden');
+                    $('#more_review_load').addClass('hidden');
                     product_id = $('#product-id').attr('product-id');
                     currentApp = this;
                     skip = currentApp.reviews.length; //skip review count
@@ -338,7 +349,10 @@
                             $.each(response.data, function(key, value) {
                                 currentApp.reviews.push(value);
                             });
-                        })
+
+                            $('#review-loading').addClass('hidden');
+                            $('#more_review_load').removeClass('hidden');
+                        });
                 },
 
                 selectProductCategory(){

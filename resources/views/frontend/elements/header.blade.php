@@ -8,6 +8,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home | E-SHOPPER</title>
 
+    <link href="{{ asset('public/admin/css/style.css') }}" rel="stylesheet">
+
     {{--Quick view--}}
     <link href="{{ asset('public/frontend/css/plugins/quickView/reset.css') }}" rel="stylesheet">
     <link href="{{ asset('public/frontend/css/plugins/quickView/style.css') }}" rel="stylesheet">

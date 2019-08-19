@@ -1,4 +1,4 @@
-<?php /** @noinspection PhpParamsInspection */
+<?php
 
 /*
 |--------------------------------------------------------------------------
@@ -65,24 +65,25 @@ Route::group(['middleware' => 'auth', 'prefix' => 'products'], function (){
     Route::get('reviews/vote/{vote}/{reviews}', 'ReviewsController@addVote')->name('reviews.vote.store');
 });
 
-Route::group(['middleware' => 'auth'], function (){
+Route::group(['middleware' => 'auth'],
+    function () {
 
-    //Checkout..............................
-    Route::get('checkout', 'CheckoutsController@index')->name('checkout');
-    Route::post('save-shipping-info', 'CheckoutsController@saveShippingInfo')->name('save-shipping-info');
-    Route::get('payment', 'CheckoutsController@payment')->name('payment');
-    Route::post('order-place', 'CheckoutsController@orderPlace')->name('order-place');
+        //Checkout..............................
+        Route::get('checkout', 'CheckoutsController@index')->name('checkout');
+        Route::post('save-shipping-info', 'CheckoutsController@saveShippingInfo')->name('save-shipping-info');
+        Route::get('payment', 'CheckoutsController@payment')->name('payment');
+        Route::post('order-place', 'CheckoutsController@orderPlace')->name('order-place');
 
-    //User profile.........................
-    Route::group(['prefix' => 'my-profile'], function (){
-        Route::get('/', 'UsersController@showProfile')->name('user.myProfile');
-        Route::get('get-info', 'UsersController@getProfileInfo')->name('user.getProfileInfo');
-        Route::post('/', 'UsersController@updateProfile')->name('user.myProfile');
-        Route::post('image/upload', 'UsersController@imageUpload')->name('user.imageUpload');
-        Route::post('change-password', 'UsersController@updatePassword')->name('user.updatePassword');
+        //User profile.........................
+        Route::group(['prefix' => 'my-profile'], function () {
+            Route::get('/', 'UsersController@showProfile')->name('user.myProfile');
+            Route::get('get-info', 'UsersController@getProfileInfo')->name('user.getProfileInfo');
+            Route::post('/', 'UsersController@updateProfile')->name('user.myProfile');
+            Route::post('image/upload', 'UsersController@imageUpload')->name('user.imageUpload');
+            Route::post('change-password', 'UsersController@updatePassword')->name('user.updatePassword');
+        });
+
     });
-
-});
 
 //Contact................
 Route::get('contact', 'ContactsController@index')->name('contact');
@@ -165,36 +166,6 @@ Route::group(['middleware' => 'preventBackHistory'], function (){
     //Admin Profile Picture Change.......................................
     Route::get('admin/change-profile-picture', 'Admin\AdminsController@changeProfilePicture')->name('admin.changeProfilePicture');
     Route::post('admin/change-profile-picture', 'Admin\AdminsController@updateProfilePicture')->name('admin.changeProfilePicture');
-});
-
-Route::get('curl', function (){
-    return ['status' => 'success', 'message' => 'Curl work properly.'];
-})->name('curl-response');
-
-Route::get('test-curl', function (){
-
-    $curl = curl_init();
-    $postUrl = route('curl-response');
-
-    curl_setopt_array($curl, array(
-        CURLOPT_URL => $postUrl,
-        CURLOPT_RETURNTRANSFER => true,
-        CURLOPT_ENCODING => "",
-        CURLOPT_MAXREDIRS => 10,
-        CURLOPT_TIMEOUT => 30,
-        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-        CURLOPT_CUSTOMREQUEST => "GET",
-    ));
-
-    $response = curl_exec($curl);
-
-    print_r($response);
-
-    $err = curl_error($curl);
-
-    if ($err) dd($err);
-
-    curl_close($curl);
 });
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
