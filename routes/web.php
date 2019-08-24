@@ -170,3 +170,8 @@ Route::group(['middleware' => 'preventBackHistory'], function (){
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+
+
+Route::get('lazy', function (){
+    return view('frontend.pages.lazy');
+});

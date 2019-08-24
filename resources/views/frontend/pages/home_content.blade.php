@@ -92,7 +92,7 @@
                                         }
                                     ?>
 
-                                    <img src="{{ $image_url }}" class="product_image" alt="" />
+                                    <img src="https://semantic-ui.com/images/wireframe/image.png" data-src="{{ $image_url }}" class="lazyload product_image" alt="" />
                                 </a>
                                 <h2>{{ $product->price }} Tk</h2>
                                 <p>{{ $product->name }}</p>
@@ -105,10 +105,11 @@
                                 <li><a href="#0" class="trigger-quick-view" id="{{ $product->id }}"><i class="fa fa-eye"></i>Quick View</a></li>
                             </ul>
                         </div>
-
                     </div>
                 </div>
             @endforeach
+
+            <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" data-src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg" class="lazyload img-responsive w-100 mb-2" alt="">
 
             @if(count($products) > 0)
                 @include('frontend.elements.quick_view')

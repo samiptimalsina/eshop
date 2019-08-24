@@ -74,7 +74,6 @@
                 </div>
             </div>
         </div>
-
     </footer><!--/Footer-->
 
     <script src="{{ asset('public/frontend/js/bootstrap.min.js') }}"></script>
@@ -107,6 +106,8 @@
     {{--jquery validate--}}
     <script src="{{ asset('public/frontend/js/jquery-validate/jquery.validate.min.js') }} "></script>
 
+    <script src="{{ asset('public/frontend/js/plugins/lazyload/lazyload.js') }}"></script>
+
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">
 
@@ -134,5 +135,6 @@
         })();
 
     </script>
+
     </body>
 </html>

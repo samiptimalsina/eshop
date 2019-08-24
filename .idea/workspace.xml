@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6c335d-4856-4d5c-93b8-cd49e6542dd1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/frontend/js/plugins/lazyload/lazyload.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/frontend/js/plugins/lazyload/lazyload.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/frontend/js/plugins/lazyload/lazyload.min.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/elements/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/view_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/view_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/elements/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/elements/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -128,20 +130,19 @@
       <path value="$PROJECT_DIR$/vendor/kylekatarnls/laravel-carbon-2" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="10" />
-    <option name="y" value="20" />
-    <option name="width" value="1346" />
-    <option name="height" value="688" />
-  </component>
   <component name="ProjectId" id="1OsRtUpHqU6kcxqcwvZSNCyJ6y2" />
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/frontend/js/plugins" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Xampp_7.3\htdocs\eshopper\public\frontend\js\plugins" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -179,7 +180,11 @@
       <workItem from="1564243526192" duration="2216000" />
       <workItem from="1564764535577" duration="1183000" />
       <workItem from="1566139924658" duration="624000" />
-      <workItem from="1566226051862" duration="3531000" />
+      <workItem from="1566226051862" duration="7513000" />
+      <workItem from="1566314676682" duration="695000" />
+      <workItem from="1566495952394" duration="641000" />
+      <workItem from="1566534400707" duration="594000" />
+      <workItem from="1566657594038" duration="2346000" />
     </task>
     <task id="LOCAL-00001" summary="Install socialite package">
       <created>1563730745021</created>
@@ -223,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1564069148892</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Loading animation added when load more reviews for product.">
+      <created>1566229818710</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1566229818710</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -247,6 +259,7 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Install socialite package" />
     <MESSAGE value="Login with facebook added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login with facebook added" />
+    <MESSAGE value="Loading animation added when load more reviews for product." />
+    <option name="LAST_COMMIT_MESSAGE" value="Loading animation added when load more reviews for product." />
   </component>
 </project>
