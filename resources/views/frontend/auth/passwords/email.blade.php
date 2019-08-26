@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-sm-offset-4 col-sm-4">
             <div class="login-form"><!--login form-->
+
                 @if (session('status'))
                     <div class="alert alert-success">
                         {{ session('status') }}

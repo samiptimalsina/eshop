@@ -109,8 +109,6 @@
                 </div>
             @endforeach
 
-            <img src="https://images.pexels.com/photos/67636/rose-blue-flower-rose-blooms-67636.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" data-src="https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg" class="lazyload img-responsive w-100 mb-2" alt="">
-
             @if(count($products) > 0)
                 @include('frontend.elements.quick_view')
             @endif

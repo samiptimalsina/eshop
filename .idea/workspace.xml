@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6c335d-4856-4d5c-93b8-cd49e6542dd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/frontend/js/plugins/lazyload/lazyload.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/frontend/js/plugins/lazyload/lazyload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/frontend/js/plugins/lazyload/lazyload.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/elements/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/elements/footer.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Notifications/AdminResetPasswordNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/AdminResetPasswordNotification.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/auth/passwords/email.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -184,7 +186,11 @@
       <workItem from="1566314676682" duration="695000" />
       <workItem from="1566495952394" duration="641000" />
       <workItem from="1566534400707" duration="594000" />
-      <workItem from="1566657594038" duration="2346000" />
+      <workItem from="1566657594038" duration="2528000" />
+      <workItem from="1566733321539" duration="798000" />
+      <workItem from="1566752710660" duration="600000" />
+      <workItem from="1566755273902" duration="9000" />
+      <workItem from="1566829155809" duration="5352000" />
     </task>
     <task id="LOCAL-00001" summary="Install socialite package">
       <created>1563730745021</created>
@@ -235,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566229818710</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Lazy loading image added.">
+      <created>1566669530483</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1566669530483</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +273,7 @@
     <MESSAGE value="Install socialite package" />
     <MESSAGE value="Login with facebook added" />
     <MESSAGE value="Loading animation added when load more reviews for product." />
-    <option name="LAST_COMMIT_MESSAGE" value="Loading animation added when load more reviews for product." />
+    <MESSAGE value="Lazy loading image added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Lazy loading image added." />
   </component>
 </project>

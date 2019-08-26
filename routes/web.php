@@ -152,7 +152,7 @@ Route::group(['middleware' => 'preventBackHistory'], function (){
     // Password Reset Routes.....................................................
     Route::get('admin/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
     Route::post('admin/password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-    Route::get('admin/password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm')->name('admin.password.reset');
+    Route::get('admin/password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm')->name('admin.password-reset');
     Route::post('admin/password/reset', 'Admin\Auth\ResetPasswordController@reset')->name('admin.password.reset');
 
     //Admin profile Routes.....................................
@@ -170,8 +170,3 @@ Route::group(['middleware' => 'preventBackHistory'], function (){
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
 Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
-
-
-Route::get('lazy', function (){
-    return view('frontend.pages.lazy');
-});

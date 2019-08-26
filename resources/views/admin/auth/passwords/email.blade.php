@@ -3,7 +3,11 @@
 @section('content')
     <div class="passwordBox animated fadeInDown">
 
-        @include("partials.flash_messages.flashMessages")
+        @if (session('status'))
+            <div class="alert alert-success">
+                {{ session('status') }}
+            </div>
+        @endif
 
         <div class="" style="margin-bottom: 20px"></div>
 

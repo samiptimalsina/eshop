@@ -5,7 +5,11 @@
     <div class="middle-box text-center loginscreen animated fadeInDown">
         <div>
 
-            @include("partials.flash_messages.flashMessages")
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
 
             <h3>Welcome to E_Shopper</h3>
             <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
