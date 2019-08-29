@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * @method static where(string $string, $slug)
@@ -10,6 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Product extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = ['name', 'slug', 'category_id', 'brand_id', 'description', 'price', 'image', 'size', 'color', 'status', 'featured'];
 
     public function orderDetails()

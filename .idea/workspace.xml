@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6c335d-4856-4d5c-93b8-cd49e6542dd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/admin/product/trash.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Notifications/AdminResetPasswordNotification.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Notifications/AdminResetPasswordNotification.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2018_04_17_062357_create_tbl_products_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2018_04_17_062357_create_tbl_products_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -134,12 +134,13 @@
   </component>
   <component name="ProjectId" id="1OsRtUpHqU6kcxqcwvZSNCyJ6y2" />
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/frontend/js/plugins" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WHMCS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -190,7 +191,9 @@
       <workItem from="1566733321539" duration="798000" />
       <workItem from="1566752710660" duration="600000" />
       <workItem from="1566755273902" duration="9000" />
-      <workItem from="1566829155809" duration="5352000" />
+      <workItem from="1566829155809" duration="6329000" />
+      <workItem from="1566840382408" duration="571000" />
+      <workItem from="1567089434547" duration="6663000" />
     </task>
     <task id="LOCAL-00001" summary="Install socialite package">
       <created>1563730745021</created>
@@ -248,7 +251,14 @@
       <option name="project" value="LOCAL" />
       <updated>1566669530483</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Admin reset email send success message showing problem solved.&#10;Admin reset password url bug fixed.">
+      <created>1566836651577</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1566836651577</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -274,6 +284,7 @@
     <MESSAGE value="Login with facebook added" />
     <MESSAGE value="Loading animation added when load more reviews for product." />
     <MESSAGE value="Lazy loading image added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Lazy loading image added." />
+    <MESSAGE value="Admin reset email send success message showing problem solved.&#10;Admin reset password url bug fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="Admin reset email send success message showing problem solved.&#10;Admin reset password url bug fixed." />
   </component>
 </project>

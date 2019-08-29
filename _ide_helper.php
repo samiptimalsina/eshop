@@ -3,7 +3,7 @@
 
 /**
  * A helper file for Laravel 5, to provide autocomplete information to your IDE
- * Generated for Laravel 5.6.16 on 2019-04-23 01:36:13.
+ * Generated for Laravel 5.6.16 on 2019-08-26 23:28:38.
  *
  * This file should not be included in your code, only analyzed by your IDE!
  *
@@ -6258,7 +6258,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function debug($message, $context = array())
@@ -6272,7 +6272,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function info($message, $context = array())
@@ -6286,7 +6286,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function notice($message, $context = array())
@@ -6300,7 +6300,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function warning($message, $context = array())
@@ -6314,7 +6314,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function error($message, $context = array())
@@ -6328,7 +6328,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function critical($message, $context = array())
@@ -6342,7 +6342,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function alert($message, $context = array())
@@ -6356,7 +6356,7 @@ namespace Illuminate\Support\Facades {
          *
          * @param string $message The log message
          * @param array $context The log context
-         * @return Boolean Whether the record has been processed
+         * @return bool Whether the record has been processed
          * @static 
          */ 
         public static function emergency($message, $context = array())
@@ -7616,6 +7616,74 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * Migrate the delayed jobs that are ready to the regular queue.
+         *
+         * @param string $from
+         * @param string $to
+         * @return array 
+         * @static 
+         */ 
+        public static function migrateExpiredJobs($from, $to)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->migrateExpiredJobs($from, $to);
+        }
+        
+        /**
+         * Delete a reserved job from the queue.
+         *
+         * @param string $queue
+         * @param \Illuminate\Queue\Jobs\RedisJob $job
+         * @return void 
+         * @static 
+         */ 
+        public static function deleteReserved($queue, $job)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        $instance->deleteReserved($queue, $job);
+        }
+        
+        /**
+         * Delete a reserved job from the reserved queue and release it.
+         *
+         * @param string $queue
+         * @param \Illuminate\Queue\Jobs\RedisJob $job
+         * @param int $delay
+         * @return void 
+         * @static 
+         */ 
+        public static function deleteAndRelease($queue, $job, $delay)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        $instance->deleteAndRelease($queue, $job, $delay);
+        }
+        
+        /**
+         * Get the queue or return the default.
+         *
+         * @param string|null $queue
+         * @return string 
+         * @static 
+         */ 
+        public static function getQueue($queue)
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->getQueue($queue);
+        }
+        
+        /**
+         * Get the underlying Redis instance.
+         *
+         * @return \Illuminate\Contracts\Redis\Factory 
+         * @static 
+         */ 
+        public static function getRedis()
+        {
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
+                        return $instance->getRedis();
+        }
+        
+        /**
          * Get the expiration timestamp for an object-based queue handler.
          *
          * @param mixed $job
@@ -7625,7 +7693,7 @@ namespace Illuminate\Support\Facades {
         public static function getJobExpiration($job)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-                        /** @var \Illuminate\Queue\SyncQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         return $instance->getJobExpiration($job);
         }
         
@@ -7639,7 +7707,7 @@ namespace Illuminate\Support\Facades {
         public static function setContainer($container)
         {
             //Method inherited from \Illuminate\Queue\Queue            
-                        /** @var \Illuminate\Queue\SyncQueue $instance */
+                        /** @var \Illuminate\Queue\RedisQueue $instance */
                         $instance->setContainer($container);
         }
          
@@ -7865,6 +7933,55 @@ namespace Illuminate\Support\Facades {
         public static function hasMacro($name)
         {
                         return \Illuminate\Routing\Redirector::hasMacro($name);
+        }
+         
+    }
+
+    /**
+     * 
+     *
+     * @see \Illuminate\Redis\RedisManager
+     * @see \Illuminate\Contracts\Redis\Factory
+     */ 
+    class Redis {
+        
+        /**
+         * Get a Redis connection by name.
+         *
+         * @param string|null $name
+         * @return \Illuminate\Redis\Connections\Connection 
+         * @static 
+         */ 
+        public static function connection($name = null)
+        {
+                        /** @var \Illuminate\Redis\RedisManager $instance */
+                        return $instance->connection($name);
+        }
+        
+        /**
+         * Resolve the given connection by name.
+         *
+         * @param string|null $name
+         * @return \Illuminate\Redis\Connections\Connection 
+         * @throws \InvalidArgumentException
+         * @static 
+         */ 
+        public static function resolve($name = null)
+        {
+                        /** @var \Illuminate\Redis\RedisManager $instance */
+                        return $instance->resolve($name);
+        }
+        
+        /**
+         * Return all of the created connections.
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function connections()
+        {
+                        /** @var \Illuminate\Redis\RedisManager $instance */
+                        return $instance->connections();
         }
          
     }
@@ -8674,6 +8791,19 @@ namespace Illuminate\Support\Facades {
         }
         
         /**
+         * 
+         *
+         * @internal 
+         * @static 
+         */ 
+        public static function setSessionFactory($factory)
+        {
+            //Method inherited from \Symfony\Component\HttpFoundation\Request            
+                        /** @var \Illuminate\Http\Request $instance */
+                        return $instance->setSessionFactory($factory);
+        }
+        
+        /**
          * Returns the client IP addresses.
          * 
          * In the returned array the most trusted IP address is first, and the
@@ -9061,7 +9191,7 @@ namespace Illuminate\Support\Facades {
          * Gets the mime type associated with the format.
          *
          * @param string $format The format
-         * @return string The associated mime type (null if not found)
+         * @return string|null The associated mime type (null if not found)
          * @static 
          */ 
         public static function getMimeType($format)
@@ -9121,8 +9251,8 @@ namespace Illuminate\Support\Facades {
          *  * _format request attribute
          *  * $default
          *
-         * @param string $default The default format
-         * @return string The request format
+         * @param string|null $default The default format
+         * @return string|null The request format
          * @static 
          */ 
         public static function getRequestFormat($default = 'html')
@@ -9256,7 +9386,7 @@ namespace Illuminate\Support\Facades {
          * Checks whether the method is cacheable or not.
          *
          * @see https://tools.ietf.org/html/rfc7231#section-4.2.3
-         * @return bool 
+         * @return bool True for GET and HEAD, false otherwise
          * @static 
          */ 
         public static function isMethodCacheable()
@@ -14114,6 +14244,21 @@ namespace Collective\Html {
         }
         
         /**
+         * Create a range input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function range($name, $value = null, $options = array())
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->range($name, $value, $options);
+        }
+        
+        /**
          * Create a hidden input field.
          *
          * @param string $name
@@ -14261,6 +14406,21 @@ namespace Collective\Html {
         {
                         /** @var \Collective\Html\FormBuilder $instance */
                         return $instance->url($name, $value, $options);
+        }
+        
+        /**
+         * Create a week input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function week($name, $value = null, $options = array())
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->week($name, $value, $options);
         }
         
         /**
@@ -14439,6 +14599,21 @@ namespace Collective\Html {
         }
         
         /**
+         * Create a month input field.
+         *
+         * @param string $name
+         * @param string $value
+         * @param array $options
+         * @return \Illuminate\Support\HtmlString 
+         * @static 
+         */ 
+        public static function month($name, $value = null, $options = array())
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->month($name, $value, $options);
+        }
+        
+        /**
          * Create a color input field.
          *
          * @param string $name
@@ -14507,6 +14682,18 @@ namespace Collective\Html {
         {
                         /** @var \Collective\Html\FormBuilder $instance */
                         return $instance->getValueAttribute($name, $value);
+        }
+        
+        /**
+         * Take Request in fill process
+         *
+         * @param bool $consider
+         * @static 
+         */ 
+        public static function considerRequest($consider = true)
+        {
+                        /** @var \Collective\Html\FormBuilder $instance */
+                        return $instance->considerRequest($consider);
         }
         
         /**
@@ -15393,6 +15580,114 @@ namespace Intervention\Image\Facades {
  
 }
 
+namespace Laravel\Socialite\Facades { 
+
+    /**
+     * 
+     *
+     * @see \Laravel\Socialite\SocialiteManager
+     */ 
+    class Socialite {
+        
+        /**
+         * Get a driver instance.
+         *
+         * @param string $driver
+         * @return mixed 
+         * @static 
+         */ 
+        public static function with($driver)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->with($driver);
+        }
+        
+        /**
+         * Build an OAuth 2 provider instance.
+         *
+         * @param string $provider
+         * @param array $config
+         * @return \Laravel\Socialite\Two\AbstractProvider 
+         * @static 
+         */ 
+        public static function buildProvider($provider, $config)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->buildProvider($provider, $config);
+        }
+        
+        /**
+         * Format the server configuration.
+         *
+         * @param array $config
+         * @return array 
+         * @static 
+         */ 
+        public static function formatConfig($config)
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->formatConfig($config);
+        }
+        
+        /**
+         * Get the default driver name.
+         *
+         * @throws \InvalidArgumentException
+         * @return string 
+         * @static 
+         */ 
+        public static function getDefaultDriver()
+        {
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->getDefaultDriver();
+        }
+        
+        /**
+         * Get a driver instance.
+         *
+         * @param string $driver
+         * @return mixed 
+         * @static 
+         */ 
+        public static function driver($driver = null)
+        {
+            //Method inherited from \Illuminate\Support\Manager            
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->driver($driver);
+        }
+        
+        /**
+         * Register a custom driver creator Closure.
+         *
+         * @param string $driver
+         * @param \Closure $callback
+         * @return \Laravel\Socialite\SocialiteManager 
+         * @static 
+         */ 
+        public static function extend($driver, $callback)
+        {
+            //Method inherited from \Illuminate\Support\Manager            
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->extend($driver, $callback);
+        }
+        
+        /**
+         * Get all of the created "drivers".
+         *
+         * @return array 
+         * @static 
+         */ 
+        public static function getDrivers()
+        {
+            //Method inherited from \Illuminate\Support\Manager            
+                        /** @var \Laravel\Socialite\SocialiteManager $instance */
+                        return $instance->getDrivers();
+        }
+         
+    }
+ 
+}
+
 
 namespace  { 
 
@@ -15404,9 +15699,6 @@ namespace  {
 
     class Blade extends \Illuminate\Support\Facades\Blade {}
 
-    /**
-     * @method static channel(string $string, Closure $param)
-     */
     class Broadcast extends \Illuminate\Support\Facades\Broadcast {}
 
     class Bus extends \Illuminate\Support\Facades\Bus {}
@@ -17781,6 +18073,8 @@ namespace  {
 
     class Redirect extends \Illuminate\Support\Facades\Redirect {}
 
+    class Redis extends \Illuminate\Support\Facades\Redis {}
+
     class Request extends \Illuminate\Support\Facades\Request {}
 
     class Response extends \Illuminate\Support\Facades\Response {}
@@ -17806,6 +18100,8 @@ namespace  {
     class Cart extends \Gloudemans\Shoppingcart\Facades\Cart {}
 
     class Image extends \Intervention\Image\Facades\Image {}
+
+    class Socialite extends \Laravel\Socialite\Facades\Socialite {}
  
 }
 

@@ -65,8 +65,7 @@ Route::group(['middleware' => 'auth', 'prefix' => 'products'], function (){
     Route::get('reviews/vote/{vote}/{reviews}', 'ReviewsController@addVote')->name('reviews.vote.store');
 });
 
-Route::group(['middleware' => 'auth'],
-    function () {
+Route::group(['middleware' => 'auth'], function () {
 
         //Checkout..............................
         Route::get('checkout', 'CheckoutsController@index')->name('checkout');
@@ -122,6 +121,9 @@ Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 
         //Products.............................................
         Route::get('products/{product}/{old}/change-featured', 'Admin\ProductsController@changeFeatured')->name('products.change-featured');
         Route::get('products/{product}/{old}/change-status', 'Admin\ProductsController@changeStatus')->name('products.change-status');
+        Route::post('products/trash/{product}', 'Admin\ProductsController@trash')->name('products.trash');
+        Route::get('products/trash', 'Admin\ProductsController@trashList')->name('products.trash.index');
+        Route::get('products/restore/{product}', 'Admin\ProductsController@restore')->name('products.restore');
         Route::resource('products', 'Admin\ProductsController');
 
         //Orders..............................................

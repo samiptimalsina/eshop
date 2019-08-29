@@ -20,23 +20,15 @@ class ProductsController extends Controller
         $this->fileHandler = new fileHandlerComponent();
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
+        $trash_products_qty = Product::onlyTrashed()->count();
+
         $products = Product::with('brand', 'category')->orderBy('id', 'desc')->get();
 
-        return view  ('admin.product.index', compact('products'));
+        return view  ('admin.product.index', compact('products', 'trash_products_qty'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $categories = Category::orderBy('id', 'desc')->where('status', true)->get();
@@ -45,12 +37,6 @@ class ProductsController extends Controller
         return view('admin.product.create', compact('categories', 'brands'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param ProductCreateRequest $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ProductCreateRequest $request)
     {
         if ($request->img){
@@ -72,23 +58,11 @@ class ProductsController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return void
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param Product $product
-     * @return \Illuminate\Http\Response
-     */
     public function edit(Product $product)
     {
         $categories = Category::orderBy('id', 'desc')->where('status', true)->get();
@@ -97,13 +71,6 @@ class ProductsController extends Controller
         return view('admin.product.edit', compact('product', 'categories', 'brands'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param ProductUpdateRequest $request
-     * @param Product $product
-     * @return \Illuminate\Http\Response
-     */
     public function update(ProductUpdateRequest $request, Product $product)
     {
         if ($request->img){
@@ -130,36 +97,47 @@ class ProductsController extends Controller
         }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Product $product
-     * @return \Illuminate\Http\Response
-     * @throws \Exception
-     */
-    public function destroy(Product $product)
-    {
+    public function trash(Product $product){
+
         if ($product->delete()){
+            return back()->with('success', 'Product has been trashed successfully');
+        }else{
+            return back()->with('error', 'Product could not be trashed');
+        }
+    }
+
+    public function trashList(){
+        $products = Product::onlyTrashed()->get();
+        return view('admin.product.trash', compact('products'));
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::withTrashed()->find($id);
+
+        if ($product->forceDelete()){
 
             //Delete image
             if ($product->image){
                 $this->fileHandler->deleteImage($product->image);
             }
 
-            return back()->with('success', 'Product delete successfully');
+            return back()->with('success', 'Product delete permanently successfully');
 
         }else{
-            return back()->with('error', 'Product could not be delete');
+            return back()->with('error', 'Product could not be delete permanently');
         }
     }
 
-    /**
-     * Change publication status
-     *
-     * @param Request $request
-     * @param Product $product
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    public function restore($id){
+        $product = Product::withTrashed()->find($id);
+
+        if ($product->restore()){
+            return back()->with('success', 'Product restore successfully');
+        }else{
+            return back()->with('error', 'Product could not be delete restore');
+        }
+    }
 
     public function changeStatus(Request $request, Product $product)
     {
@@ -172,15 +150,6 @@ class ProductsController extends Controller
             return back()->with('error', 'Product status could not be change');
         }
     }
-
-
-    /**
-     * Change publication status
-     *
-     * @param Request $request
-     * @param Product $product
-     * @return \Illuminate\Http\RedirectResponse
-     */
 
     public function changeFeatured(Request $request, Product $product)
     {
