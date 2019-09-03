@@ -45,7 +45,7 @@
 
 </head>
 
-<body>
+<body class="fixed-sidebar fixed-nav fixed-nav-basic">
 
 <div id="wrapper">
 

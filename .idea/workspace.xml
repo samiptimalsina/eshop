@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cb6c335d-4856-4d5c-93b8-cd49e6542dd1" name="Default Changelist" comment="" />
+    <list default="true" id="cb6c335d-4856-4d5c-93b8-cd49e6542dd1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/elements/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/master.blade.php" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +131,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WHMCS" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="Errors" />
@@ -183,7 +187,10 @@
       <workItem from="1566755273902" duration="9000" />
       <workItem from="1566829155809" duration="6329000" />
       <workItem from="1566840382408" duration="571000" />
-      <workItem from="1567089434547" duration="7390000" />
+      <workItem from="1567089434547" duration="8114000" />
+      <workItem from="1567137198025" duration="598000" />
+      <workItem from="1567170584189" duration="1215000" />
+      <workItem from="1567180429156" duration="3327000" />
     </task>
     <task id="LOCAL-00001" summary="Install socialite package">
       <created>1563730745021</created>
@@ -255,7 +262,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567096297916</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Implement soft delete with single product.">
+      <created>1567097004842</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1567097004842</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
