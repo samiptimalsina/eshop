@@ -56,4 +56,3 @@ window.Echo = new Echo({
 });
 
 
-console.log(window.Echo.options);

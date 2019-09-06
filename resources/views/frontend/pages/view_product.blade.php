@@ -46,8 +46,8 @@
                             <span class="price">{{ $product->price }} Tk.</span>
                             <label>Quantity:</label>
                             <input v-model="product.qty" name="qty" type="number" class="custom_number_input"/>
-                            <a href="#0" id="product-id" product-id="{{ $product->id }}" slug="{{ $product->slug }}" @click="addToCart" class="btn btn-default cart"><i class="fa fa-shopping-cart"></i> Add to cart</a>
-                            <a href="#0" slug="{{ $product->slug }}" @click="addToWishlist" class="btn btn-default cart"><i class="fa fa-plus"></i> Wishlist</a>
+                            <a id="product-id" product-id="{{ $product->id }}" slug="{{ $product->slug }}" @click="addToCart" class="btn btn-default cart"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+                            <a slug="{{ $product->slug }}" @click="addToWishlist" class="btn btn-default cart"><i class="fa fa-plus"></i> Wishlist</a>
 
                         </form>
 

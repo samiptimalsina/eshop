@@ -40,8 +40,8 @@ class Order extends Model
     protected static function boot() {
         parent::boot();
 
-        static::deleting(function($order) { // before delete() method call this
-            $order->orderDetails()->delete();
+        static::deleting(function($order) {
+            $order->orderDetails()->delete(); // For delete order first use find($id) then store into $order. Then use $order->delete()
             $order->shipping()->delete();
         });
     }

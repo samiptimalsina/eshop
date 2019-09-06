@@ -30,7 +30,7 @@
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
                         <h5>Products</h5>
-                        <a href="{{ route('admin.products.trash.index') }}" class="text-danger pull-right">View Trash ({{ $trash_products_qty }})</a>
+                        <a href="{{ route('admin.products.trash.index') }}" class="badge badge-danger pull-right">View Trash ({{ $trash_products_qty }})</a>
                     </div>
                     <div class="ibox-content">
                         <div class="table-responsive">

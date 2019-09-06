@@ -26,4 +26,13 @@ class Review extends Model
     function helpFullVotes(){
         return $this->hasMany(Review_vote::class);
     }
+
+    /**
+     * The event map for the model.
+     *
+     * @var array
+     */
+    protected $dispatchesEvents = [
+        'created' => ReviewCreated::class,
+    ];
 }

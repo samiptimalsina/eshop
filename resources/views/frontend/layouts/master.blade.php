@@ -41,24 +41,29 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm-4">
-
                             </div>
                             <div class="col-sm-8">
                                 <div class="signup-form search_box">
 
-                                    <form action="{{ route('products.search') }}" method="get" class="search_box">
+                                    <form id="search-form" action="{{ route('products.search') }}" method="get" class="search_box">
 
                                         <div class="row">
                                             <div class="col-sm-6 search_input">
-                                                <input id="search" name="search" class="form-control" type="text" value="{{ !empty(Request::get('search'))?Request::get('search'):'' }}" placeholder="Search product"/>
+                                                <div class="autocomplete">
+                                                    <input autocomplete="off" id="search" name="search" class="form-control" type="text" value="{{ !empty(Request::get('search'))?Request::get('search'):'' }}" placeholder="Search product"/>
+
+                                                    <div id="autocomplete-products" class="autocomplete-items">
+
+                                                    </div>
+                                                </div>
                                             </div>
+
                                             <div class="col-sm-4 search_input" >
-                                                <select name="category" class="form-control">
+                                                <select onchange=" $('#search-form').submit();" name="category" class="form-control">
                                                     <option value="">--Select--</option>
                                                     @foreach(getAllCategories() as $category)
                                                         <option {{ !empty(Request::get('category') AND Request::get('category') == $category->id)?'selected':'' }} value="{{ $category->id }}">{{ $category->name }}</option>
                                                     @endforeach
-
                                                 </select>
                                             </div>
                                             <div class="col-sm-2">
@@ -95,6 +100,45 @@
 </section>
 
 @include('frontend.elements.footer')
+
+<script>
+
+    $('#search').keyup( function() {
+        $('#search-form').submit();
+    });
+
+    $("#search-form").submit(function (event) {
+        event.preventDefault();
+
+        if($('#search').val() == ''){
+            $('#autocomplete-products').html(null);
+            return
+        }
+
+       $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            url : '{{ route('products.ajax.get') }}',
+            type: "post",
+            data: $(this).serialize(),
+            success: function (data) {
+
+                var products = '';
+                $.each(data, function(key, value) {
+
+                    products += '<a href="{{ route('products.show', '') }}/'+value.slug+'"><div class="border-bottom">'+
+                        '<img width="40" height="40" src="{{ asset('public/admin/uploads/images/products/') }}/'+value.image+'">'+
+                        '<span class="pl-4 pr-4">'+value.name+'</span><span style="color: #FE980F">Price '+value.price+' Tk</span>'+
+                    '</div></a>'
+
+                });
+
+                $('#autocomplete-products').html(products);
+            }
+        });
+    });
+
+</script>
+
 <script>
 
     // your custome placeholder goes here!

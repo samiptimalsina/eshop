@@ -36,7 +36,9 @@
                             <table class="table table-striped table-bordered table-hover dataTables-example" >
                                 <thead>
                                 <tr>
-                                    <th>Sl No</th>
+                                    <th>
+                                        <input name="featured" value="1" type="checkbox" class="i-checks">
+                                    </th>
                                     <th>Name</th>
                                     <th>Slug</th>
                                     <th>Image</th>
@@ -51,11 +53,12 @@
                                 </thead>
                                 <tbody>
 
-                                @php($i=1)
                                 @foreach ($products as $product)
 
                                     <tr>
-                                        <td>{{ $i }}</td>
+                                        <td>
+                                            <input name="featured" value="1" type="checkbox" class="i-checks">
+                                        </td>
                                         <td>{{ ucfirst($product->name) }}</td>
                                         <td>{{ $product->slug }}</td>
 
@@ -138,12 +141,23 @@
                                         </form>
 
                                     </tr>
-                                    @php($i++)
                                 @endforeach
 
                                 </tbody>
                             </table>
                             {{--{{ $products->links() }}--}}
+                            <input type="checkbox" id="checkAll">Check All
+
+                            <input type="checkbox" class="i-checks">
+                            <input type="checkbox" id="checkItem">Item 1
+
+
+                                    <input type="checkbox" value="option1" id="inlineCheckbox1"> a
+                                    </label> <label class="checkbox-inline">
+                                    <input type="checkbox" value="option2" id="inlineCheckbox2"> b </label> <label
+                                        class="checkbox-inline">
+                                    <input type="checkbox" value="option3" id="inlineCheckbox3"> c </label>
+
 
                         </div>
 
@@ -152,4 +166,13 @@
             </div>
         </div>
     </div>
+    <script>
+        $("#checkAll").click(function () {
+
+            console.log(this.checked)
+
+            $('input:checkbox').not(this).prop('checked', this.checked);
+        });
+    </script>
+
 @endsection()

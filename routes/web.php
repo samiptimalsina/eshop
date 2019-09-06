@@ -31,6 +31,7 @@ Route::get('/', 'HomeController@index')->name('frontend.index');
 Route::get('products/category/{category}', 'HomeController@productByCategory')->name('products.byCategory');
 Route::get('products/brand/{brand}', 'HomeController@productByBrand')->name('products.byBrand');
 Route::get('products', 'HomeController@search')->name('products.search');
+Route::post('products/ajax/get', 'HomeController@getProducts')->name('products.ajax.get');
 
 //Product......................
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');

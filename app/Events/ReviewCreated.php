@@ -2,7 +2,6 @@
 
 namespace App\Events;
 
-use App\Order;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -11,36 +10,27 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class OrderCreated implements ShouldBroadcast
+class ReviewCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    /**
-     * @var Order
-     */
-    public $order;
 
     /**
      * Create a new event instance.
      *
-     * @param Order $order
+     * @return void
      */
-    public function __construct(Order $order)
+    public function __construct()
     {
-        $format_order = $order->with('user:id,name')->where('id', $order->id)
-            ->select('id', 'created_at', 'user_id')->first()->toArray();
 
-        //dd($format_order);
-
-        $this->order = $format_order;
     }
 
     /**
      * Get the channels the event should broadcast on.
      *
-     * @return Channel|array
+     * @return \Illuminate\Broadcasting\Channel|array
      */
     public function broadcastOn()
     {
-        return new Channel('order.created');
+        return new Channel('review.created');
     }
 }

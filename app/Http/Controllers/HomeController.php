@@ -133,4 +133,27 @@ class HomeController extends Controller
         }
     }
 
+    public function getProducts(Request $request){
+
+        $searchBy = trim($request->search);
+        $searchByCategory = $request->category;
+
+        $products = Product::orderBy('id', 'desc')
+            ->when($searchByCategory, function ($query, $searchByCategory) {
+                return $query->where('category_id', $searchByCategory);
+            })
+            ->where('status', 1)
+            ->where(function ($query) use ($searchBy){
+                $query->where('name', 'LIKE', '%' . $searchBy . '%')
+                    ->orWhere('slug', 'LIKE', '%' . $searchBy . '%')
+                    ->orWhere('size', 'LIKE', '%' . $searchBy . '%')
+                    ->orWhere('color', 'LIKE', '%' . $searchBy . '%')
+                    ->orWhere('price', 'LIKE', '%' . $searchBy . '%')
+                    ->orWhere('description', 'LIKE', '%' . $searchBy . '%');
+            })
+            ->limit(6)->get();
+
+        return response()->json($products);
+    }
+
 }
