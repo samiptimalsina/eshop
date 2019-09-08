@@ -133,10 +133,10 @@ class HomeController extends Controller
         }
     }
 
-    public function getProducts(Request $request){
+    public function getAutocompleteProducts(){
 
-        $searchBy = trim($request->search);
-        $searchByCategory = $request->category;
+        $searchBy = trim(request('search_by'));
+        $searchByCategory = request('category');
 
         $products = Product::orderBy('id', 'desc')
             ->when($searchByCategory, function ($query, $searchByCategory) {
@@ -150,8 +150,7 @@ class HomeController extends Controller
                     ->orWhere('color', 'LIKE', '%' . $searchBy . '%')
                     ->orWhere('price', 'LIKE', '%' . $searchBy . '%')
                     ->orWhere('description', 'LIKE', '%' . $searchBy . '%');
-            })
-            ->limit(6)->get();
+            })->get();
 
         return response()->json($products);
     }

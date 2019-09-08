@@ -130,13 +130,13 @@ input[type=submit] {
     right: 0;
 }
 
-.autocomplete-items div {
-    padding: 10px;
+#autocomplete-products div {
+    padding: 4px 8px!important;
     cursor: pointer;
 }
 
 /*when hovering an item:*/
-.autocomplete-items div:hover {
+#autocomplete-products div:hover {
     background-color: #e9e9e9;
 }
 

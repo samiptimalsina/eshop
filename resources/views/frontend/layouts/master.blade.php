@@ -45,21 +45,31 @@
                             <div class="col-sm-8">
                                 <div class="signup-form search_box">
 
-                                    <form id="search-form" action="{{ route('products.search') }}" method="get" class="search_box">
+                                    <form id="product-search-form" action="{{ route('products.search') }}" method="get" class="search_box">
 
                                         <div class="row">
                                             <div class="col-sm-6 search_input">
                                                 <div class="autocomplete">
-                                                    <input autocomplete="off" id="search" name="search" class="form-control" type="text" value="{{ !empty(Request::get('search'))?Request::get('search'):'' }}" placeholder="Search product"/>
+                                                    <input onkeyup="getAutocompleteProducts()" autocomplete="off" id="search-input" name="search" class="form-control" type="text" value="{{ !empty(Request::get('search'))?Request::get('search'):'' }}" placeholder="Search product"/>
 
-                                                    <div id="autocomplete-products" class="autocomplete-items">
-
+                                                    <div class="autocomplete-items">
+                                                        <div id="autocomplete-products">
+                                                            {{--<a href="http://localhost/eshopper/products/head-phone">
+                                                                <div class="border-bottom">
+                                                                    <img width="40" height="40" src="http://localhost/eshopper/public/admin/uploads/images/products/gwufpcjt_d277bb943182d8dc576c84aaf3d0492a.jpeg">
+                                                                    <span class="pl-4 pr-4">Head Phone</span>
+                                                                    <span style="color: #FE980F">Price 300 Tk</span>
+                                                                </div>
+                                                            </a>--}}
+                                                        </div>
+                                                        <p id="view-more-products" onclick="$('#product-search-form').submit()" type="submit" class="text-center cursor_pointer hidden" style="padding-top: 14px">View More (<span id="view-more-product-count"></span>)</p>
                                                     </div>
+
                                                 </div>
                                             </div>
 
                                             <div class="col-sm-4 search_input" >
-                                                <select onchange=" $('#search-form').submit();" name="category" class="form-control">
+                                                <select onchange="getAutocompleteProducts()" id="search-category" name="category" class="form-control">
                                                     <option value="">--Select--</option>
                                                     @foreach(getAllCategories() as $category)
                                                         <option {{ !empty(Request::get('category') AND Request::get('category') == $category->id)?'selected':'' }} value="{{ $category->id }}">{{ $category->name }}</option>
@@ -103,39 +113,50 @@
 
 <script>
 
-    $('#search').keyup( function() {
-        $('#search-form').submit();
-    });
+    function getAutocompleteProducts(){
 
-    $("#search-form").submit(function (event) {
-        event.preventDefault();
+        var search_by = $('#search-input').val(),
+            category = $('#search-category').children(":selected").attr("value");
 
-        if($('#search').val() == ''){
+        if(search_by === ''){
             $('#autocomplete-products').html(null);
-            return
+            $('#view-more-products').addClass('hidden');
+            return;
         }
 
-       $.ajax({
-            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-            url : '{{ route('products.ajax.get') }}',
-            type: "post",
-            data: $(this).serialize(),
-            success: function (data) {
+        $.get('{{ route('products.autocomplete') }}', {search_by:search_by, category:category}, function (data) {
 
-                var products = '';
-                $.each(data, function(key, value) {
+            if (data.length === 0){
+                $('#autocomplete-products').html('<div class="text-center">No product found</div>');
+                $('#view-more-products').addClass('hidden');
+                return;
+            }
 
-                    products += '<a href="{{ route('products.show', '') }}/'+value.slug+'"><div class="border-bottom">'+
-                        '<img width="40" height="40" src="{{ asset('public/admin/uploads/images/products/') }}/'+value.image+'">'+
-                        '<span class="pl-4 pr-4">'+value.name+'</span><span style="color: #FE980F">Price '+value.price+' Tk</span>'+
-                    '</div></a>'
+            var products = '';
+            $.each(data, function(key, value) {
 
-                });
+                if(key < 4){
+                    products += '<div class="border-bottom">'+
+                        '<a href="{{ route('products.show', '') }}/'+value.slug+'">'+
+                            '<div>'+
+                                '<img width="40" height="40" src="{{ asset('public/admin/uploads/images/products/') }}/'+value.image+'">'+
+                                '<span class="pl-4 pr-4">'+value.name+'</span><span style="color: #FE980F">Price '+value.price+' Tk</span>'+
+                            '</div>'+
+                        '</a>'+
+                    '</div>'
+                }
+            });
 
-                $('#autocomplete-products').html(products);
+            $('#autocomplete-products').html(products);
+
+            if (data.length > 4){
+                $('#view-more-products').removeClass('hidden');
+                $('#view-more-product-count').html(data.length-4);
+            }else{
+                $('#view-more-products').addClass('hidden');
             }
         });
-    });
+    }
 
 </script>
 
