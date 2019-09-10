@@ -2,14 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb6c335d-4856-4d5c-93b8-cd49e6542dd1" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/sliders/dmy0xsk6_3jd094uv_1566625967_0_under-999-big-banner_artboard-jpg.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/sliders/m2v7puga_fejcoveu_1564053959_0_accessories-mega-sale-big-banner.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/sliders/pr1fxk2u_fejcoveu_1564053959_0_accessories-mega-sale-big-banner.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/OrderCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/OrderCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Events/ReviewCreated.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/ReviewCreated.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/frontend/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/js/zoomple.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/js/zoomple.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/assets/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/assets/js/bootstrap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/elements/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/elements/header.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/view_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/view_product.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -142,6 +146,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -204,7 +209,9 @@
       <workItem from="1567742750642" duration="9367000" />
       <workItem from="1567791356937" duration="1971000" />
       <workItem from="1567871506382" duration="4251000" />
-      <workItem from="1567954672024" duration="4328000" />
+      <workItem from="1567954672024" duration="6822000" />
+      <workItem from="1568053438478" duration="2566000" />
+      <workItem from="1568089445584" duration="3266000" />
     </task>
     <task id="LOCAL-00001" summary="Install socialite package">
       <created>1563730745021</created>
@@ -297,7 +304,14 @@
       <option name="project" value="LOCAL" />
       <updated>1567793221800</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Product auto complete search added.">
+      <created>1567959236503</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1567959236503</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -337,6 +351,7 @@
     <MESSAGE value="Implement soft delete with single product." />
     <MESSAGE value="soft delete bug fixed" />
     <MESSAGE value="auto complete implement" />
-    <option name="LAST_COMMIT_MESSAGE" value="auto complete implement" />
+    <MESSAGE value="Product auto complete search added." />
+    <option name="LAST_COMMIT_MESSAGE" value="Product auto complete search added." />
   </component>
 </project>

@@ -18,15 +18,15 @@
 
             <div class="col-sm-5">
                 <div class="view-product">
-                    <a href="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
-                        <img src="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" alt=""/>
+                    <a href="{{ asset('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
+                        <img src="{{ asset('public/admin/uploads/images/products/'.$product->image) }}"/>
                     </a>
                 </div>
             </div>
 
             <div class="col-sm-7">
                 <div class="product-information">
-                    <img src="{{ URL::to('public/frontend/images/product-details/new.jpg') }}" class="newarrival" alt="" />
+                    <img src="{{ asset('public/frontend/images/product-details/new.jpg') }}" class="newarrival" alt="" />
                     <h2>{{ $product->name }}</h2>
 
                     @if ($product->reviews->count() > 0)

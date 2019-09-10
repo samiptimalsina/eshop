@@ -249,7 +249,6 @@
 		var self = this;	
 		self.$holder.css({"width" : self.options.zoomWidth + "px","height" : self.options.zoomHeight + "px"});		
 		self.$holder.find(".image_wrap").css({"background" : " url(" + self.options.loaderURL +") 50% 50% no-repeat"});		
-		console.log(self.options);
 		var objImagePreloader = new Image()
 			src = imgRefUrl + (self.options.appendTimestamp?(((imgRefUrl.indexOf("?") > -1 )?"&":"?") + "timestamp=" + self.options.timestamp):'');
 		objImagePreloader.src = src;

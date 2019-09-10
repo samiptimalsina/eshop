@@ -50,9 +50,24 @@
 
 <script>
 
+    Echo.channel('review.created')
+        .listen('ReviewCreated', (e) => {
+
+            toastr.options = {
+                closeButton: true,
+                progressBar: true,
+                showMethod: 'slideDown',
+                timeOut: 3000
+            };
+            toastr.success('New order placed by Abdullah al mamun');
+        });
+
+
     //New order notification
     Echo.channel('order.created')
         .listen('OrderCreated', (e) => {
+
+            console.log('Abdullah al mamun');
 
             AdminHeader.unseen_orders.unshift(e.order);
 

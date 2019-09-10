@@ -4,14 +4,14 @@ namespace App\Events;
 
 use App\Order;
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
-use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class OrderCreated implements ShouldBroadcast
+class OrderCreated implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
     /**
@@ -28,8 +28,6 @@ class OrderCreated implements ShouldBroadcast
     {
         $format_order = $order->with('user:id,name')->where('id', $order->id)
             ->select('id', 'created_at', 'user_id')->first()->toArray();
-
-        //dd($format_order);
 
         $this->order = $format_order;
     }
