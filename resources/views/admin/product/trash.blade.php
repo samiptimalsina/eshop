@@ -29,135 +29,143 @@
             <div class="col-lg-12">
                 <div class="ibox float-e-margins">
                     <div class="ibox-title">
-                        <h5>Trash Products</h5>
+                        <h5>Products</h5>
                     </div>
                     <div class="ibox-content">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover dataTables-example" >
-                                <thead>
-                                <tr>
-                                    <th>
-                                        <input name="featured" value="1" type="checkbox" class="i-checks">
-                                    </th>
-                                    <th>Name</th>
-                                    <th>Slug</th>
-                                    <th>Image</th>
-                                    <th>Category Name</th>
-                                    <th>Brand Name</th>
-                                    <th>Price</th>
-                                    <th>Featured</th>
-                                    <th>Status</th>
-                                    <th>Created at</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
 
-                                @foreach ($products as $product)
+                            <form id="bulk-delete" action="{{ route('admin.products.bulk-action') }}" method="POST">
+                                @csrf
 
+                                <div class="row form-inline">
+                                    <div class="col-sm-6">
+                                        <label>
+                                            <select name="bulk_action" class="form-control input-sm">
+                                                <option value="">Bulk Actions</option>
+                                                <option value="restore">Restore</option>
+                                                <option value="delete">Delete</option>
+                                            </select>
+                                        </label>
+                                        <button type="button" class="btn btn-sm" onclick="document.getElementById('bulk-delete').submit()">submit</button>
+                                    </div>
+                                </div>
+
+                                <table class="table table-striped table-bordered table-hover trash-dataTable" >
+                                    <thead>
                                     <tr>
-                                        <td>
-                                            <input name="featured" value="1" type="checkbox" class="i-checks">
-                                        </td>
-                                        <td>{{ ucfirst($product->name) }}</td>
-                                        <td>{{ $product->slug }}</td>
+                                        <th class="trash-table no-padding">
+                                            <label class="customcheck">
+                                                <input id="checkAll" type="checkbox"><span class="checkmark"></span>
+                                            </label>
+                                        </th>
+                                        <th>Name</th>
+                                        <th>Slug</th>
+                                        <th>Image</th>
+                                        <th>Category Name</th>
+                                        <th>Brand Name</th>
+                                        <th>Price</th>
+                                        <th>Featured</th>
+                                        <th>Status</th>
+                                        <th>Created at</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
 
-                                        <?php
-                                        if (isset($product->image)){
-                                            $image_url = URL::to('public/admin/uploads/images/products/'.$product->image);
-                                        }else{
-                                            $image_url = URL::to('public/admin/img/no-image.png');
-                                        }
-                                        ?>
+                                    @foreach ($products as $product)
 
-                                        <td><img src="{{ $image_url }}" class="cus_thumbnail"></td>
+                                        <tr>
+                                            <td>
+                                                <label class="customcheck">
+                                                    <input name="product_id[]" value="{{ $product->id }}" type="checkbox"><span class="checkmark"></span>
+                                                    </form> {{--End of bulk action form--}}
+                                                </label>
+                                            </td>
+                                            <td>{{ ucfirst($product->name) }}</td>
+                                            <td>{{ $product->slug }}</td>
 
-                                        <td> {{ ucfirst($product->category->name) }}</td>
-                                        <td> {{ ucfirst($product->brand->name) }}</td>
-                                        <td> {{ $product->price }} Tk</td>
+                                            <?php
+                                            if (isset($product->image)){
+                                                $image_url = URL::to('public/admin/uploads/images/products/'.$product->image);
+                                            }else{
+                                                $image_url = URL::to('public/admin/img/no-image.png');
+                                            }
+                                            ?>
 
-                                        <td>
-                                            <a href="{{ route('admin.products.change-featured', [$product->id, $product->featured]) }}" title="Change featured">
-                                                @if($product->featured)
-                                                    <i class="fa fa-check-square-o"></i>
-                                                @else
-                                                    <i class="fa fa-times"></i>
-                                                @endif
-                                            </a>
-                                        </td>
+                                            <td><img src="{{ $image_url }}" class="cus_thumbnail"></td>
 
-                                        <td>
-                                            <a href="javascript:void(0)">
-                                                @if($product->status)
-                                                    <i class="fa fa-check-square-o"></i>
-                                                @else
-                                                    <i class="fa fa-times"></i>
-                                                @endif
-                                            </a>
-                                        </td>
+                                            <td> {{ ucfirst($product->category->name) }}</td>
+                                            <td> {{ ucfirst($product->brand->name) }}</td>
+                                            <td> {{ $product->price }} Tk</td>
 
-                                        <td> {{ date("d-m-Y", strtotime($product->created_at)) }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.products.change-featured', [$product->id, $product->featured]) }}" title="Change featured">
+                                                    @if($product->featured)
+                                                        <i class="fa fa-check-square-o"></i>
+                                                    @else
+                                                        <i class="fa fa-times"></i>
+                                                    @endif
+                                                </a>
+                                            </td>
 
-                                        <td>
-                                            <a title="Restore" href="{{ route('admin.products.restore', $product->id) }}" class="cus_mini_icon color-success"> <i class="fa fa-refresh"></i></a>
-                                            <a title="Delete permanently" data-toggle="modal" data-target="#myModal{{$product->id}}" type="button" class="cus_mini_icon color-danger"><i class="fa fa-trash"></i></a>
-                                        </td>
+                                            <td>
+                                                <a href="{{ route('admin.products.change-status', [$product->id, $product->status]) }}" title="Change publication status">
+                                                    @if($product->status)
+                                                        <i class="fa fa-check-square-o"></i>
+                                                    @else
+                                                        <i class="fa fa-times"></i>
+                                                    @endif
+                                                </a>
+                                            </td>
 
-                                        <!-- The Modal -->
-                                        <div class="modal fade in" id="myModal{{$product->id}}">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
+                                            <td> {{ date("d-m-Y", strtotime($product->created_at)) }}</td>
 
-                                                    <!-- Modal Header -->
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                        <h4 class="modal-title">Delete product</h4>
+                                            <td>
+                                                <a title="Restore" href="{{ route('admin.products.restore', $product->id) }}" class="cus_mini_icon color-success"> <i class="fa fa-refresh"></i></a>
+                                                <a title="Trash" data-toggle="modal" data-target="#myModal{{$product->id}}" type="button" class="cus_mini_icon color-danger"><i class="fa fa-recycle"></i></a>
+                                            </td>
+
+                                            <!-- The Modal -->
+                                            <div class="modal fade in" id="myModal{{$product->id}}">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+
+                                                        <!-- Modal Header -->
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                            <h4 class="modal-title">Delete product</h4>
+                                                        </div>
+
+                                                        <!-- Modal body -->
+                                                        <div class="modal-body">
+
+                                                            <h3>You are going to trash ' {{ $product->name }} ' ?</h3>
+
+                                                            <a data-dismiss="modal" class="btn btn-sm btn-warning"><strong>No</strong></a>
+                                                            <button class="btn btn-sm btn-primary" type="submit" onclick="event.preventDefault();
+                                                                    document.getElementById('product-delete-form{{ $product->id }}').submit();">
+                                                                <strong>Yes</strong>
+                                                            </button>
+                                                        </div>
+
+                                                        <!-- Modal footer -->
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+
                                                     </div>
-
-                                                    <!-- Modal body -->
-                                                    <div class="modal-body">
-
-                                                        <h3>You are going to delete permanently ' {{ $product->name }} ' ?</h3>
-
-                                                        <a data-dismiss="modal" class="btn btn-sm btn-warning"><strong>No</strong></a>
-                                                        <button class="btn btn-sm btn-primary" type="submit" onclick="event.preventDefault();
-                                                                document.getElementById('product-delete-form{{ $product->id }}').submit();">
-                                                            <strong>Yes</strong>
-                                                        </button>
-                                                    </div>
-
-                                                    <!-- Modal footer -->
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                                                    </div>
-
                                                 </div>
                                             </div>
-                                        </div>
 
-                                        <form id="product-delete-form{{ $product->id }}" method="POST" action="{{ route('admin.products.destroy', $product->id) }}" style="display: none" >
-                                            {{method_field('DELETE')}}
-                                            @csrf()
-                                        </form>
+                                            <form id="product-delete-form{{ $product->id }}" method="POST" action="{{ route('admin.products.trash', $product->id) }}" style="display: none" >
+                                                @csrf()
+                                            </form>
 
-                                    </tr>
-                                @endforeach
+                                        </tr>
+                                    @endforeach
 
-                                </tbody>
-                            </table>
-                            {{--{{ $products->links() }}--}}
-                            <input type="checkbox" id="checkAll">Check All
-
-                            <input type="checkbox" class="i-checks">
-                            <input type="checkbox" id="checkItem">Item 1
-
-
-                                    <input type="checkbox" value="option1" id="inlineCheckbox1"> a
-                                    </label> <label class="checkbox-inline">
-                                    <input type="checkbox" value="option2" id="inlineCheckbox2"> b </label> <label
-                                        class="checkbox-inline">
-                                    <input type="checkbox" value="option3" id="inlineCheckbox3"> c </label>
-
+                                    </tbody>
+                                </table>
 
                         </div>
 
@@ -167,12 +175,28 @@
         </div>
     </div>
     <script>
+
         $("#checkAll").click(function () {
-
-            console.log(this.checked)
-
             $('input:checkbox').not(this).prop('checked', this.checked);
         });
+
     </script>
 
 @endsection()
+
+@section('custom-js')
+
+    <script type="text/javascript">
+
+        $('.trash-dataTable').DataTable({
+
+            columnDefs: [ {
+                'targets': 0, /* column index */
+                'orderable': false, /* true or false */
+                'icon': false
+            }]
+
+        });
+    </script>
+
+@endsection

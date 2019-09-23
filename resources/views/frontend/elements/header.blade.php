@@ -27,6 +27,7 @@
     <link href="{{ asset('public/frontend/css/responsive.css') }}" rel="stylesheet">
     <link href="{{ asset('public/frontend/css/zoomple.css') }}" rel="stylesheet">
 
+    {{--Review star icon--}}
     <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
 
     <!-- Ladda style -->

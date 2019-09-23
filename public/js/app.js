@@ -59266,7 +59266,8 @@ window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/d
  */
 
 try {
-  //window.$ = window.jQuery = require('jquery');
+  window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
 /**

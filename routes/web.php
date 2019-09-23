@@ -125,6 +125,7 @@ Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 
         Route::post('products/trash/{product}', 'Admin\ProductsController@trash')->name('products.trash');
         Route::get('products/trash', 'Admin\ProductsController@trashList')->name('products.trash.index');
         Route::get('products/restore/{product}', 'Admin\ProductsController@restore')->name('products.restore');
+        Route::post('products/bulk-action', 'Admin\ProductsController@bulkAction')->name('products.bulk-action');
         Route::resource('products', 'Admin\ProductsController');
 
         //Orders..............................................

@@ -45,9 +45,6 @@
     </div>
 </div>
 
-{{--included vueJs and axios--}}
-<script src="{{ asset('public/js/app.js') }}"></script>
-
 <script>
 
     Echo.channel('review.created')
@@ -59,15 +56,13 @@
                 showMethod: 'slideDown',
                 timeOut: 3000
             };
-            toastr.success('New order placed by Abdullah al mamun');
+            toastr.success('New review crated');
         });
 
 
     //New order notification
     Echo.channel('order.created')
         .listen('OrderCreated', (e) => {
-
-            console.log('Abdullah al mamun');
 
             AdminHeader.unseen_orders.unshift(e.order);
 

@@ -97,48 +97,6 @@ class ProductsController extends Controller
         }
     }
 
-    public function trash(Product $product){
-
-        if ($product->delete()){
-            return back()->with('success', 'Product has been trashed successfully');
-        }else{
-            return back()->with('error', 'Product could not be trashed');
-        }
-    }
-
-    public function trashList(){
-        $products = Product::onlyTrashed()->get();
-        return view('admin.product.trash', compact('products'));
-    }
-
-    public function destroy($id)
-    {
-        $product = Product::withTrashed()->find($id);
-
-        if ($product->forceDelete()){
-
-            //Delete image
-            if ($product->image){
-                $this->fileHandler->deleteImage($product->image);
-            }
-
-            return back()->with('success', 'Product delete permanently successfully');
-
-        }else{
-            return back()->with('error', 'Product could not be delete permanently');
-        }
-    }
-
-    public function restore($id){
-        $product = Product::withTrashed()->find($id);
-
-        if ($product->restore()){
-            return back()->with('success', 'Product restore successfully');
-        }else{
-            return back()->with('error', 'Product could not be delete restore');
-        }
-    }
-
     public function changeStatus(Request $request, Product $product)
     {
         $request['status'] = ($request['old'] == 1)?0:1;
@@ -160,6 +118,64 @@ class ProductsController extends Controller
             return back()->with('success', 'Product add to featured successfully');
         }else{
             return back()->with('error', 'Product could not be add featured');
+        }
+    }
+
+    public function trash(Product $product){
+
+        if ($product->delete()){
+            return back()->with('success', 'Product has been trashed successfully');
+        }else{
+            return back()->with('error', 'Product could not be trashed');
+        }
+    }
+
+    public function trashList(){
+        $products = Product::onlyTrashed()->get();
+        return view('admin.product.trash', compact('products'));
+    }
+
+    public function restore($id){
+        $product = Product::withTrashed()->find($id);
+
+        if ($product->restore()){
+            return back()->with('success', 'Product restore successfully');
+        }else{
+            return back()->with('error', 'Product could not be delete restore');
+        }
+    }
+
+    public function bulkAction(Request $request){
+
+        if ($request->bulk_action AND $request->product_id){
+
+            $action = $request->bulk_action == 'restore'?'restore':'forceDelete';
+
+            Product::onlyTrashed()
+                ->whereIn('id', $request->product_id)
+                ->$action();
+
+            return back()->with('success', 'Product '.$action.' successfully');
+        }
+
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::withTrashed()->find($id);
+
+        if ($product->forceDelete()){
+
+            //Delete image
+            if ($product->image){
+                $this->fileHandler->deleteImage($product->image);
+            }
+
+            return back()->with('success', 'Product delete permanently successfully');
+
+        }else{
+            return back()->with('error', 'Product could not be delete permanently');
         }
     }
 }

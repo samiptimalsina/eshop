@@ -22,12 +22,6 @@ class HomeController extends Controller
         $GLOBALS['category_ids'] = [];
     }
 
-    /**
-     * Show all product
-     *
-     * @param Request $request
-     * @return Factory|View
-     */
     function index(Request $request){
 
         $products = Product::orderBy('id', 'desc')->with('brand', 'category')
@@ -48,17 +42,12 @@ class HomeController extends Controller
         return view('frontend.pages.home_content', compact( 'products', 'featured_products'));
     }
 
-    /**
-     * Show product by category
-     *
-     * @param $slug
-     * @return Factory|View
-     */
     function productByCategory($slug)
     {
         $category = Category::with('children')->where('slug', $slug)->first();
 
         array_push($GLOBALS['category_ids'], $category->id);
+
         $this->getChildrenCategory($category['children']);
 
         $products = Product::orderBy('id', 'desc')->with('brand', 'category')
@@ -69,11 +58,6 @@ class HomeController extends Controller
         return view('frontend.pages.home_content', compact('products'));
     }
 
-    /**
-     * Get children category to get all product of category and sub category
-     *
-     * @param $children_categories
-     */
     function getChildrenCategory($children_categories){
 
         foreach ($children_categories as $children_category){
@@ -84,12 +68,6 @@ class HomeController extends Controller
         }
     }
 
-    /**
-     * Show product by brand
-     *
-     * @param $slug
-     * @return Factory|View
-     */
     function productByBrand($slug)
     {
         $brand = Brand::with('products')->where('slug', $slug)->first();
@@ -99,12 +77,6 @@ class HomeController extends Controller
         return view('frontend.pages.home_content', compact('products'));
     }
 
-    /**
-     * Search product from frontend
-     *
-     * @param Request $request
-     * @return Factory|RedirectResponse|View
-     */
     public function search(Request $request){
 
         if (trim($request->search) != null OR $request->category != null){

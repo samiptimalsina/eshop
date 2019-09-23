@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * @method static where(string $string, $slug)
  * @method static orderBy(string $string, string $string1)
+ * @method static onlyTrashed()
  */
 class Product extends Model
 {

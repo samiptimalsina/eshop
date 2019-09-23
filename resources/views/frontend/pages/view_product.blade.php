@@ -16,15 +16,15 @@
 
             @include('partials.flash_messages.flashMessages')
 
-            <div class="col-sm-5">
+            <div class="col-sm-6">
                 <div class="view-product">
                     <a href="{{ asset('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
-                        <img src="{{ asset('public/admin/uploads/images/products/'.$product->image) }}"/>
+                        <img src="{{ asset('public/admin/uploads/images/products/'.$product->image) }}" />
                     </a>
                 </div>
             </div>
 
-            <div class="col-sm-7">
+            <div class="col-sm-6">
                 <div class="product-information">
                     <img src="{{ asset('public/frontend/images/product-details/new.jpg') }}" class="newarrival" alt="" />
                     <h2>{{ $product->name }}</h2>

@@ -36,12 +36,14 @@
 
     <script type="text/javascript">var home_url="{{ url('/') }}"</script>
 
-    {{--vueJs--}}
-    {{--<script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>--}}
+    {{--included jquery, vueJs and axios--}}
+    <script src="{{ asset('public/js/app.js') }}"></script>
 
     {{--moment--}}
     <script src="{{ asset('public/frontend/js/moment/moment.min.js') }}"></script>
+
+    {{--Main jquery--}}
+    <script src="{{ asset('public/admin/js/jquery-3.1.1.min.js') }} "></script>
 
 </head>
 
@@ -63,8 +65,8 @@
 
 </div>
 
+
 <!-- Mainly scripts -->
-<script src="{{ asset('public/admin/js/jquery-3.1.1.min.js') }} "></script>
 <script src="{{ asset('public/admin/js/bootstrap.min.js') }} "></script>
 
 <script src="{{ asset('public/admin/js/plugins/metisMenu/jquery.metisMenu.js') }} "></script>
@@ -173,6 +175,8 @@
     });
 
 </script>
+
+    @yield('custom-js')
 
 </body>
 
