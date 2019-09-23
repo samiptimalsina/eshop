@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ @csrf_token() }}">
+    <link rel="icon" href="{{ asset('public/frontend/images/favicon-32x32.png') }}" type="image/x-icon" />
 
     <title>E-SHOPPER | Dashboard</title>
 
@@ -36,6 +37,10 @@
 
     <script type="text/javascript">var home_url="{{ url('/') }}"</script>
 
+    {{--vueJs--}}
+    {{--<script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
+    <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>--}}
+
     {{--included jquery, vueJs and axios--}}
     <script src="{{ asset('public/js/app.js') }}"></script>
 
@@ -47,7 +52,7 @@
 
 </head>
 
-<body class="fixed-sidebar fixed-nav fixed-nav-basic">
+<body class="fixed-sidebar fixed-nav fixed-nav-basic padding-right-remove">
 
 <div id="wrapper">
 

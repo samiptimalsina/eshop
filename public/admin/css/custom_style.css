@@ -106,6 +106,10 @@ th.trash-table.sorting_desc::after {
     content:"" !important;
 }
 
+.padding-right-remove{
+    padding-right: 0!important;
+}
+
 /* The customcheck */
 .customcheck {
     position: relative;
