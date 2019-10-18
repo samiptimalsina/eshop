@@ -71,9 +71,9 @@
                                         <td>
                                             <a href="{{ route('admin.brands.change-status', [$brand->id, $brand->status]) }}" title="Change publication status">
                                                 @if($brand->status)
-                                                    <i class="fa fa-check-square-o"></i>
+                                                    <span class="badge badge-primary">Active</span>
                                                 @else
-                                                    <i class="fa fa-times"></i>
+                                                    <span class="badge badge-warning">Disable</span>
                                                 @endif
                                             </a>
                                         </td>

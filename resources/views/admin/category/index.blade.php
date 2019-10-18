@@ -75,9 +75,9 @@
                                         <td>
                                             <a href="{{ route('admin.categories.change-status', [$category->id, $category->status]) }}" title="Change publication status">
                                                 @if($category->status)
-                                                    <i class="fa fa-check-square-o"></i>
+                                                    <span class="badge badge-primary">Active</span>
                                                 @else
-                                                    <i class="fa fa-times"></i>
+                                                    <span class="badge badge-warning">Disable</span>
                                                 @endif
                                             </a>
                                         </td>

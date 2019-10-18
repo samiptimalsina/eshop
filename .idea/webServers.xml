@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="930c10e1-9e64-4f41-b3e6-fce42f5e3184" name="online eshopper" url="http://ftp.glossybazar.com">
-        <fileTransfer host="ftp.glossybazar.com" port="21" rootFolder="/www/demo/eshopper">
+      <webServer id="14ebe40a-20e7-44c5-b054-8415f560c75e" name="Live eshopper" url="http://glossybazar.com/demo/eshopper">
+        <fileTransfer host="glossybazar.com" port="21" rootFolder="/www/demo/eshopper">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>

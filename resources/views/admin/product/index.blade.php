@@ -77,9 +77,9 @@
                                         <td>
                                             <a href="{{ route('admin.products.change-featured', [$product->id, $product->featured]) }}" title="Change featured">
                                                 @if($product->featured)
-                                                    <i class="fa fa-check-square-o"></i>
+                                                    <span class="badge badge-primary">Active</span>
                                                 @else
-                                                    <i class="fa fa-times"></i>
+                                                    <span class="badge badge-warning">Disable</span>
                                                 @endif
                                             </a>
                                         </td>
@@ -87,9 +87,9 @@
                                         <td>
                                             <a href="{{ route('admin.products.change-status', [$product->id, $product->status]) }}" title="Change publication status">
                                                 @if($product->status)
-                                                    <i class="fa fa-check-square-o"></i>
+                                                    <span class="badge badge-primary">Active</span>
                                                 @else
-                                                    <i class="fa fa-times"></i>
+                                                    <span class="badge badge-warning">Active</span>
                                                 @endif
                                             </a>
                                         </td>

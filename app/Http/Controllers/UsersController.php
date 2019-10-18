@@ -71,7 +71,7 @@ class UsersController extends Controller
             'img' => 'required|image|mimes:jpg,jpeg,bmp,png|max:1024',
         ],
         [
-            'img.uploaded' => 'Can not save image. Maximum 3MB',
+            'img.uploaded' => 'Can not save image. Maximum 1MB',
             'img.required' => 'Please Choose An Image First'
         ]);
 

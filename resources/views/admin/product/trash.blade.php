@@ -66,7 +66,6 @@
                                         <th>Price</th>
                                         <th>Featured</th>
                                         <th>Status</th>
-                                        <th>Created at</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -101,9 +100,9 @@
                                             <td>
                                                 <a href="{{ route('admin.products.change-featured', [$product->id, $product->featured]) }}" title="Change featured">
                                                     @if($product->featured)
-                                                        <i class="fa fa-check-square-o"></i>
+                                                        <span class="badge badge-primary">Active</span>
                                                     @else
-                                                        <i class="fa fa-times"></i>
+                                                        <span class="badge badge-warning">Disable</span>
                                                     @endif
                                                 </a>
                                             </td>
@@ -111,18 +110,16 @@
                                             <td>
                                                 <a href="{{ route('admin.products.change-status', [$product->id, $product->status]) }}" title="Change publication status">
                                                     @if($product->status)
-                                                        <i class="fa fa-check-square-o"></i>
+                                                        <span class="badge badge-primary">Active</span>
                                                     @else
-                                                        <i class="fa fa-times"></i>
+                                                        <span class="badge badge-warning">Disable</span>
                                                     @endif
                                                 </a>
                                             </td>
 
-                                            <td> {{ date("d-m-Y", strtotime($product->created_at)) }}</td>
-
                                             <td>
                                                 <a title="Restore" href="{{ route('admin.products.restore', $product->id) }}" class="cus_mini_icon color-success"> <i class="fa fa-refresh"></i></a>
-                                                <a title="Trash" data-toggle="modal" data-target="#myModal{{$product->id}}" type="button" class="cus_mini_icon color-danger"><i class="fa fa-recycle"></i></a>
+                                                <a title="Delete" data-toggle="modal" data-target="#myModal{{$product->id}}" type="button" class="cus_mini_icon color-danger"><i class="fa fa-trash"></i></a>
                                             </td>
 
                                             <!-- The Modal -->
