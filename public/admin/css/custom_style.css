@@ -1,3 +1,6 @@
+html, body{
+    background-color: #233646!important;
+}
 .action_btn {
     margin-bottom: 0px!important;
     padding: 2px 10px!important;
@@ -175,4 +178,8 @@ th.trash-table.sorting_desc::after {
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg);
+}
+.middle-box{
+    position: relative;
+    padding-top: 0!important;
 }

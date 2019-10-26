@@ -2,20 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bef851a9-240a-47de-bd12-3d4a19ccefaf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Abdullah.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/css/plugins/particle/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/js/plugins/particle/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/admin/js/plugins/particle/particles.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/uploads/images/sliders/dmy0xsk6_3jd094uv_1566625967_0_under-999-big-banner_artboard-jpg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/uploads/images/sliders/m2v7puga_fejcoveu_1564053959_0_accessories-mega-sale-big-banner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/uploads/images/sliders/pr1fxk2u_fejcoveu_1564053959_0_accessories-mega-sale-big-banner.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/brand/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brand/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/trash.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/trash.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/css/custom_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/custom_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/ionRangeSlider/ion.rangeSlider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/ionRangeSlider/ion.rangeSlider.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/jqGrid/i18n/grid.locale-sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/jqGrid/i18n/grid.locale-sr.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/frontend/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -140,9 +138,17 @@
   <component name="ProjectId" id="1S1Qy4DBD8KkqDgzC3lk2TodJ78" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-vueJs-crud" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/admin/js/plugins/particle" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Xampp-7.3\htdocs\eshopper\public\admin\js\plugins\particle" />
+      <recent name="D:\Xampp-7.3\htdocs\eshopper\public\admin\css\plugins\perticle" />
+      <recent name="D:\Xampp-7.3\htdocs\eshopper\public\admin\js\plugins\perticle" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -176,8 +182,26 @@
       <workItem from="1570763149832" duration="13000" />
       <workItem from="1570766113617" duration="31000" />
       <workItem from="1570773625277" duration="1596000" />
-      <workItem from="1571373312402" duration="1755000" />
+      <workItem from="1571373312402" duration="2398000" />
+      <workItem from="1571412729097" duration="1881000" />
+      <workItem from="1571491955375" duration="1000" />
+      <workItem from="1571576460736" duration="924000" />
+      <workItem from="1571831739718" duration="256000" />
+      <workItem from="1571921544692" duration="834000" />
+      <workItem from="1571997396290" duration="101000" />
+      <workItem from="1571998404014" duration="360000" />
+      <workItem from="1572000689603" duration="643000" />
+      <workItem from="1572001940664" duration="148000" />
+      <workItem from="1572095754570" duration="7711000" />
     </task>
+    <task id="LOCAL-00001" summary="Active and Disable button make badge button">
+      <created>1571375150691</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571375150691</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -195,5 +219,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Active and Disable button make badge button" />
+    <option name="LAST_COMMIT_MESSAGE" value="Active and Disable button make badge button" />
   </component>
 </project>

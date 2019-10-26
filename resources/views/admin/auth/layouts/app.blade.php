@@ -13,17 +13,29 @@
         <link href="{{ asset('public/admin/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
         <link href="{{ asset('public/admin/css/animate.css') }}" rel="stylesheet">
         <link href="{{ asset('public/admin/css/style.css') }}" rel="stylesheet">
+
+        {{--particle--}}
+        <link href="{{ asset('public/admin/css/plugins/particle/style.css') }}" rel="stylesheet">
+
         <link href="{{ asset('public/admin/css/custom_style.css') }}" rel="stylesheet">
 
     </head>
 
-    <body class="gray-bg">
+    <body id="particles-js" class="gray-bg">
 
-        @yield('content')
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+            <div style="position: absolute; padding-top: 40px">
+                @yield('content')
+            </div>
+        </div>
 
         <!-- Mainly scripts -->
         <script src="{{ asset('public/admin/js/jquery-3.1.1.min.js') }} "></script>
         <script src="{{ asset('public/admin/js/bootstrap.min.js') }} "></script>
+
+        {{--particle--}}
+        <script src="{{ asset('public/admin/js/plugins/particle/particles.js') }}"></script>
+        <script src="{{ asset('public/admin/js/plugins/particle/app.js') }}"></script>
 
         <!-- iCheck -->
         <script src="{{ asset('public/admin/js/plugins/iCheck/icheck.min.js') }}"></script>
