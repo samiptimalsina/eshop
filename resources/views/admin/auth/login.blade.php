@@ -2,6 +2,8 @@
 
 @section('content')
 
+    @include('partials.flash_messages.flashMessages')
+
     <div>
         <h1 class="logo-name">ES+</h1>
     </div>
@@ -37,6 +39,8 @@
             <div class="i-checks"><label> <input name="remember" {{ old('remember') ? 'checked' : '' }} id="remember" type="checkbox"><i></i> Remember me </label></div>
         </div>--}}
 
+        <input name="grecaptcha_token" id="grecaptcha_token" type="hidden">
+
         <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
         <a href="{{ route('admin.password.request') }}">
@@ -45,3 +49,13 @@
     </form>
 
 @endsection()
+
+@section('custom-js')
+    <script>
+        grecaptcha.ready(function() {
+            grecaptcha.execute('6LcSuL8UAAAAAOuP9CVtkVU97_3a2pan2P19vtZB', {action: 'homepage'}).then(function(token) {
+                document.getElementById('grecaptcha_token').value = token;
+            });
+        });
+    </script>
+@endsection

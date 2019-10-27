@@ -49,6 +49,53 @@ class LoginController extends Controller
         return view('admin.auth.login');
     }
 
+
+    /**
+     * Handle a login request to the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     *
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    public function login(Request $request)
+    {
+        //check google recaptcha response
+        $grecaptcha_token = $request->grecaptcha_token;
+        $ip = $request->ip();
+
+        $grecaptcha_response = $this->gRecaptchaResponse($grecaptcha_token, $ip);
+
+        if (!$grecaptcha_response['success']){
+            return back()->with('warning', 'Hey bot you are in wrong place');
+        }
+
+
+
+        $this->validateLogin($request);
+
+        // If the class is using the ThrottlesLogins trait, we can automatically throttle
+        // the login attempts for this application. We'll key this by the username and
+        // the IP address of the client making these requests into this application.
+        if ($this->hasTooManyLoginAttempts($request)) {
+            $this->fireLockoutEvent($request);
+
+            return $this->sendLockoutResponse($request);
+        }
+
+        if ($this->attemptLogin($request)) {
+            return $this->sendLoginResponse($request);
+        }
+
+        // If the login attempt was unsuccessful we will increment the number of attempts
+        // to login and redirect the user back to the login form. Of course, when this
+        // user surpasses their maximum number of attempts they will get locked out.
+        $this->incrementLoginAttempts($request);
+
+        return $this->sendFailedLoginResponse($request);
+    }
+
+
     /**
      * Log the user out of the application.
      *
@@ -72,5 +119,34 @@ class LoginController extends Controller
     protected function guard()
     {
         return Auth::guard('admin');
+    }
+
+    /**
+     * Get google grecaptcha response
+     *
+     * @param $token
+     * @param $ip
+     * @return mixed
+     */
+    protected function gRecaptchaResponse($token, $ip){
+
+        $ch = curl_init();
+
+        $curlConfig = array(
+            CURLOPT_URL            => "https://www.google.com/recaptcha/api/siteverify",
+            CURLOPT_POST           => true,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POSTFIELDS     => array(
+                'secret' => "6LcSuL8UAAAAAIQIwjUNC9-R1b7MDEiA4ZxyNqZy",
+                'response' => $token,
+                'remoteip' => $ip
+            )
+        );
+
+        curl_setopt_array($ch, $curlConfig);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
+        return json_decode($result, true);
     }
 }

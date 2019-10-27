@@ -13,7 +13,7 @@
 @endif()
 
 @if($message = Session::get('error'))
-    <div class="alert alert-error fade in">
+    <div class="alert alert-warning fade in">
         <a href="#" class="close" data-dismiss="alert">&times;</a>
         <strong>Error!</strong> {{ $message }}.
     </div>

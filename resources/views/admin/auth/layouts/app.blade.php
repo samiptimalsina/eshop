@@ -19,6 +19,9 @@
 
         <link href="{{ asset('public/admin/css/custom_style.css') }}" rel="stylesheet">
 
+        {{--google recaptcha--}}
+        <script src="https://www.google.com/recaptcha/api.js?render=6LcSuL8UAAAAAOuP9CVtkVU97_3a2pan2P19vtZB"></script>
+
     </head>
 
     <body id="particles-js" class="gray-bg">
@@ -47,6 +50,9 @@
                 });
             });
         </script>
+
+        @yield('custom-js')
+
     </body>
 
 </html>

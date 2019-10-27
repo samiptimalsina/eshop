@@ -2,18 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bef851a9-240a-47de-bd12-3d4a19ccefaf" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/admin/css/plugins/particle/style.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/js/plugins/particle/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/js/plugins/particle/particles.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dictionaries/Abdullah.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/css/custom_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/custom_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/ionRangeSlider/ion.rangeSlider.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/ionRangeSlider/ion.rangeSlider.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/js/plugins/jqGrid/i18n/grid.locale-sr.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/js/plugins/jqGrid/i18n/grid.locale-sr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/frontend/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/frontend/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/login.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/email.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/auth/passwords/reset.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/partials/flash_messages/flashMessages.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/partials/flash_messages/flashMessages.blade.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -136,9 +131,19 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1S1Qy4DBD8KkqDgzC3lk2TodJ78" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/admin/js/plugins/particle" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WHMCS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -192,7 +197,10 @@
       <workItem from="1571998404014" duration="360000" />
       <workItem from="1572000689603" duration="643000" />
       <workItem from="1572001940664" duration="148000" />
-      <workItem from="1572095754570" duration="7711000" />
+      <workItem from="1572095754570" duration="9392000" />
+      <workItem from="1572179316326" duration="39000" />
+      <workItem from="1572185247610" duration="37000" />
+      <workItem from="1572192400386" duration="4074000" />
     </task>
     <task id="LOCAL-00001" summary="Active and Disable button make badge button">
       <created>1571375150691</created>
@@ -201,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1571375150691</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Particle effect added to admin login layout">
+      <created>1572106893173</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572106893173</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -221,7 +236,9 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Active and Disable button make badge button" />
-    <option name="LAST_COMMIT_MESSAGE" value="Active and Disable button make badge button" />
+    <MESSAGE value="Particle effect added to admin login layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="Particle effect added to admin login layout" />
   </component>
 </project>
