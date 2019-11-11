@@ -1,2 +1,2 @@
 # e-shopper
-<p>It`s a ecommece web appication by laravel. Almost all feaure include this application.</p>
+<p>It's a ecommece web website by laravel. Almost all feature include this website.</p>
