@@ -3,9 +3,17 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Contracts\Auth\StatefulGuard;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Routing\Redirector;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
+use Illuminate\View\View;
+use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
 {
@@ -27,7 +35,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = 'admin/dashboard';
+    protected $redirectTo = 'backend/dashboard';
 
     /**
      * Create a new controller instance.
@@ -42,7 +50,7 @@ class LoginController extends Controller
     /**
      * Show the application's login form.
      *
-     * @return \Illuminate\Http\Response
+     * @return Factory|Application|View
      */
     public function showLoginForm()
     {
@@ -53,10 +61,10 @@ class LoginController extends Controller
     /**
      * Handle a login request to the application.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Illuminate\Http\JsonResponse
+     * @param Request $request
+     * @return Response|void
      *
-     * @throws \Illuminate\Validation\ValidationException
+     * @throws ValidationException
      */
     public function login(Request $request)
     {
@@ -99,8 +107,8 @@ class LoginController extends Controller
     /**
      * Log the user out of the application.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Application|RedirectResponse|Redirector
      */
     public function logout(Request $request)
     {
@@ -108,13 +116,13 @@ class LoginController extends Controller
 
         $request->session()->invalidate();
 
-        return redirect('admin')->with('success', 'Logout successfully');
+        return redirect('backend')->with('success', 'Logout successfully');
     }
 
     /**
      * Get the guard to be used during authentication.
      *
-     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     * @return StatefulGuard
      */
     protected function guard()
     {

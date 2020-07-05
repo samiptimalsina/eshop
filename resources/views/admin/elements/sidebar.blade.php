@@ -44,7 +44,7 @@
             </li>
 
             <li class="@if (currentController() == 'DashBoardsController') {{ "active" }} @endif">
-                <a href="{{ url('admin/dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
+                <a href="{{ url('backend/dashboard') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboard</span></a>
             </li>
 
             <li class="@if (currentController() == 'BrandsController') {{ "active" }} @endif">
