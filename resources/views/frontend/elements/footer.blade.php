@@ -76,37 +76,37 @@
         </div>
     </footer><!--/Footer-->
 
-    <script src="{{ asset('public/frontend/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/jquery.scrollUp.min.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/main.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/zoomple.js') }}"></script>
+    <script src="{{ asset('frontend/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.scrollUp.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.prettyPhoto.js') }}"></script>
+    <script src="{{ asset('frontend/js/main.js') }}"></script>
+    <script src="{{ asset('frontend/js/zoomple.js') }}"></script>
 
     {{--quick view--}}
-    <script src="{{ asset('public/frontend/js/plugins/quickView/velocity.min.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/plugins/quickView/main.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/quickView/velocity.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/quickView/main.js') }}"></script>
 
     {{--sweetalert--}}
-    <script src="{{ asset('public/frontend/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
 
     {{--rate--}}
-    <script src="{{ asset('public/frontend/js/plugins/rate/jquery.rateyo.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/rate/jquery.rateyo.min.js') }}"></script>
 
     {{--moment--}}
-    <script src="{{ asset('public/frontend/js/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/moment/moment.min.js') }}"></script>
 
     <!-- Ladda -->
-    <script src="{{ asset('public/frontend/js/plugins/ladda/spin.min.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/plugins/ladda/ladda.min.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/plugins/ladda/ladda.jquery.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/ladda/spin.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/ladda/ladda.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/ladda/ladda.jquery.min.js') }}"></script>
 
     {{--toastr--}}
-    <script src="{{ asset('public/admin/js/plugins/toastr/toastr.min.js') }} "></script>
+    <script src="{{ asset('admin/js/plugins/toastr/toastr.min.js') }} "></script>
 
     {{--jquery validate--}}
-    <script src="{{ asset('public/frontend/js/jquery-validate/jquery.validate.min.js') }} "></script>
+    <script src="{{ asset('frontend/js/jquery-validate/jquery.validate.min.js') }} "></script>
 
-    <script src="{{ asset('public/frontend/js/plugins/lazyload/lazyload.js') }}"></script>
+    <script src="{{ asset('frontend/js/plugins/lazyload/lazyload.js') }}"></script>
 
     <!--Start of Tawk.to Script-->
     <script type="text/javascript">

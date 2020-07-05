@@ -114,7 +114,7 @@
              </div><!--/price-range-->
 
              <div class="shipping text-center">
-                 <img src="{{ URL::to('public/frontend/images/home/shipping.jpg') }}" alt="" />
+                 <img src="{{ URL::to('frontend/images/home/shipping.jpg') }}" alt="" />
              </div>
 
          </div>

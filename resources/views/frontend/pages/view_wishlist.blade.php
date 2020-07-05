@@ -29,7 +29,7 @@
                             <tr v-for='product in wishlists'>
 
                                 <td class="cart_product_img">
-                                    <a href=""><img :src="'{{ URL::to('public/admin/uploads/images/products/') }}/'+product.options.image" alt="image" class="view_cart_image"></a>
+                                    <a href=""><img :src="'{{ URL::to('admin/uploads/images/products/') }}/'+product.options.image" alt="image" class="view_cart_image"></a>
                                 </td>
                                 <td class="cart_name">
                                     <h4><a href="#0">@{{ product.name }}</a></h4>
@@ -37,8 +37,10 @@
                                 <td class="cart_price">
                                     <p>@{{ product.price }} Tk</p>
                                 </td>
-                                <td class="cart_delete" style="display: table-cell">
-                                    <a href="#0" :row-id="product.rowId" @click="removeFromWishlist" title="Remove" class="cart_quantity_delete"><i class="fa fa-times"></i></a>
+                                <td class="" style="display: table-cell">
+                                    <a href="#0" :row-id="product.rowId" @click="removeFromWishlist" title="Remove" class="btn btn-xs btn-danger cart_quantity_delete">
+                                        <i class="fa fa-times"></i>
+                                    </a>
                                 </td>
                                 <td>
                                     <a :row-id="product.rowId" @click="moveToCart" class="btn btn-default update add_to_cart">Move to cart</a>

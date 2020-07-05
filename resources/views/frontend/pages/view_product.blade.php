@@ -18,15 +18,15 @@
 
             <div class="col-sm-6">
                 <div class="view-product">
-                    <a href="{{ asset('public/admin/uploads/images/products/'.$product->image) }}" class="zoomple">
-                        <img src="{{ asset('public/admin/uploads/images/products/'.$product->image) }}" />
+                    <a href="{{ asset('admin/uploads/images/products/'.$product->image) }}" class="zoomple">
+                        <img src="{{ asset('admin/uploads/images/products/'.$product->image) }}" />
                     </a>
                 </div>
             </div>
 
             <div class="col-sm-6">
                 <div class="product-information">
-                    <img src="{{ asset('public/frontend/images/product-details/new.jpg') }}" class="newarrival" alt="" />
+                    <img src="{{ asset('frontend/images/product-details/new.jpg') }}" class="newarrival" alt="" />
                     <h2>{{ $product->name }}</h2>
 
                     @if ($product->reviews->count() > 0)
@@ -146,10 +146,10 @@
 
                                 <div class="review_action">
                                     <a @click="addVote" :review_id="review.id" vote_type="1" :review_index="index" type="button" class="btn btn-light">
-                                        <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/like.svg') }}">
+                                        <img class="img-fluid" src="{{ URL::to('frontend/images/product-details/like.svg') }}">
                                     </a>
                                     <a @click="addVote" :review_id="review.id" vote_type="0" :review_index="index" type="button" class="btn btn-light">
-                                        <img class="img-fluid" src="{{ URL::to('public/frontend/images/product-details/dislike.svg') }}">
+                                        <img class="img-fluid" src="{{ URL::to('frontend/images/product-details/dislike.svg') }}">
                                     </a>
                                 </div>
 
@@ -195,7 +195,7 @@
                                         <div class="single-products">
                                             <div class="productinfo text-center">
                                                 <a href="{{ route('products.show', $product->slug) }}">
-                                                    <img src="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" class="product_image" alt="" />
+                                                    <img src="{{ URL::to('admin/uploads/images/products/'.$product->image) }}" class="product_image" alt="" />
                                                 </a>
                                                 <h2>{{ $product->price }} Tk</h2>
                                                 <p>{{ $product->name }}</p>

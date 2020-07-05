@@ -33,7 +33,7 @@
                                 <tr v-for='product in carts'>
 
                                     <td class="cart_product_img">
-                                        <a href=""><img :src="'{{ URL::to('public/admin/uploads/images/products') }}/'+product.options.image" class="view_cart_image" alt="image"></a>
+                                        <a href=""><img :src="'{{ URL::to('admin/uploads/images/products') }}/'+product.options.image" class="view_cart_image" alt="image"></a>
                                     </td>
 
                                     <td class="cart_name">

@@ -62,9 +62,9 @@
 
                                         <?php
                                             if (isset($product->image)){
-                                                $image_url = URL::to('public/admin/uploads/images/products/'.$product->image);
+                                                $image_url = URL::to('admin/uploads/images/products/'.$product->image);
                                             }else{
-                                                $image_url = URL::to('public/admin/img/no-image.png');
+                                                $image_url = URL::to('admin/img/no-image.png');
                                             }
                                         ?>
 
@@ -100,7 +100,7 @@
                                             <a title="Edit" href="{{ route('admin.products.edit', $product->id) }}" class="cus_mini_icon color-success"> <i class="fa fa-pencil-square-o"></i></a>
                                             <a title="Trash" data-toggle="modal" data-target="#myModal{{$product->id}}" type="button" class="cus_mini_icon color-danger"><i class="fa fa-recycle"></i></a>
                                         </td>
-                                        
+
                                         <!-- The Modal -->
                                         <div class="modal fade in" id="myModal{{$product->id}}">
                                             <div class="modal-dialog">
@@ -121,7 +121,7 @@
                                                         <button class="btn btn-sm btn-primary" type="submit" onclick="event.preventDefault();
                                                                 document.getElementById('product-delete-form{{ $product->id }}').submit();">
                                                             <strong>Yes</strong>
-                                                        </button>                                                    
+                                                        </button>
                                                     </div>
 
                                                     <!-- Modal footer -->
@@ -136,7 +136,7 @@
                                         <form id="product-delete-form{{ $product->id }}" method="POST" action="{{ route('admin.products.trash', $product->id) }}" style="display: none" >
                                             @csrf()
                                         </form>
-                                        
+
                                     </tr>
                                     @php($i++)
                                 @endforeach

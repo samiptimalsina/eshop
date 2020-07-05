@@ -9,14 +9,14 @@
 
                     <?php
                         if (isset(Auth::user()->image)){
-                            $image_url = URL::to('public/admin/uploads/images/admins/'.Auth::user()->image);
+                            $image_url = URL::to('admin/uploads/images/admins/'.Auth::user()->image);
                         }else{
-                            $image_url = URL::to('public/admin/img/no-image.png');
+                            $image_url = URL::to('admin/img/no-image.png');
                         }
                     ?>
 
                     <span>
-                        <img alt="image" class="img-circle" src="{{ $image_url }}" />
+                        <img alt="image" class="img-circle avater_logo" src="{{ $image_url }}" />
                     </span>
 
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">

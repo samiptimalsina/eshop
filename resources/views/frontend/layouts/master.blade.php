@@ -17,7 +17,7 @@
                         <div class="carousel-inner">
                             @foreach(sliders() as $slider)
                                 <div class="item {{ $loop->first?'active':'' }}">
-                                    <img src="{{ URL::to('public/admin/uploads/images/sliders/'.$slider->image) }}"
+                                    <img src="{{ URL::to('admin/uploads/images/sliders/'.$slider->image) }}"
                                          class="girl img-responsive" alt=""/>
                                 </div>
                             @endforeach

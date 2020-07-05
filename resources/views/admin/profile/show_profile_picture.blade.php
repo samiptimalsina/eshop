@@ -54,9 +54,9 @@
                                 <div class="col-sm-2">
                                     <?php
                                         if (isset(Auth::user()->image)){
-                                            $image_url = URL::to('public/admin/uploads/images/admins/'.Auth::user()->image);
+                                            $image_url = URL::to('admin/uploads/images/admins/'.Auth::user()->image);
                                         }else{
-                                            $image_url = URL::to('public/admin/img/no-image.png');
+                                            $image_url = URL::to('admin/img/no-image.png');
                                         }
                                     ?>
                                     <img src="{{ $image_url }}" alt="Image" class="preview_image" id="img-preview">

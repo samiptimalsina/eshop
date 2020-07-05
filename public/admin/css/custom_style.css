@@ -1,9 +1,20 @@
 html, body{
     background-color: #233646!important;
+    color: #000!important;
 }
+
 .action_btn {
     margin-bottom: 0px!important;
     padding: 2px 10px!important;
+}
+.cus_thumbnail{
+    width: 60px!important;
+    height: 55px!important;
+    border-radius: 5px;
+}
+.cus_btn{
+    padding: 3px 4px!important;
+    margin-bottom: 0!important;
 }
 .pagination > .active > a, .pagination > .active > span,
 .pagination > .active > a:hover, .pagination > .active > span:hover,
@@ -18,26 +29,34 @@ html, body{
 .modal-footer .btn{
     margin-bottom: 0px!important;
 }
-.ibox{
-    padding-top: 22px;
-}
 .ibox-title{
     border-style: none;
 }
 .search_sec {
     margin-bottom: 8px;
 }
-.table > thead > tr > th, .table > tbody > tr > th,
-.table > tfoot > tr > th, .table > thead > tr > td,
-.table > tbody > tr > td, .table > tfoot > tr > td{
-    vertical-align: middle;
-    text-align: center;
+.note-editable{
+    min-height: 200px;
+}
+.note-editing-area{
+    min-height: 200px;
+}
+.note-editor.note-frame {
+    border: 1px solid #e5e6e7!important;
 }
 .cus_thumbnail{
     width: 60px!important;
     height: 55px!important;
 }
 
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td{
+    vertical-align: middle;
+}
 .control-label{
     padding-top: 0px!important;
 }
@@ -58,10 +77,7 @@ html, body{
     font-weight: bold;
 }
 .ibox-tools{
-    margin-top: 35px;
-}
-.alert{
-    margin-bottom: 0px;
+    margin-top: 22px;
 }
 .invalid-feedback{
     color: red;
@@ -76,13 +92,16 @@ html, body{
 .color-success{
     color: #1c84c6;
 }
+.text-primary{
+    color: #1ab394;
+}
 .required-star{
     color: red;
 }
 div.dataTables_wrapper div.dataTables_paginate {
     margin: 20px 0 -30px 0;
     white-space: nowrap;
-     text-align: left;
+    text-align: left;
 }
 .form-horizontal .form-group {
     margin-right: 0;
@@ -91,10 +110,14 @@ div.dataTables_wrapper div.dataTables_paginate {
 .submit_btn_section{
     margin-top: 30px;
 }
-.profile-element img{
+.avater_logo{
     height: 48px;
     width: 48px;
 }
+/*.profile-element img{
+    height: 48px;
+    width: 48px;
+}*/
 .go_to_site {
     text-align: center;
     font-size: 13px;
@@ -182,4 +205,63 @@ th.trash-table.sorting_desc::after {
 .middle-box{
     position: relative;
     padding-top: 0!important;
+}
+.vertical-timeline-content{
+    margin-left: 0!important;
+}
+.vertical-timeline-content .btn {
+    float: left!important;
+    margin-right: 5px;
+}
+.social-feed-box{
+    min-height: 473px;
+}
+.sweet-alert button.cancel {
+    background-color: #ec4758!important;
+}
+.sweet-alert button.cancel:hover {
+    background-color: #ec4758!important;
+}
+#tokenize-select .tokenize>.tokens-container>.token{
+    border-color: #1ab394;
+    background-color: #1ab394;
+    color: #fff;
+}
+.tokenize>.tokens-container>.token>.dismiss{
+    color: #fff;
+}
+.table-pagination{
+    display: flex;
+    align-items: center;
+}
+.pagination {
+    display: block!important;
+    margin: 0 0!important;
+}
+.page-heading {
+    padding: 14px!important;
+}
+.single-option{
+    width: 100%;
+    float: left;
+}
+#optionsSection ul{
+    margin-bottom: 0!important;
+}
+.error_answer{
+    background-color: #f5eeee;
+    padding: 8px 8px;
+    border-radius: 4px;
+}
+
+.nav-header-custom {
+    padding: 33px 25px;
+    /*background-color: #2f4050;
+    background-image: url("patterns/header-profile.png");*/
+}
+.nav-header-custom a {
+    color: #DFE4ED;
+}
+.nav > li > a, .text-muted {
+    color: white;
 }

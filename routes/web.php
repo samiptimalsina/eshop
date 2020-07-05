@@ -1,17 +1,19 @@
 <?php
 
 /*Test cron job*/
-Route::get('cron', function (){
+Route::get('cron', function () {
     info('Cron job work properly');
 })->name('cron');
 
-Route::get('/es-clear', function () {
-    \Illuminate\Support\Facades\Artisan::call('cache:clear');
-    \Illuminate\Support\Facades\Artisan::call('config:clear');
-    \Illuminate\Support\Facades\Artisan::call('view:clear');
-    \Illuminate\Support\Facades\Artisan::call('route:clear');
+//Clear cache
+Route::get('clear', function () {
+    Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('view:clear');
+    Artisan::call('route:clear');
+    Artisan::call('optimize:clear');
 
-    return 'true';
+    echo 'Cache clear successful.';
 });
 
 //Frontend..............................
@@ -46,32 +48,32 @@ Route::get('wishlists/count/product', 'WishListsController@count')->name('wishli
 Route::get('wishlists/get/product', 'WishListsController@getWishlistProduct')->name('wishlist.get-product');
 
 //Review................................
-Route::group(['prefix' => 'products'], function (){
+Route::group(['prefix' => 'products'], function () {
     Route::resource('{products}/{skip}/reviews', 'ReviewsController');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => 'products'], function (){
+Route::group(['middleware' => 'auth', 'prefix' => 'products'], function () {
     Route::get('reviews/vote/{vote}/{reviews}', 'ReviewsController@addVote')->name('reviews.vote.store');
 });
 
 Route::group(['middleware' => 'auth'], function () {
 
-        //Checkout..............................
-        Route::get('checkout', 'CheckoutsController@index')->name('checkout');
-        Route::post('save-shipping-info', 'CheckoutsController@saveShippingInfo')->name('save-shipping-info');
-        Route::get('payment', 'CheckoutsController@payment')->name('payment');
-        Route::post('order-place', 'CheckoutsController@orderPlace')->name('order-place');
+    //Checkout..............................
+    Route::get('checkout', 'CheckoutsController@index')->name('checkout');
+    Route::post('save-shipping-info', 'CheckoutsController@saveShippingInfo')->name('save-shipping-info');
+    Route::get('payment', 'CheckoutsController@payment')->name('payment');
+    Route::post('order-place', 'CheckoutsController@orderPlace')->name('order-place');
 
-        //User profile.........................
-        Route::group(['prefix' => 'my-profile'], function () {
-            Route::get('/', 'UsersController@showProfile')->name('user.myProfile');
-            Route::get('get-info', 'UsersController@getProfileInfo')->name('user.getProfileInfo');
-            Route::post('/', 'UsersController@updateProfile')->name('user.myProfile');
-            Route::post('image/upload', 'UsersController@imageUpload')->name('user.imageUpload');
-            Route::post('change-password', 'UsersController@updatePassword')->name('user.updatePassword');
-        });
-
+    //User profile.........................
+    Route::group(['prefix' => 'my-profile'], function () {
+        Route::get('/', 'UsersController@showProfile')->name('user.myProfile');
+        Route::get('get-info', 'UsersController@getProfileInfo')->name('user.getProfileInfo');
+        Route::post('/', 'UsersController@updateProfile')->name('user.myProfile');
+        Route::post('image/upload', 'UsersController@imageUpload')->name('user.imageUpload');
+        Route::post('change-password', 'UsersController@updatePassword')->name('user.updatePassword');
     });
+
+});
 
 //Contact................
 Route::get('contact', 'ContactsController@index')->name('contact');
@@ -82,7 +84,7 @@ Auth::routes();
 
 
 //Admin......................................
-Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 'admin'], function (){
+Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 'admin'], function () {
 
     Route::name('admin.')->group(function () {
 
@@ -118,7 +120,7 @@ Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 
 
 
 //Admin Authentication
-Route::group(['middleware' => 'preventBackHistory'], function (){
+Route::group(['middleware' => 'preventBackHistory'], function () {
 
     //Admin Authentication Route..........................
     Route::get('backend/dashboard', 'Admin\DashboardsController@index');

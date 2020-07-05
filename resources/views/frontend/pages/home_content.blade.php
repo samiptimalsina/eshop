@@ -27,7 +27,7 @@
                                     <div class="single-products">
                                         <div class="productinfo text-center">
                                             <a href="{{ route('products.show', $product->slug) }}">
-                                                <img src="{{ URL::to('public/admin/uploads/images/products/'.$product->image) }}" class="product_image" alt="" />
+                                                <img src="{{ URL::to('admin/uploads/images/products/'.$product->image) }}" class="product_image" alt="" />
                                             </a>
                                             <h2>{{ $product->price }} Tk</h2>
                                             <p>{{ $product->name }}</p>
@@ -86,9 +86,9 @@
 
                                     <?php
                                         if (isset($product->image)){
-                                            $image_url = URL::to('public/admin/uploads/images/products/'.$product->image);
+                                            $image_url = URL::to('admin/uploads/images/products/'.$product->image);
                                         }else{
-                                            $image_url = URL::to('public/admin/img/no-image.png');
+                                            $image_url = URL::to('admin/img/no-image.png');
                                         }
                                     ?>
 
