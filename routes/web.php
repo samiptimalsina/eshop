@@ -142,34 +142,34 @@ Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 
 Route::group(['middleware' => 'preventBackHistory'], function (){
 
     //Admin Authentication Route..........................
-    Route::get('admin/dashboard', 'Admin\DashboardsController@index');
+    Route::get('backend/dashboard', 'Admin\DashboardsController@index');
 
     //Admin Login Routes..................................
-    Route::get('admin', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
-    Route::post('admin', 'Admin\Auth\LoginController@login');
-    Route::post('admin/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
+    Route::get('backend', 'Admin\Auth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('backend', 'Admin\Auth\LoginController@login');
+    Route::post('backend/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
 
     // Registration Routes.....................................................
-    Route::get('admin/register', 'Admin\Auth\RegisterController@showRegistrationForm')->name('admin.register');
-    Route::post('admin/register', 'Admin\Auth\RegisterController@register');
+    Route::get('backend/register', 'Admin\Auth\RegisterController@showRegistrationForm')->name('admin.register');
+    Route::post('backend/register', 'Admin\Auth\RegisterController@register');
 
     // Password Reset Routes.....................................................
-    Route::get('admin/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
-    Route::post('admin/password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
-    Route::get('admin/password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm')->name('admin.password-reset');
-    Route::post('admin/password/reset', 'Admin\Auth\ResetPasswordController@reset')->name('admin.password.reset');
+    Route::get('backend/password/reset', 'Admin\Auth\ForgotPasswordController@showLinkRequestForm')->name('admin.password.request');
+    Route::post('backend/password/email', 'Admin\Auth\ForgotPasswordController@sendResetLinkEmail')->name('admin.password.email');
+    Route::get('backend/password/reset/{token}', 'Admin\Auth\ResetPasswordController@showResetForm')->name('admin.password-reset');
+    Route::post('backend/password/reset', 'Admin\Auth\ResetPasswordController@reset')->name('admin.password.reset');
 
     //Admin profile Routes.....................................
-    Route::get('admin/profile', 'Admin\AdminsController@showProfile')->name('admin.profile');
-    Route::post('admin/profile', 'Admin\AdminsController@updateProfile')->name('admin.profile');
+    Route::get('backend/profile', 'Admin\AdminsController@showProfile')->name('admin.profile');
+    Route::post('backend/profile', 'Admin\AdminsController@updateProfile')->name('admin.profile');
 
     //Admin Password Change.......................................
-    Route::get('admin/change-password', 'Admin\AdminsController@changePassword')->name('admin.changePassword');
-    Route::post('admin/change-password', 'Admin\AdminsController@updatePassword')->name('admin.changePassword');
+    Route::get('backend/change-password', 'Admin\AdminsController@changePassword')->name('admin.changePassword');
+    Route::post('backend/change-password', 'Admin\AdminsController@updatePassword')->name('admin.changePassword');
 
     //Admin Profile Picture Change.......................................
-    Route::get('admin/change-profile-picture', 'Admin\AdminsController@changeProfilePicture')->name('admin.changeProfilePicture');
-    Route::post('admin/change-profile-picture', 'Admin\AdminsController@updateProfilePicture')->name('admin.changeProfilePicture');
+    Route::get('backend/change-profile-picture', 'Admin\AdminsController@changeProfilePicture')->name('admin.changeProfilePicture');
+    Route::post('backend/change-profile-picture', 'Admin\AdminsController@updateProfilePicture')->name('admin.changeProfilePicture');
 });
 
 Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');

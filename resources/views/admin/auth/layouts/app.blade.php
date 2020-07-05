@@ -8,16 +8,16 @@
 
         <title>E-SHOPPER | Login</title>
 
-        <link href="{{ asset('public/admin/css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('public/admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
-        <link href="{{ asset('public/admin/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
-        <link href="{{ asset('public/admin/css/animate.css') }}" rel="stylesheet">
-        <link href="{{ asset('public/admin/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/animate.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
 
         {{--particle--}}
-        <link href="{{ asset('public/admin/css/plugins/particle/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/plugins/particle/style.css') }}" rel="stylesheet">
 
-        <link href="{{ asset('public/admin/css/custom_style.css') }}" rel="stylesheet">
+        <link href="{{ asset('admin/css/custom_style.css') }}" rel="stylesheet">
 
         {{--google recaptcha--}}
         <script src="https://www.google.com/recaptcha/api.js?render=6LcSuL8UAAAAAOuP9CVtkVU97_3a2pan2P19vtZB"></script>
@@ -33,15 +33,15 @@
         </div>
 
         <!-- Mainly scripts -->
-        <script src="{{ asset('public/admin/js/jquery-3.1.1.min.js') }} "></script>
-        <script src="{{ asset('public/admin/js/bootstrap.min.js') }} "></script>
+        <script src="{{ asset('admin/js/jquery-3.1.1.min.js') }} "></script>
+        <script src="{{ asset('admin/js/bootstrap.min.js') }} "></script>
 
         {{--particle--}}
-        <script src="{{ asset('public/admin/js/plugins/particle/particles.js') }}"></script>
-        <script src="{{ asset('public/admin/js/plugins/particle/app.js') }}"></script>
+        <script src="{{ asset('admin/js/plugins/particle/particles.js') }}"></script>
+        <script src="{{ asset('admin/js/plugins/particle/app.js') }}"></script>
 
         <!-- iCheck -->
-        <script src="{{ asset('public/admin/js/plugins/iCheck/icheck.min.js') }}"></script>
+        <script src="{{ asset('admin/js/plugins/iCheck/icheck.min.js') }}"></script>
         <script>
             $(document).ready(function () {
                 $('.i-checks').iCheck({

@@ -14,41 +14,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="csrf-token" content="{{ @csrf_token() }}">
-    <link rel="icon" href="{{ asset('public/frontend/images/favicon-32x32.png') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('frontend/images/favicon-32x32.png') }}" type="image/x-icon" />
 
     <title>E-SHOPPER | Dashboard</title>
 
-    <link href="{{ asset('public/admin/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/admin/css/plugins/jsTree/style.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/admin/css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/admin/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/admin/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/admin/css/plugins/jasny/jasny-bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/admin/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/plugins/jsTree/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/plugins/dataTables/datatables.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/plugins/jasny/jasny-bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/plugins/iCheck/custom.css') }}" rel="stylesheet">
 
     {{--sweet alert--}}
-    <link href="{{ asset('public/frontend/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
 
     {{--Toastr--}}
-    <link href="{{ asset('public/admin/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('public/admin/css/custom_style.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/custom_style.css') }}" rel="stylesheet">
 
     <script type="text/javascript">var home_url="{{ url('/') }}"</script>
 
     {{--vueJs--}}
-    {{--<script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>--}}
+    {{--<script src="{{ asset('frontend/js/vue/vue.js') }}"></script>
+    <script src="{{ asset('frontend/js/axios/axios.js') }}"></script>--}}
 
     {{--included jquery, vueJs and axios--}}
-    <script src="{{ asset('public/js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 
     {{--moment--}}
-    <script src="{{ asset('public/frontend/js/moment/moment.min.js') }}"></script>
+    <script src="{{ asset('frontend/js/moment/moment.min.js') }}"></script>
 
     {{--Main jquery--}}
-    <script src="{{ asset('public/admin/js/jquery-3.1.1.min.js') }} "></script>
+    <script src="{{ asset('admin/js/jquery-3.1.1.min.js') }} "></script>
 
 </head>
 
@@ -72,31 +72,31 @@
 
 
 <!-- Mainly scripts -->
-<script src="{{ asset('public/admin/js/bootstrap.min.js') }} "></script>
+<script src="{{ asset('admin/js/bootstrap.min.js') }} "></script>
 
-<script src="{{ asset('public/admin/js/plugins/metisMenu/jquery.metisMenu.js') }} "></script>
-<script src="{{ asset('public/admin/js/plugins/slimscroll/jquery.slimscroll.min.js') }} "></script>
-<script src="{{ asset('public/admin/js/plugins/dataTables/datatables.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/metisMenu/jquery.metisMenu.js') }} "></script>
+<script src="{{ asset('admin/js/plugins/slimscroll/jquery.slimscroll.min.js') }} "></script>
+<script src="{{ asset('admin/js/plugins/dataTables/datatables.min.js') }}"></script>
 
 <!-- Custom and plugin javascript -->
-<script src="{{ asset('public/admin/js/inspinia.js') }} "></script>
-<script src="{{ asset('public/admin/js/plugins/pace/pace.min.js') }} "></script>
-<script src="{{ asset('public/admin/js/plugins/jasny/jasny-bootstrap.min.js') }} "></script>
+<script src="{{ asset('admin/js/inspinia.js') }} "></script>
+<script src="{{ asset('admin/js/plugins/pace/pace.min.js') }} "></script>
+<script src="{{ asset('admin/js/plugins/jasny/jasny-bootstrap.min.js') }} "></script>
 
 {{--slugify--}}
-<script src="{{ asset('public/admin/js/plugins/slug/jquery.slugify.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/slug/jquery.slugify.js') }}"></script>
 
 {{--i-check--}}
-<script src="{{ asset('public/admin/js/plugins/iCheck/icheck.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/iCheck/icheck.min.js') }}"></script>
 
 {{--tree--}}
-<script src="{{ asset('public/admin/js/plugins/jsTree/jstree.min.js') }}"></script>
+<script src="{{ asset('admin/js/plugins/jsTree/jstree.min.js') }}"></script>
 
 {{--sweetalert--}}
-<script src="{{ asset('public/frontend/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
+<script src="{{ asset('frontend/js/plugins/sweetalert/sweetalert.min.js') }}"></script>
 
 {{--toastr--}}
-<script src="{{ asset('public/admin/js/plugins/toastr/toastr.min.js') }} "></script>
+<script src="{{ asset('admin/js/plugins/toastr/toastr.min.js') }} "></script>
 
 <style>
     .jstree-open > .jstree-anchor > .fa-folder:before {

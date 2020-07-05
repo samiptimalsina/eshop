@@ -8,62 +8,62 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Home | E-SHOPPER</title>
 
-    <link href="{{ asset('public/admin/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/style.css') }}" rel="stylesheet">
 
     {{--Quick view--}}
-    <link href="{{ asset('public/frontend/css/plugins/quickView/reset.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/plugins/quickView/style.css') }}" rel="stylesheet">
-    <script src="{{ asset('public/frontend/js/plugins/quickView/modernizr.js') }}"></script>
+    <link href="{{ asset('frontend/css/plugins/quickView/reset.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/plugins/quickView/style.css') }}" rel="stylesheet">
+    <script src="{{ asset('frontend/js/plugins/quickView/modernizr.js') }}"></script>
 
-    <link href="{{ asset('public/frontend/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/plugins/sweetalert/sweetalert.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('public/frontend/css/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/price-range.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/font-awesome.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/prettyPhoto.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/animate.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/main.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/responsive.css') }}" rel="stylesheet">
-    <link href="{{ asset('public/frontend/css/zoomple.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/price-range.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/prettyPhoto.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/main.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/zoomple.css') }}" rel="stylesheet">
 
     {{--Review star icon--}}
     <link href="https://unpkg.com/ionicons@4.2.2/dist/css/ionicons.min.css" rel="stylesheet">
 
     <!-- Ladda style -->
-    <link href="{{ asset('public/frontend/css/plugins/ladda/ladda-themeless.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/plugins/ladda/ladda-themeless.min.css') }}" rel="stylesheet">
 
     {{--Toastr--}}
-    <link href="{{ asset('public/admin/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('admin/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
 
     <script type="text/javascript">var home_url="{{ url('/') }}"</script>
-    <script src="{{ asset('public/frontend/js/jquery.js') }}"></script>
+    <script src="{{ asset('frontend/js/jquery.js') }}"></script>
 
     {{--range--}}
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
     {{--rate--}}
-    <link href="{{ asset('public/frontend/css/plugins/rate/jquery.rateyo.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('frontend/css/plugins/rate/jquery.rateyo.min.css') }}" rel="stylesheet">
 
     {{--vueJs--}}
-    <script src="{{ asset('public/frontend/js/vue/vue.js') }}"></script>
-    <script src="{{ asset('public/frontend/js/axios/axios.js') }}"></script>
+    <script src="{{ asset('frontend/js/vue/vue.js') }}"></script>
+    <script src="{{ asset('frontend/js/axios/axios.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vee-validate/2.1.1/vee-validate.js"></script>
 
     {{--custom--}}
-    <script src="{{ asset('public/frontend/js/custom.js') }}"></script>
+    <script src="{{ asset('frontend/js/custom.js') }}"></script>
 
-    <link rel="icon" type="image/png" href="{{ asset('public/frontend/images/favicon-32x32.png') }}" sizes="32x32"/>
-    <link rel="shortcut icon" href="{{ asset('public/frontend/images/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('frontend/images/favicon-32x32.png') }}" sizes="32x32"/>
+    <link rel="shortcut icon" href="{{ asset('frontend/images/favicon-32x32.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="{{ asset('public/frontend/images/ico/apple-touch-icon-144-precomposed.png') }}">
+          href="{{ asset('frontend/images/ico/apple-touch-icon-144-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="{{ asset('public/frontend/images/ico/apple-touch-icon-114-precomposed.png') }}">
+          href="{{ asset('frontend/images/ico/apple-touch-icon-114-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="{{ asset('public/frontend/images/ico/apple-touch-icon-72-precomposed.png') }}">
+          href="{{ asset('frontend/images/ico/apple-touch-icon-72-precomposed.png') }}">
     <link rel="apple-touch-icon-precomposed"
-          href="{{ asset('public/frontend/images/ico/apple-touch-icon-57-precomposed.png') }}">
+          href="{{ asset('frontend/images/ico/apple-touch-icon-57-precomposed.png') }}">
 
 </head><!--/head-->
 
@@ -105,7 +105,7 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="logo pull-left">
-                        <a href="{{ url('/') }}"><img src="{{ asset('public/frontend/images/home/logo.png') }}" alt=""/></a>
+                        <a href="{{ url('/') }}"><img src="{{ asset('frontend/images/home/logo.png') }}" alt=""/></a>
                     </div>
                 </div>
                 <div class="col-sm-8">

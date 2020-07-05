@@ -9,8 +9,6 @@
     </div>
     <div style="color: #E6E6E6">
         <h3>Welcome to E-Shopper</h3>
-        <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.
-        </p>
         <p>Login in. To see it in action.</p>
     </div>
     <form class="m-t" role="form" action="{{ route('admin.login') }}" method="post">
@@ -43,7 +41,7 @@
 
         <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
 
-        <a href="{{ route('admin.password.request') }}">
+        <a class="text-white" href="{{ route('admin.password.request') }}">
             <small>Forgot password?</small>
         </a>
     </form>
