@@ -32,28 +32,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bef851a9-240a-47de-bd12-3d4a19ccefaf" name="Default Changelist" comment="redirect problem fixed">
-      <change afterPath="$PROJECT_DIR$/GITIGNORE/eshopper_5_7_2020.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/admins/qswfwdsw_lock.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/brands/d1ysiipf_screenshot from 2020-07-02 17-37-51.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/categories/n23cgpzn_screenshot from 2020-07-01 18-04-12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/products/tnkhpspf_screenshot from 2020-07-04 12-10-12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/uploads/images/sliders/fobonmsw_lock.jpg" afterDir="false" />
+    <list default="true" id="bef851a9-240a-47de-bd12-3d4a19ccefaf" name="Default Changelist" comment="asset path problem fix">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_ide_helper.php" beforeDir="false" afterPath="$PROJECT_DIR$/_ide_helper.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/admin/css/custom_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/admin/css/custom_style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/elements/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/profile/show_profile_picture.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/profile/show_profile_picture.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/elements/footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/elements/footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/elements/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/elements/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/layouts/master.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/home_content.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/view_cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/view_cart.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/view_product.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/view_product.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/frontend/pages/view_wishlist.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/frontend/pages/view_wishlist.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/database.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/brand/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/brand/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/slider/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/slider/index.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="232cdcca-6d3c-4988-8640-1f3718efb616" />
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
@@ -196,7 +183,7 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/GITIGNORE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -207,16 +194,18 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2019.1.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/GITIGNORE" />
       <recent name="$PROJECT_DIR$" />
       <recent name="D:\Xampp-7.3\htdocs\eshopper\public\admin\js\plugins\particle" />
       <recent name="D:\Xampp-7.3\htdocs\eshopper\public\admin\css\plugins\perticle" />
       <recent name="D:\Xampp-7.3\htdocs\eshopper\public\admin\js\plugins\perticle" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public" />
     </key>
   </component>
   <component name="RunManager">
@@ -225,6 +214,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -254,7 +244,23 @@
       <workItem from="1572185247610" duration="37000" />
       <workItem from="1572192400386" duration="4074000" />
       <workItem from="1593926766902" duration="3888000" />
-      <workItem from="1593963198687" duration="4248000" />
+      <workItem from="1593963198687" duration="4728000" />
+      <workItem from="1594017526601" duration="54000" />
+      <workItem from="1597205718567" duration="173000" />
+      <workItem from="1598638353907" duration="963000" />
+      <workItem from="1600618082706" duration="88000" />
+      <workItem from="1601396796871" duration="1635000" />
+      <workItem from="1601479775306" duration="276000" />
+      <workItem from="1601541543669" duration="44000" />
+      <workItem from="1601564667881" duration="32000" />
+      <workItem from="1601610482704" duration="128000" />
+      <workItem from="1601610743726" duration="43000" />
+      <workItem from="1601610983968" duration="664000" />
+      <workItem from="1601619912319" duration="57000" />
+      <workItem from="1601620199825" duration="47000" />
+      <workItem from="1601633968427" duration="6044000" />
+      <workItem from="1601829627639" duration="20000" />
+      <workItem from="1601926693169" duration="1778000" />
     </task>
     <task id="LOCAL-00001" summary="Active and Disable button make badge button">
       <created>1571375150691</created>
@@ -291,11 +297,18 @@
       <option name="project" value="LOCAL" />
       <updated>1593931324509</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="asset path problem fix">
+      <created>1593967498781</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1593967498782</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.History.Properties">
     <option name="COLUMN_ORDER">
@@ -327,7 +340,8 @@
     <MESSAGE value="Particle effect added to admin login layout" />
     <MESSAGE value="setup problem fixed" />
     <MESSAGE value="redirect problem fixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="redirect problem fixed" />
+    <MESSAGE value="asset path problem fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="asset path problem fix" />
   </component>
   <component name="WindowStateProjectService">
     <state x="432" y="161" width="481" height="413" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1593927519180">
@@ -338,17 +352,26 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="100" y="98" width="1166" height="540" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1593964585276" />
-    <state x="466" y="126" width="424" height="484" key="FileChooserDialogImpl" timestamp="1593963290375">
-      <screen x="0" y="0" width="1366" height="738" />
+    <state x="466" y="127" width="424" height="491" key="FileChooserDialogImpl" timestamp="1601659443052">
+      <screen x="0" y="0" width="1366" height="744" />
     </state>
-    <state x="466" y="126" width="424" height="484" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1593963290375" />
+    <state x="466" y="126" width="424" height="484" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1594017579028" />
+    <state x="466" y="127" width="424" height="491" key="FileChooserDialogImpl/0.0.1366.744@0.0.1366.744" timestamp="1601659443052" />
     <state x="321" y="0" width="714" height="738" key="RollbackChangesDialog" timestamp="1593963771582">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="321" y="0" width="714" height="738" key="RollbackChangesDialog/0.0.1366.738@0.0.1366.738" timestamp="1593963771582" />
-    <state x="278" y="100" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1593931325889">
+    <state x="278" y="100" width="800" height="536" key="Vcs.Push.Dialog.v2" timestamp="1593967500170">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="278" y="100" width="800" height="536" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1593931325889" />
+    <state x="278" y="100" width="800" height="536" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1593967500170" />
+    <state x="402" y="140" width="552" height="470" key="refactoring.ChangeSignatureDialog" timestamp="1601479865339">
+      <screen x="0" y="0" width="1366" height="744" />
+    </state>
+    <state x="402" y="140" width="552" height="470" key="refactoring.ChangeSignatureDialog/0.0.1366.744@0.0.1366.744" timestamp="1601479865339" />
+    <state x="346" y="65" width="672" height="678" key="search.everywhere.popup" timestamp="1601620204931">
+      <screen x="0" y="0" width="1366" height="744" />
+    </state>
+    <state x="346" y="65" width="672" height="678" key="search.everywhere.popup/0.0.1366.744@0.0.1366.744" timestamp="1601620204931" />
   </component>
 </project>

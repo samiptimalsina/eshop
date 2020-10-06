@@ -59,9 +59,9 @@
 
                                         <?php
                                             if (isset($brand->image)){
-                                                $image_url = URL::to('public/admin/uploads/images/brands/'.$brand->image);
+                                                $image_url = URL::to('admin/uploads/images/brands/'.$brand->image);
                                             }else{
-                                                $image_url = URL::to('public/admin/img/no-image.png');
+                                                $image_url = URL::to('admin/img/no-image.png');
                                             }
                                         ?>
 

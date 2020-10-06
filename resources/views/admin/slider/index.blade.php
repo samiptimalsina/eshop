@@ -56,9 +56,9 @@
 
                                         <?php
                                             if (isset($slider->image)){
-                                                $image_url = URL::to('public/admin/uploads/images/sliders/'.$slider->image);
+                                                $image_url = URL::to('admin/uploads/images/sliders/'.$slider->image);
                                             }else{
-                                                $image_url = URL::to('public/admin/img/no-image.png');
+                                                $image_url = URL::to('admin/img/no-image.png');
                                             }
                                         ?>
 
