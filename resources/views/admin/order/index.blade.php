@@ -52,7 +52,7 @@
                                         <td>{{ ucfirst($order->user->name) }}</td>
                                         <td>{{ $order->user->email }}</td>
                                         <td>{{ ucfirst($order->order_total) }}</td>
-                                        <td>{{ ucfirst($order->payment->payment_method) }}</td>
+                                        <td>{{ ucfirst($order->payment->payment_method ?? 'Hand Cash') }}</td>
 
                                         <td> {{ date("d-m-Y", strtotime($order->created_at)) }} </td>
 

@@ -84,7 +84,7 @@ Auth::routes();
 
 
 //Admin......................................
-Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 'admin'], function () {
+Route::group(['middleware' => ['auth:admin', 'preventBackHistory'], 'prefix' => 'backend'], function () {
 
     Route::name('admin.')->group(function () {
 
